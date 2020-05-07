@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.Project.DAO.SellerGdsDAO">
+
+<insert id="saveImage" parameterType="java.util.Map">
+	insert into sellgds () values ()#{img})
+</insert> 
+
+<!-- 게시판 파일 첨부 -->
+<insert id="insertFile" parameterType="java.util.HashMap" >
+	insert into sellgds(idx, price, num, title, origin, content, org_image_name, 
+	stored_image_name, image_size) values 
+	(idx_seq.nextval, 1000, 5, '임시', '한국', '안녕하세요', 
+	#{org_image_name}, #{stored_image_name}, #{image_size})
+
+
+</insert>
+
+</mapper>
