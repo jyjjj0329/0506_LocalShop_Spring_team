@@ -7,11 +7,12 @@ public class SellerGdsVO {
 
 	private int price;
 	private int num;
-	private String title;
+	private String name;
 	private String origin;
 	private String content; 
-	private String org_image_name;
-	private int imageSize;
+	private String image_name;
+	private long image_size;
+	
 	public int getPrice() {
 		return price;
 	}
@@ -24,11 +25,11 @@ public class SellerGdsVO {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getOrigin() {
 		return origin;
@@ -42,24 +43,24 @@ public class SellerGdsVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getOrg_image_name() {
-		return org_image_name;
+	public String getImage_name() {
+		return image_name;
 	}
-	public void setOrg_image_name(String org_image_name) {
-		this.org_image_name = org_image_name;
+	public void setImage_name(String image_name) {
+		this.image_name = image_name;
 	}
-	public int getImageSize() {
-		return imageSize;
+	public long getImage_size() {
+		return image_size;
 	}
-	public void setImageSize(int imageSize) {
-		this.imageSize = imageSize;
-	}
-	@Override
-	public String toString() {
-		return "SellerGdsVO [price=" + price + ", num=" + num + ", title=" + title + ", origin=" + origin + ", content="
-				+ content + ", org_image_name=" + org_image_name + ", imageSize=" + imageSize + "]";
+	public void setImage_size(long image_size) {
+		this.image_size = image_size;
 	}
 	
+	@Override
+	public String toString() {
+		return "SellerGdsVO [price=" + price + ", num=" + num + ", name=" + name + ", origin=" + origin + ", content="
+				+ content + ", image_name=" + image_name + ", image_size=" + image_size + "]";
+	}
 	
 	
 }
