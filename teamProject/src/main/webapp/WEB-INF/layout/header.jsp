@@ -17,7 +17,7 @@
 <body>
 	<div align="center">
 		<div class = "header" align="center">
-		<a href="sellerInsert">물품 등록</a>  | 
-		<a href="#">임시2</a>
+		<a href="sellerInsert">판매 물품 등록</a>  | 
+		<a href="sellerList?page=1">판매 리스트</a>
 		</div>
 		<div class="main" align="center">

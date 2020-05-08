@@ -4,9 +4,20 @@
 <mapper namespace="kr.project.DAO.SellerGdsDAO">
 
 <insert id="insert" parameterType="sellerGdsVO">
-	insert into sellgds(idx, price, num, name, origin, content, image_name, image_size) 
-	values (sellgds_idx.nextval, #{price}, #{num}, #{name}, #{origin}, #{content}, 
-	#{image_name}, #{image_size})
+	insert into sellgds values (sellgds_idx.nextval, 'admin', #{price}, 
+	#{num}, #{name}, #{origin}, #{content}, sysdate, #{image_name}, #{image_size})
 </insert>
+
+<select id="selectList" resultType="sellerGdsVO" parameterType="java.util.HashMap">
+	<![CDATA[
+	select name, price, origin, image_name from 
+	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM sellgds order by idx desc) 
+	TT where seller_id = 'admin') where rn >= #{startNo} AND rn <= #{endNo}
+	]]>
+</select>
+
+<select id="sellectCount" resultType="int">
+	select count(*) from sellgds where seller_id = 'admin'
+</select>
 
 </mapper>
