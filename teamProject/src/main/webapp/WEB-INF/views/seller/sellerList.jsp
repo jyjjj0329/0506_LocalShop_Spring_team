@@ -51,7 +51,7 @@
 	<tr>
 		<th>물품 분류</th>
 		<c:forEach var="vo" items="${list }">
-			<td align="center">${vo.category }</td>
+			<td align="center">${vo.category}</td>
 		</c:forEach>
 	</tr> 
 	<tr>
