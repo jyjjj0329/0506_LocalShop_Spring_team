@@ -31,6 +31,9 @@ public class SellerGdsController {
 	@Autowired
 	private SellerGdsListVO sellerGdsListVO;
 	
+//	이미지 이름을 만들기 위한 변수
+	int name = 1;
+	
 	@RequestMapping(value = "/seller")
 	public String seller() {
 		return "/seller/sellerHome";
@@ -57,17 +60,14 @@ public class SellerGdsController {
 		System.out.println(filePath);
 //		만약 fileDirectory가 존재하지 않다면 폴더를 생성해라.
 		File fileDirectory = new File(filePath);
-//		if(!fileDirectory.exists()) {
-//			fileDirectory.mkdir();
-//			System.out.println("폴더 생성!!");
-//		}
+		if(!fileDirectory.exists()) {
+			fileDirectory.mkdir();
+			System.out.println("폴더 생성!!");
+		}
 		String image_Name = "사진없음.png";
 		long image_Size = 9602;
 		
-//		파일 이름을 랜덤으로 뽑아주기 위한 uuid.
-		UUID uuid =  UUID.randomUUID();
 //		file을 가져옴
-		System.out.println("컨트롤러에서 uuid의 값은 : " + uuid);
 		MultipartFile file = mtf.getFile(fileTag);
 		String fileorigin = file.getOriginalFilename();
 		System.out.println("컨트롤러에서 fileorigin의 값은 : " + fileorigin);
@@ -76,12 +76,7 @@ public class SellerGdsController {
 //			파일 확장자 뽑아줌
 			extension = fileorigin.substring(fileorigin.lastIndexOf("."), fileorigin.length());
 // 			파일 이름	
-			image_Name = uuid + extension;
-//			fileName이 이미 존재한다면
-			File fileName = new File(filePath + image_Name);
-			if(fileName.exists()) {
-				image_Name = uuid + "2" + extension;
-			}	
+			image_Name = name + extension;
 //			파일 사이즈 구하기
 			image_Size = file.getSize();
 			System.out.println("컨트롤러에서 imageSize는 : " + image_Size);
@@ -93,6 +88,9 @@ public class SellerGdsController {
 			}
 		}
 		/* 파일 관련 코드(여기까지) */
+		
+		System.out.println("컨트롤러에서 name의 값은 : " + name);
+		name++;
 		
 //		image_Name과 image_Size 값 꼽아주기.
 		sellerGdsVO.setImage_name(image_Name);
@@ -126,7 +124,6 @@ public class SellerGdsController {
 		hmap.put("endNo", sellerGdsListVO.getEndNo());
 		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));;
 		model.addAttribute("sellerGdsListVO", sellerGdsListVO);
-		
 		
 		return "/seller/sellerList";
 	}

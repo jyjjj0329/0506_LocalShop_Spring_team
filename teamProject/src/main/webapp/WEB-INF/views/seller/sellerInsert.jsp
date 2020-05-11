@@ -5,7 +5,7 @@
 	<jsp:param name="title" value="판매자 페이지"/>
 </jsp:include>
 
-<script type="text/javascript" src="resources/upload.js"></script>
+<script type="text/javascript" src="resources/js/upload.js"></script>
 
 <form action="sellerInsertOK" name="uploadForm" method="post" enctype="multipart/form-data">
 <table border="1">
@@ -21,6 +21,18 @@
 	<tr>
 		<th>물품 수량</th>
 		<td><input type="text" name="num" style="width:347px;"></td>
+	</tr>
+	<tr>
+		<th>물품 분류</th>
+		<td><select name="category">
+			<option value="음식">음식</option>
+			<option value="의류">의류</option>
+			<option value="가구">가구</option>
+			<option value="완구">완구</option>
+			<option value="전자제품">전자제품</option>
+			<option value="전통시장">전통시장</option>
+			<option value="기타">기타</option>
+		</select> </td>
 	</tr>
 	<tr>
 		<th>물품 원산지*</th>

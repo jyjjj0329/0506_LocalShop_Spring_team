@@ -19,5 +19,7 @@
 		<div class = "header" align="center">
 		<a href="sellerInsert">판매 물품 등록</a>  | 
 		<a href="sellerList?page=1">판매 리스트</a>
+		<input type="button" value="로그인" onclick="location.href='login'">
+		<input type="button" value="회원가입" onclick="location.href='signUp'">
 		</div>
 		<div class="main" align="center">

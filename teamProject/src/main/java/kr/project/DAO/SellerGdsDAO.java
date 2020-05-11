@@ -13,4 +13,6 @@ public interface SellerGdsDAO {
 
 	int sellectCount();
 
+	int CheckID(String id);
+
 }
