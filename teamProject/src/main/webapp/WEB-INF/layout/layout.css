@@ -13,7 +13,7 @@
 	width: 80%;
 	padding: 1em;
 	min-height: 400px;
-	padding-top: 15px;
+	padding-top: 30px;
 	background: #f4e8f0;
 	color: #968fff;
 }
@@ -26,11 +26,22 @@
 	color: #968fff;
 }
 
+.imgSize{
+	height: 250px;
+	width: auto;
+	max-width: 200px;
+	max-height: 200px;
+	margin: 40px;
+	margin-top: 60px;
+}
+
 .img {
 	height: 150px;
 	width: auto;
 	max-width: 200px;
 	max-height: 200px;
 }
+
+
 
 

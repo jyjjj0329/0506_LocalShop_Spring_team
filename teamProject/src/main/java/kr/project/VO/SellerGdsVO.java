@@ -7,12 +7,19 @@ public class SellerGdsVO {
 
 	private int price;
 	private int num;
+	private String category;
 	private String name;
 	private String origin;
 	private String content; 
 	private String image_name;
 	private long image_size;
 	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	public int getPrice() {
 		return price;
 	}
@@ -55,12 +62,14 @@ public class SellerGdsVO {
 	public void setImage_size(long image_size) {
 		this.image_size = image_size;
 	}
-	
 	@Override
 	public String toString() {
-		return "SellerGdsVO [price=" + price + ", num=" + num + ", name=" + name + ", origin=" + origin + ", content="
-				+ content + ", image_name=" + image_name + ", image_size=" + image_size + "]";
+		return "SellerGdsVO [price=" + price + ", num=" + num + ", category=" + category + ", name=" + name
+				+ ", origin=" + origin + ", content=" + content + ", image_name=" + image_name + ", image_size="
+				+ image_size + "]";
 	}
+	
+	
 	
 	
 }

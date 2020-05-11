@@ -31,7 +31,7 @@
 	<tr>
 		<th  height="30px">물품 가격</th>
 		<c:forEach var="vo" items="${list }">
-			<td align="center">${vo.price }</td>
+			<td align="center">${vo.price }원</td>
 		</c:forEach>
 	</tr>
 	<%--  물품 수량은 상세페이지에서 판매자만 보이게.
@@ -48,6 +48,12 @@
 			<td  align="center">${vo.origin }</td>
 		</c:forEach>
 	</tr>
+	<tr>
+		<th>물품 분류</th>
+		<c:forEach var="vo" items="${list }">
+			<td align="center">${vo.category }</td>
+		</c:forEach>
+	</tr> 
 	<tr>
 		<td colspan="5" align="center">
 			<c:if test="${sellerGdsListVO.currentPage > 3}">
