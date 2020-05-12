@@ -72,25 +72,18 @@ function CheckID2() {
 	}else if(!/^[a-z]+[a-z0-9]{6,12}$/g.test(id2)){
 		alert("ID는 영소문자로 시작하여 영소문자, 숫자를 포함한 6 ~ 12자리까지만 가능합니다.")
 	}else{
-		window.open("sellerCheckID?id=" + id2, "ID중복체크", "width=450 height=150 left=400 top=350");
+		location.href="sellerCheckID?id=" + id2;
 	}
 }
 
 //	중복확인 후 close
 function IDok(sid) {
-	alert(sid)
 	opener.document.sellerSignUp.id.value = sid;
 	opener.document.sellerSignUp.hidden.value = sid;
 	opener.document.sellerSignUp.id.readOnly=true;
 	window.close()
 }
-function IDok2(sid) {
-	alert(sid)
-	opener.document.getElementById("id").value = sid;
-	opener.document.getElementById("hidden").value = sid;
-	opener.document.getElementById("id").readOnly=true;
-	window.close()
-} 
+
 
 //	email value값 변경
 function emailChange() {
@@ -104,6 +97,7 @@ function emailChange() {
 	}
 }
 
+// img추가 버튼
 var count = 0;
 function addInput() {
 	if(count < 9){
