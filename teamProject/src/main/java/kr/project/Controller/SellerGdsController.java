@@ -1,8 +1,9 @@
 package kr.project.Controller;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,14 +26,9 @@ public class SellerGdsController {
 	@Autowired
 	public SqlSession sqlSession;
 
-	@Autowired
-	private SellerGdsVO sellerGdsVO;
 	
 	@Autowired
 	private SellerGdsListVO sellerGdsListVO;
-	
-//	이미지 이름을 만들기 위한 변수
-	int name = 1;
 	
 	@RequestMapping(value = "/seller")
 	public String seller() {
@@ -44,6 +40,7 @@ public class SellerGdsController {
 		return "/seller/sellerInsert";
 	}
 
+	int i = 1;
 	@RequestMapping(value = "/sellerInsertOK", method = RequestMethod.POST)
 	public String sellerList(MultipartHttpServletRequest mtf, SellerGdsVO sellerGdsVO) throws Exception {
 		System.out.println("SellerGds컨트롤러에서 sellerInsertOK 들어옴.");
@@ -52,8 +49,6 @@ public class SellerGdsController {
 		
 		/* 파일 관련 코드(여기부터) */
 		String extension = null;
-// 		파일 태그
-		String fileTag = "file";
 // 		업로드 파일이 저장될 경로
 		String filePath = "C:/Users/CHOYEJI/git/teamProject/teamProject/src/main"
 				+ "/webapp/resources/image/";
@@ -68,15 +63,16 @@ public class SellerGdsController {
 		long image_Size = 9602;
 		
 //		file을 가져옴
-		MultipartFile file = mtf.getFile(fileTag);
+		MultipartFile file = mtf.getFile("file");
 		String fileorigin = file.getOriginalFilename();
 		System.out.println("컨트롤러에서 fileorigin의 값은 : " + fileorigin);
 //		만약 file이 있다면
 		if(fileorigin != "") {
 //			파일 확장자 뽑아줌
-			extension = fileorigin.substring(fileorigin.lastIndexOf("."), fileorigin.length());
+			extension = fileorigin.substring(fileorigin.lastIndexOf("."),
+					fileorigin.length());
 // 			파일 이름	
-			image_Name = name + extension;
+			image_Name = i + extension;
 //			파일 사이즈 구하기
 			image_Size = file.getSize();
 			System.out.println("컨트롤러에서 imageSize는 : " + image_Size);
@@ -84,13 +80,14 @@ public class SellerGdsController {
 			try {
 				file.transferTo(new File(filePath + image_Name));
 			} catch(Exception e) {
+				e.printStackTrace();
 				System.out.println("업로드 오류");
 			}
+			i++;
 		}
 		/* 파일 관련 코드(여기까지) */
 		
-		System.out.println("컨트롤러에서 name의 값은 : " + name);
-		name++;
+		System.out.println("컨트롤러에서 image_Name의 값은 : " + image_Name);
 		
 //		image_Name과 image_Size 값 꼽아주기.
 		sellerGdsVO.setImage_name(image_Name);

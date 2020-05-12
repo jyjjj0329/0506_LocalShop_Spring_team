@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import kr.project.VO.SellerGdsVO;
+import kr.project.VO.SellerVO;
 
 public interface SellerGdsDAO {
 
@@ -14,5 +15,7 @@ public interface SellerGdsDAO {
 	int sellectCount();
 
 	int CheckID(String id);
+
+	void sellerInsert(SellerVO sellerVO);
 
 }

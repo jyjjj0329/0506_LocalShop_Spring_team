@@ -24,5 +24,10 @@
 	select count(*) from seller where id = #{id}
 </select>
 
+<insert id="sellerInsert" parameterType="sellerVO">
+	insert into seller values (seller_idx_seq.nextval, #{id}, #{pw}, #{name}, #{gender}, 
+	#{age}, #{email}, #{phonenum}, #{regnum}, #{area}, #{store}, #{storeaddress}, 
+	sysdate, #{storeimg_Name}, #{extension})
+</insert>
 
 </mapper>

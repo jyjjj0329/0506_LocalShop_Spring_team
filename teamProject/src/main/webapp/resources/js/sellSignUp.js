@@ -62,22 +62,40 @@ function CheckID() {
 	}else if(!/^[a-z]+[a-z0-9]{6,12}$/g.test(id)){
 		alert("ID는 영소문자로 시작하여 영소문자, 숫자를 포함한 6 ~ 12자리까지만 가능합니다.")
 	}else{
-		window.open("sellerCheckID?id=" + id, "ID중복체크", "width=350 height=150 left=400 top=350");
+		window.open("sellerCheckID?id=" + id, "ID중복체크", "width=450 height=150 left=400 top=350");
+	}
+}
+function CheckID2() {
+	var id2 = document.getElementById("id").value.trim();
+	if(id2 == ""){
+		alert("ID를 입력해주세요.")
+	}else if(!/^[a-z]+[a-z0-9]{6,12}$/g.test(id2)){
+		alert("ID는 영소문자로 시작하여 영소문자, 숫자를 포함한 6 ~ 12자리까지만 가능합니다.")
+	}else{
+		window.open("sellerCheckID?id=" + id2, "ID중복체크", "width=450 height=150 left=400 top=350");
 	}
 }
 
 //	중복확인 후 close
 function IDok(sid) {
-	opener.sellerSignUp.id.value = sid;
-	opener.sellerSignUp.hidden.value = sid;
-	opener.sellerSignUp.id.readOnly=true;
+	alert(sid)
+	opener.document.sellerSignUp.id.value = sid;
+	opener.document.sellerSignUp.hidden.value = sid;
+	opener.document.sellerSignUp.id.readOnly=true;
 	window.close()
 }
+function IDok2(sid) {
+	alert(sid)
+	opener.document.getElementById("id").value = sid;
+	opener.document.getElementById("hidden").value = sid;
+	opener.document.getElementById("id").readOnly=true;
+	window.close()
+} 
 
 //	email value값 변경
 function emailChange() {
-	var target = document.sellerSignUp.email.selectedIndex;
-	var mail = document.sellerSignUp.email.options[target].value
+	var target = document.sellerSignUp.email3.selectedIndex;
+	var mail = document.sellerSignUp.email3.options[target].value
 	document.sellerSignUp.email2.value = mail;
 	if(mail == "직접입력"){
 		sellerSignUp.email2.readOnly=false;
@@ -91,11 +109,12 @@ function addInput() {
 	if(count < 9){
 		count++;
 		document.getElementById('addImg').innerHTML += 
-			'<input type="file" id="storeImg"+(count)>';
+			"<input type='file' name='storeImg[]'><br/>";
 	}else{
 		alert("사진은 10개까지만 가능합니다.")
 	}
 }
+
 
 //	주소 api
 function addressAPI() {
