@@ -1,6 +1,9 @@
 package kr.project.VO;
 
-public class SellVO {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class SellerVO {
 
 	private String id;
 	private String pw;
@@ -12,14 +15,15 @@ public class SellVO {
 	private String regnum;
 	private String store;
 	private String area;
-	private String storeImg;
+	private String storeaddress;
+	private String storeimg_Name;
+	private String extension;
 	
-	
-	public String getStoreImg() {
-		return storeImg;
+	public String getExtension() {
+		return extension;
 	}
-	public void setStoreImg(String storeImg) {
-		this.storeImg = storeImg;
+	public void setExtension(String extension) {
+		this.extension = extension;
 	}
 	public String getId() {
 		return id;
@@ -81,9 +85,25 @@ public class SellVO {
 	public void setArea(String area) {
 		this.area = area;
 	}
+	public String getStoreaddress() {
+		return storeaddress;
+	}
+	public void setStoreaddress(String storeaddress) {
+		this.storeaddress = storeaddress;
+	}
+	public String getStoreimg_Name() {
+		return storeimg_Name;
+	}
+	public void setStoreimg_Name(String storeimg_Name) {
+		this.storeimg_Name = storeimg_Name;
+	}
 	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "SellerVO [id=" + id + ", pw=" + pw + ", name=" + name + ", gender=" + gender + ", age=" + age
+				+ ", email=" + email + ", phonenum=" + phonenum + ", regnum=" + regnum + ", store=" + store + ", area="
+				+ area + ", storeaddress=" + storeaddress + ", storeimg_Name=" + storeimg_Name + ", extension="
+				+ extension + "]";
+	}
 	
 }

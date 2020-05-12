@@ -13,12 +13,12 @@
 
 	<c:choose>
 		<c:when test="${result == 1}">
-			<input type="text"/> <input type="button" value="중복확인" onclick="sellerCheckID">
+			<input type="text" id="id"/> <input type="button" value="중복확인" onclick="CheckID2()">
 			<h4>이미 존재하는 ID입니다. 다른 아이디를 선택해주세요.</h4>
 		</c:when>
 		<c:otherwise>
-			<input type="text" value="${id }" name="id" readonly> 
-			<input type="button" value="사용" onclick="IDok('${id}')">
+			<input type="text" value="${id }" name="ido" readonly> 
+			<input type="button" value="사용" onclick="IDok2('${id}')">
 			<input type="button" value="취소" onclick="window.close()">
 			<h4>사용 가능한 ID입니다</h4>
 		</c:otherwise>

@@ -14,7 +14,7 @@
 		<td>
 			<input type="text" name="id" id="id"/> 
 			<input type="button" value="중복확인" onclick="CheckID()"> 
-			<input type="hidden" name="hidden" value="unCheck">
+			<input type="hidden" name="hidden" id="hidden" value="unCheck">
 		</td>
 	</tr>
 	<tr>
@@ -32,8 +32,8 @@
 	<tr>
 		<td>성별</td>
 		<td>
-			<input type="radio" name="gender" value="men">남자
-			<input type="radio" name="gender" value="women">여자
+			<label><input type="radio" name="gender" value="true">남자</label>
+			<label><input type="radio" name="gender" value="false">여자</label>
 		</td>
 	</tr>
 	<tr>
@@ -45,7 +45,7 @@
 		<td>
 			<input type="text" name="email1"/> @ 
 			<input type="text" name="email2" id="email2"/>
-			<select name="eamil" id="email" onchange="emailChange()">
+			<select name="eamil3" id="email3" onchange="emailChange()">
 				<option value="직접입력" selected>직접입력</option>
 				<option value="naver.com">naver.com</option>
 				<option value="google.com">google.com</option>
@@ -104,19 +104,21 @@
 	</tr>
 	<tr>
 		<td>가게 주소</td>
-		<td><input type="text" id="postcode" placeholder="우편번호" readonly style="width: 100px">
+		<td><input type="text" id="postcode" name="postcode" placeholder="우편번호" readonly style="width: 100px">
 		<input type="button" onclick="addressAPI()" value="우편번호 찾기"><br>
-		<input type="text" id="address1" placeholder="도로명주소" readonly style="width: 250px;">
-		<input type="hidden" id="address2" placeholder="지번주소" readonly>
+		<input type="text" id="address1" name="address1" placeholder="도로명주소" readonly style="width: 250px;">
+		<input type="hidden" id="address2" name="address2" placeholder="지번주소" readonly>
 		<span id="guide" style="color:#999;display:none"></span>
-		<input type="text" id="address3" placeholder="상세주소"></td>
+		<input type="text" id="address3" name="address3" placeholder="상세주소"></td>
 	</tr>
 	<tr>
 		<td>가게 사진</td>
 		<td>
-			<input type="file" id="storeImg"/>
-			<div id="addImg"></div>
-			<input type="button" value="이미지 추가하기." onclick="addInput()"> 
+			<input type="file" name="storeImg[]"/>
+			<!-- <input type="file" name="storeImg[1]"/>
+			<input type="file" name="storeImg[2]"/> -->
+			<div id="addImg" name="addImg"></div>
+			<input type="button" value="이미지 추가하기" onclick="addInput()"> 
 		</td>
 	</tr>
 	<tr>
