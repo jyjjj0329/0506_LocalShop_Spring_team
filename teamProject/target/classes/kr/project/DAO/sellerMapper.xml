@@ -16,7 +16,7 @@
 	]]>
 </select>
 
-<select id="sellectCount" resultType="int">
+<select id="sellectCount" resultType="int" parameterType="String">
 	select count(*) from sellgds where seller_id = #{seller_id}
 </select>
 

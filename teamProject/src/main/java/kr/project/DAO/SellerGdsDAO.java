@@ -12,7 +12,7 @@ public interface SellerGdsDAO {
 
 	ArrayList<SellerGdsVO> selectList(HashMap<String, Object> hmap);
 
-	int sellectCount();
+	int sellectCount(String seller_id);
 
 	int CheckID(String id);
 
