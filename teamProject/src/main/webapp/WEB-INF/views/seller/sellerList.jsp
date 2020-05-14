@@ -2,11 +2,7 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="/WEB-INF/layout/header.jsp">
-	<jsp:param name="title" value="판매자 물건 리스트"/>
-</jsp:include>
-<!-- session을 만들어서 판매자가 로그인 되면 그 판매자의 물건만 보여야 하지만
-아직 판매자 회원가입은 구현 전이니 우선 그 부분은 빼고 만든다. -->
+<jsp:include page="/WEB-INF/layout/nav.jsp"/>
 
 <c:set var="list" value="${sellerGdsListVO.sellerGdsVO}"/>
 <caption><h2>판매목록</h2></caption>
@@ -93,5 +89,3 @@
 </table>
 </c:if>
 
-
-<jsp:include page="/WEB-INF/layout/footer.jsp"/>

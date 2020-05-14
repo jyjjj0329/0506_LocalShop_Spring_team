@@ -10,7 +10,7 @@ public interface SellerGdsDAO {
 
 	void insert(SellerGdsVO sellerGdsVO);
 
-	ArrayList<SellerGdsVO> selectList(HashMap<String, Integer> hmap);
+	ArrayList<SellerGdsVO> selectList(HashMap<String, Object> hmap);
 
 	int sellectCount();
 

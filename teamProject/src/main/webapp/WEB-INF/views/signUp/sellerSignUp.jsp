@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<jsp:include page="/WEB-INF/layout/header.jsp">
-	<jsp:param name="title" value="메인페이지!"/>
-</jsp:include>
+<jsp:include page="/WEB-INF/layout/nav.jsp"/>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="resources/js/sellSignUp.js"></script>
 <form action="sellerSignUpOK" name="sellerSignUp" method="post" enctype="multipart/form-data">
@@ -131,4 +129,4 @@
 </table>
 </form>
 
-<jsp:include page="/WEB-INF/layout/footer.jsp"/>
+<%-- <jsp:include page="/WEB-INF/layout/footer.jsp"/> --%>

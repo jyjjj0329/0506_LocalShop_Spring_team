@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SellerGdsVO {
 
+	private String seller_id;
 	private int price;
 	private int num;
 	private String category;
@@ -14,6 +15,12 @@ public class SellerGdsVO {
 	private String image_name;
 	private long image_size;
 	
+	public String getSeller_id() {
+		return seller_id;
+	}
+	public void setSeller_id(String seller_id) {
+		this.seller_id = seller_id;
+	}
 	public String getCategory() {
 		return category;
 	}

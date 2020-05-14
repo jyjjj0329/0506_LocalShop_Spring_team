@@ -25,7 +25,7 @@ public class SignUpController {
 	@Autowired
 	public SqlSession sqlSession;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/dd")
 	public String home() {
 		
 		return "index";
@@ -137,7 +137,7 @@ public class SignUpController {
 		
 		System.out.println("컨트롤러에서 sellerVO의 값은 : " + sellerVO.toString());
 		
-		return "signUp/sellerResult";
+		return "main/mainpage";
 	}
 	
 //	로그인 페이지 호출
@@ -158,11 +158,12 @@ public class SignUpController {
 		hmap.put("pw", pw);
 		
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
+//		임시로 로그인으로 만들었지만 sellerLogin입니다.
 		int result = mapper.login(hmap);
 		
 		if(result == 1) {
 			HttpSession session = req.getSession();
-			session.setAttribute("id", id);
+			session.setAttribute("seller_id", id);
 		}
 		
 		model.addAttribute("result", result);

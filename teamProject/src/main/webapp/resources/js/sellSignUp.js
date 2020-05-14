@@ -49,7 +49,7 @@ function sellSignUp() {
 	}else if(address == ""){
 		alert("가게 주소를 적어주세요.")
 	}else{
-		alert("회원가입 완료");
+		alert("회원가입 완료하였습니다.");
 		sellerSignUp.submit();
 	}
 }

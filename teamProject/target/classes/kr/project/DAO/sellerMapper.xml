@@ -4,7 +4,7 @@
 <mapper namespace="kr.project.DAO.SellerGdsDAO">
 
 <insert id="insert" parameterType="sellerGdsVO">
-	insert into sellgds values (sellgds_idx.nextval, 'admin123', #{price}, 
+	insert into sellgds values (sellgds_idx.nextval, #{seller_id}, #{price}, 
 	#{num}, #{name}, #{origin}, #{category}, #{content}, sysdate, #{image_name}, #{image_size})
 </insert>
 
@@ -12,12 +12,12 @@
 	<![CDATA[
 	select name, price, origin, image_name, category from 
 	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM sellgds order by idx desc) 
-	TT where seller_id = 'admin123') where rn >= #{startNo} AND rn <= #{endNo}
+	TT where seller_id = #{seller_id}) where rn >= #{startNo} AND rn <= #{endNo}
 	]]>
 </select>
 
 <select id="sellectCount" resultType="int">
-	select count(*) from sellgds where seller_id = 'admin123'
+	select count(*) from sellgds where seller_id = #{seller_id}
 </select>
 
 <select id="CheckID" parameterType="String" resultType="int">

@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>    
-<%@ page session="false" %>
-<jsp:include page="/WEB-INF/layout/header.jsp">
-	<jsp:param name="title" value="메인페이지!"/>
-</jsp:include>
+<jsp:include page="/WEB-INF/layout/nav.jsp"/>
 
 <form action="loginResult" method="post">
 	<table>
@@ -25,4 +22,4 @@
 	</table>
 </form>
 
-<jsp:include page="/WEB-INF/layout/footer.jsp"/>
+<%-- <jsp:include page="/WEB-INF/layout/footer.jsp"/> --%>

@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -25,10 +27,12 @@ public class SellerGdsController {
 
 	@Autowired
 	public SqlSession sqlSession;
-
 	
 	@Autowired
 	private SellerGdsListVO sellerGdsListVO;
+	
+	@Autowired
+	private SellerGdsVO sellerGdsVO;
 	
 	@RequestMapping(value = "/seller")
 	public String seller() {
@@ -42,8 +46,12 @@ public class SellerGdsController {
 
 	int i = 1;
 	@RequestMapping(value = "/sellerInsertOK", method = RequestMethod.POST)
-	public String sellerList(MultipartHttpServletRequest mtf, SellerGdsVO sellerGdsVO) throws Exception {
+	public String sellerInsertOK(HttpServletRequest req, MultipartHttpServletRequest mtf, SellerGdsVO sellerGdsVO) throws Exception {
 		System.out.println("SellerGds컨트롤러에서 sellerInsertOK 들어옴.");
+//		session에 저장된 판매자 id를 가져와서 seller_id에 꼽아줌.
+		HttpSession session = req.getSession();
+		String seller_id = (String) session.getAttribute("seller_id");
+		sellerGdsVO.setSeller_id(seller_id);
 		
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
 		
@@ -103,24 +111,32 @@ public class SellerGdsController {
 	public String sellerList(Model model, HttpServletRequest req) {
 		System.out.println("컨트롤러에서 sellerList에 들어옴.");
 		
+//		session에 저장된 판매자 id를 가져와서 seller_id에 꼽아줌.
+		HttpSession session = req.getSession();
+		String seller_id = (String) session.getAttribute("seller_id");
+		
 //		session을 만들어서 판매자 id를 받아와 그 id를 가진 사람의 판매 물건만 가져와야 하지만
 //		아직 판매자 회원은 구현전이니 구현후에 수정하자. mapper에 where id = ? 도 구현하기.
-		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
 		
 //		페이지 관련 코드
 		int page = Integer.parseInt(req.getParameter("page"));
 		int pageSize = 4;
 		
+		sellerGdsVO.setSeller_id(seller_id);
+		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
 //		나중에 seller_id도 받아서 where문에 넣어주자. 일단은 없이 아무것도 받지 않는다.
 		sellerGdsListVO.setTotalCount(mapper.sellectCount());
+		System.out.println("컨트롤러에서 sellectCount의 값은 : " + sellerGdsListVO.getTotalCount());
 //		Page값 초기화
 		sellerGdsListVO.initPageList(pageSize, sellerGdsListVO.getTotalCount(), page);
 		
-		HashMap<String, Integer> hmap = new HashMap<String, Integer>();
+		HashMap<String, Object> hmap = new HashMap<String, Object>();
 		hmap.put("startNo", sellerGdsListVO.getStartNo());
 		hmap.put("endNo", sellerGdsListVO.getEndNo());
+		hmap.put("seller_id", seller_id);
 		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));;
 		model.addAttribute("sellerGdsListVO", sellerGdsListVO);
+		System.out.println("컨트롤러 나감.");
 		
 		return "/seller/sellerList";
 	}
