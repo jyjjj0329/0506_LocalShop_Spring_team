@@ -11,7 +11,11 @@
 	</appender>
 	
 	<!-- Application Loggers -->
+<<<<<<< HEAD
 	<logger name="kr.project.team">
+=======
+	<logger name="kr.project.Controller">
+>>>>>>> branch 'master' of https://github.com/jyjjj0329/teamProject.git
 		<level value="info" />
 	</logger>
 	
