@@ -18,4 +18,6 @@ public interface SellerGdsDAO {
 
 	void sellerInsert(SellerVO sellerVO);
 
+	int login(HashMap<String, String> hmap);
+
 }

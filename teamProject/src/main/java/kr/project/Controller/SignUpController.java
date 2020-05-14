@@ -1,9 +1,11 @@
 package kr.project.Controller;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +69,7 @@ public class SignUpController {
 			MultipartHttpServletRequest mtp) {
 		
 //		합쳐서 넣어줘야 하는것들 따로 값을 넣어줌.
-		String email = req.getParameter("email1") + req.getParameter("email2");
+		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
 		sellerVO.setEmail(email);
 		String Phone = "(" + req.getParameter("phone") + ")" + req.getParameter("phonenum");
 		sellerVO.setPhonenum(Phone);
@@ -138,5 +140,33 @@ public class SignUpController {
 		return "signUp/sellerResult";
 	}
 	
+//	로그인 페이지 호출
+	@RequestMapping(value = "/login")
+	public String login(HttpServletRequest req, Model model) {
+		return "login/login";
+	}
+	
+//	로그인
+	@RequestMapping(value = "/loginResult")
+	public String loginResult(HttpServletRequest req, Model model) {
+		String id = req.getParameter("id");
+		String pw = req.getParameter("pw");
+		
+		
+		HashMap<String, String> hmap = new HashMap<String, String>();
+		hmap.put("id", id);
+		hmap.put("pw", pw);
+		
+		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
+		int result = mapper.login(hmap);
+		
+		if(result == 1) {
+			HttpSession session = req.getSession();
+			session.setAttribute("id", id);
+		}
+		
+		model.addAttribute("result", result);
+		return "login/loginResult";
+	}
 	
 }
