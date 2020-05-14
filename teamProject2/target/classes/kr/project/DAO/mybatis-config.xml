@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
-	<typeAliases>
-		<!-- VO를 패키지 상태로 사용하면 너무 길어 불편하기 패키지에 별명을 붙여준것. -->
-		<typeAlias alias="sellerGdsVO" type="kr.project.VO.SellerGdsVO"/>
-		<typeAlias alias="sellerVO" type="kr.project.VO.SellerVO"/>
-	</typeAliases>
-</configuration>

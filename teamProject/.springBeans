@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-<<<<<<< HEAD
 	<pluginVersion><![CDATA[3.9.7.201812201020-RELEASE]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
@@ -13,15 +12,6 @@
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
 	</autoconfigs>
-=======
-	<pluginVersion><![CDATA[2.5.0.201010141000-RC1]]></pluginVersion>
-	<configSuffixes>
-		<configSuffix><![CDATA[xml]]></configSuffix>
-	</configSuffixes>
-	<enableImports><![CDATA[true]]></enableImports>
-	<configs>
-	</configs>
->>>>>>> branch 'master' of https://github.com/jyjjj0329/teamProject.git
 	<configSets>
 	</configSets>
 </beansProjectDescription>

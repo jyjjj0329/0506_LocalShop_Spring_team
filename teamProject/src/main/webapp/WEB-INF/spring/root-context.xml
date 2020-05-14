@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-<<<<<<< HEAD
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
@@ -12,10 +11,4 @@
 	  <property name="maxUploadSize" value="100000000" />
 	  <property name="maxInMemorySize" value="100000000" />
 	</bean>
-=======
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
-
-	<!-- Root Context: defines shared resources visible to all other web components -->
-
->>>>>>> branch 'master' of https://github.com/jyjjj0329/teamProject.git
 </beans>
