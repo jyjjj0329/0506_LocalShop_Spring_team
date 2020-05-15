@@ -20,10 +20,5 @@ public class HomeController {
 		
 		return "buyerLogin";
 	}
-	
-	@RequestMapping(value = "/buyer", method = RequestMethod.GET)
-	public String buyerResults(Locale locale, Model model) {
-		
-		return "buyerResults";
-	}
+
 }
