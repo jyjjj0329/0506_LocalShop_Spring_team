@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import kr.project.DAO.SellerGdsDAO;
 import kr.project.VO.SellerGdsListVO;
 import kr.project.VO.SellerGdsVO;
+import kr.project.VO.SellerVO;
 
 @Controller
 public class SellerGdsController {
@@ -137,7 +138,52 @@ public class SellerGdsController {
 		return "/seller/sellerList";
 	}
 	
+//	idx와 pw 파라미터를 가지고 gdsUpdate(상세목록)로 넘어감.
+	@RequestMapping(value = "gdsUpdate")
+	public String gdsUpdate(HttpServletRequest req, Model model, SellerGdsVO sellerGdsVO) {
+		System.out.println("컨트롤러에서 gdsUpdate 들어옴.");
+		int idx = Integer.parseInt(req.getParameter("idx"));
+		System.out.println("컨트롤러에서 idx의 값은 : " + idx);
+		
+		HttpSession session = req.getSession();
+		String pw = (String) session.getAttribute("pw");
+		System.out.println("컨트롤러에서 gdsUpdate의 pw의 값은 : " + pw);
+		
+		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
+		sellerGdsVO = mapper.updateList(idx);
+		
+		model.addAttribute("sellerGdsVO", sellerGdsVO);
+		System.out.println("sllerGdsVO의 값은 " + sellerGdsVO.toString());
+		
+		return "/seller/gdsUpdate";
+	}
+	
+//	물품 수정
+	@RequestMapping(value = "gdsUpdateResult")
+	public String gdsUpdateResult(SellerGdsVO sellerGdsVO) {
+		System.out.println("컨트롤러에서 gdsUpdateResult에 들어옴.");
+		
+		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
 
+		System.out.println("컨트롤러의 sellerGdsVO의 값은 : " + sellerGdsVO);
+		mapper.gdsUpdate(sellerGdsVO);
+		System.out.println("sellerGdsVO의 값은 : " + sellerGdsVO);
+		
+		return "redirect:sellerList?page=1";
+	}
+	
+//	물품 삭제
+	@RequestMapping(value = "gdsDelete")
+	public String gdsDelete(HttpServletRequest req) {
+		System.out.println("컨트롤러에서 gdsDelete 들어옴.");
+		int idx = Integer.parseInt(req.getParameter("idx"));
+		System.out.println("컨트롤러에서 idx의 값은 : " + idx);
+		
+		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
+		mapper.gdsDelete(idx);
+//		sellerList로 들어가면 잘 안나오는 오류 해결하기
+		return "redirect:sellerList?page=1";
+	}
 	
 	
 }

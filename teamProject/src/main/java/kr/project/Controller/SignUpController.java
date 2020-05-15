@@ -152,7 +152,6 @@ public class SignUpController {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		
-		
 		HashMap<String, String> hmap = new HashMap<String, String>();
 		hmap.put("id", id);
 		hmap.put("pw", pw);
@@ -164,6 +163,7 @@ public class SignUpController {
 		if(result == 1) {
 			HttpSession session = req.getSession();
 			session.setAttribute("seller_id", id);
+			session.setAttribute("pw", pw);
 		}
 		
 		model.addAttribute("result", result);

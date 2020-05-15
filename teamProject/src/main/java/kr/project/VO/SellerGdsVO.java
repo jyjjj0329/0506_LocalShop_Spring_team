@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 public class SellerGdsVO {
 
 	private String seller_id;
+	private int idx;
 	private int price;
 	private int num;
 	private String category;
@@ -15,6 +16,12 @@ public class SellerGdsVO {
 	private String image_name;
 	private long image_size;
 	
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
 	public String getSeller_id() {
 		return seller_id;
 	}
@@ -71,9 +78,9 @@ public class SellerGdsVO {
 	}
 	@Override
 	public String toString() {
-		return "SellerGdsVO [price=" + price + ", num=" + num + ", category=" + category + ", name=" + name
-				+ ", origin=" + origin + ", content=" + content + ", image_name=" + image_name + ", image_size="
-				+ image_size + "]";
+		return "SellerGdsVO [seller_id=" + seller_id + ", idx=" + idx + ", price=" + price + ", num=" + num
+				+ ", category=" + category + ", name=" + name + ", origin=" + origin + ", content=" + content
+				+ ", image_name=" + image_name + ", image_size=" + image_size + "]";
 	}
 	
 	

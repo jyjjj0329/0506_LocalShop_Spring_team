@@ -21,7 +21,7 @@
 	<tr>
 		<th width="100px" height="30px">물품 이름</th>
 		<c:forEach var="vo" items="${list }">
-			<td align="center">${vo.name }</td>
+			<td align="center"><a href="gdsUpdate?idx=${vo.idx }">${vo.name }</a></td>
 		</c:forEach>
 	</tr>
 	<tr>
@@ -30,14 +30,6 @@
 			<td align="center">${vo.price }원</td>
 		</c:forEach>
 	</tr>
-	<%--  물품 수량은 상세페이지에서 판매자만 보이게.
-	<tr>
-		<th>물품 수량</th>
-		<c:forEach var="vo" items="${list }">
-			<td>${vo.num }</td>
-		</c:forEach>
-	</tr> 
-	--%>
 	<tr>
 		<th  height="30px">물품 원산지</th>
 		<c:forEach var="vo" items="${list }">

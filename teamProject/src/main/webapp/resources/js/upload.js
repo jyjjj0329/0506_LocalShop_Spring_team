@@ -22,3 +22,30 @@ function upload() {
 		uploadForm.submit();
 	}
 }
+
+function gdsUpdate(pw) {
+	var pwCheck = prompt("비밀번호를 입력해주세요", "");
+	if(pwCheck == null){
+		return false;
+	}else if(pw == pwCheck){
+		alert("수정 완료했습니다.")
+		gdsUpdateForm.submit()
+	}else{
+		alert("비밀번호가 틀리셨습니다. 다시 입력해주세요.")
+	}
+	
+}
+
+// 물품 삭제할때 비밀번호 확인
+function gdsDelete(pw) {
+	var pwCheck = prompt("비밀번호를 입력해주세요", "");
+	var idx = gdsUpdateForm.idx.value.trim();
+//	alert(pw)
+//	alert(pwCheck);
+	if(pw == pwCheck){
+		location.href = "gdsDelete?idx=" + idx
+	}else{
+		alert("비밀번호가 틀리셨습니다. 다시 입력해주세요.")
+	}
+	
+}
