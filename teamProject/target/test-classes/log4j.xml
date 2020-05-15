@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="kr.project.Controller">
+	<logger name="kr.project.team">
 		<level value="info" />
 	</logger>
 	
