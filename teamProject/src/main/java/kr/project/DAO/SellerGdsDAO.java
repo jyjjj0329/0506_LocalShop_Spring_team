@@ -20,4 +20,10 @@ public interface SellerGdsDAO {
 
 	int login(HashMap<String, String> hmap);
 
+	SellerGdsVO updateList(int idx);
+
+	void gdsDelete(int idx);
+
+	void gdsUpdate(SellerGdsVO sellerGdsVO);
+
 }

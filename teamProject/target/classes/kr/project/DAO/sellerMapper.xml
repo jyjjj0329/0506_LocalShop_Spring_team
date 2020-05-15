@@ -10,7 +10,7 @@
 
 <select id="selectList" resultType="sellerGdsVO" parameterType="java.util.HashMap">
 	<![CDATA[
-	select name, price, origin, image_name, category from 
+	select idx, name, price, origin, image_name, category from 
 	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM sellgds order by idx desc) 
 	TT where seller_id = #{seller_id}) where rn >= #{startNo} AND rn <= #{endNo}
 	]]>
@@ -33,5 +33,19 @@
 <select id="login" parameterType="java.util.HashMap" resultType="int">
 	select count(*) from seller where id = #{id} and pw = #{pw}
 </select>
+
+<select id="updateList" parameterType="int" resultType="sellerGdsVO">
+	select * from sellgds where idx = #{idx}
+</select>
+
+<delete id="gdsDelete" parameterType="int">
+	delete from sellgds where idx = #{idx}
+</delete>
+
+<update id="gdsUpdate" parameterType="sellerGdsVO">
+	update sellgds set 
+	origin = #{origin}, price = #{price}, num = #{num}, content = #{content}
+	where idx = #{idx}
+</update>
 
 </mapper>
