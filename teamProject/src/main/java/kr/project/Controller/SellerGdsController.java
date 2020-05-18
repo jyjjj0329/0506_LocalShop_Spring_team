@@ -2,6 +2,7 @@ package kr.project.Controller;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -36,7 +37,45 @@ public class SellerGdsController {
 	private SellerGdsVO sellerGdsVO;
 	
 	@RequestMapping(value = "/seller")
-	public String seller() {
+	public String seller(HttpServletRequest req, Model model) {
+		System.out.println("컨트롤러에서 seller 들어옴.");
+		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
+//		mapper에서 seller_id에 저장된 store를 가져오기 위해 session에 저장된 seller_id의 값을 가져온다.
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("seller_id");
+		System.out.println("컨트롤러에서 seller_id의 값은 : " + id);
+		
+//		가게 이미지 가져오기 위한 store 이름 가져오기.
+		String store = mapper.store(id); 
+		System.out.println("store의 값은 : " + store);
+		
+//		폴더 안에 들어있는 파일 갯수들 가져오는 코드들.
+//		반드시 자바에서 경로는 절댓값으로 잡아줘야함. 상대경로는 인식 못하는것같습니다
+		String path = "C:/Users/CHOYEJI/git/teamProject/teamProject/src/main"
+				+ "/webapp/resources/storeImage/" + store;
+		File f = new File(path);
+		File[] files = f.listFiles();
+		ArrayList<String> extension = new ArrayList<String>();
+		extension.add("openImage");
+		System.out.println("컨트롤러에서 files의 길이는 : " + files.length);
+		
+		int count = 0;
+		for(int i = 0; i < files.length; i++) {
+			if(files[i].isFile()) {
+				count++;
+				System.out.println("파일 : " + files[i].getName());
+				extension.add(files[i].getName().substring(files[i].getName().lastIndexOf(".")));
+				System.out.println("extension : " + extension.get(i));
+			}else {
+				System.out.println("디렉토리 명 : " + files[i].getName());
+			}
+		}
+		System.out.println("파일의 갯수 : " + count);
+		
+		model.addAttribute("store", store);
+		model.addAttribute("count", count);
+		model.addAttribute("extension", extension);
+		
 		return "/seller/sellerHome";
 	}
 	

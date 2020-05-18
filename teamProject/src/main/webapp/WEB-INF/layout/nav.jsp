@@ -45,13 +45,14 @@
 					<span class="navbar-toggler-icon"></span>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-right">
+					<c:if test="${sessionScope.seller_id == null }">
 					<li><a class="dropdown-item" href="#">고객지원</a></li>
 					<li><a class="dropdown-item" href="#">마이페이지</a></li>
 					<li><a class="dropdown-item" href="login">로그인</a></li>
 					<li><a class="dropdown-item" href="signUp">회원가입</a></li>
+					</c:if>
 					<c:if test="${sessionScope.seller_id != null }">
-						<li><a class="dropdown-item" href="sellerInsert">판매 물품 등록</a></li>
-						<li><a class="dropdown-item" href="sellerList?page=1">판매 리스트</a></li>
+					<li><a class="dropdown-item" href="seller">판매자 Home</a></li>
 					</c:if>
 				</ul>
 			</div>
