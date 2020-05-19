@@ -94,7 +94,7 @@ public class SignUpController {
 //		list배열로 파일들 다 받음
 		List<MultipartFile> fileList = mtp.getFiles("storeImg[]");
 		System.out.println("컨트롤러에서 fileList의 size의 값은 : " + fileList.size());
-//		fileList의 사이즈가 0보다 크면(파일이 있으면) 밑에를 실행해라.
+//		fileList의 사이즈가 1보다 크면(파일이 있으면) 밑에를 실행해라.
 		if(fileList.size() > 1) {
 			storeimg_Name = i + "-";
 			int j = 1;
