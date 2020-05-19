@@ -37,7 +37,7 @@ public class SellerGdsController {
 	private SellerGdsVO sellerGdsVO;
 	
 	@RequestMapping(value = "/seller")
-	public String seller(HttpServletRequest req, Model model) {
+	public String seller(HttpServletRequest req, Model model, SellerVO sellerVO) {
 		System.out.println("컨트롤러에서 seller 들어옴.");
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
 //		mapper에서 seller_id에 저장된 store를 가져오기 위해 session에 저장된 seller_id의 값을 가져온다.
@@ -46,13 +46,14 @@ public class SellerGdsController {
 		System.out.println("컨트롤러에서 seller_id의 값은 : " + id);
 		
 //		가게 이미지 가져오기 위한 store 이름 가져오기.
-		String store = mapper.store(id); 
-		System.out.println("store의 값은 : " + store);
+		sellerVO = mapper.store(id); 
+		System.out.println("store의 값은 : " + sellerVO.getStore());
+		System.out.println("phoneNum의 값은 : " + sellerVO.getPhonenum());
 		
 //		폴더 안에 들어있는 파일 갯수들 가져오는 코드들.
 //		반드시 자바에서 경로는 절댓값으로 잡아줘야함. 상대경로는 인식 못하는것같습니다
 		String path = "C:/Users/CHOYEJI/git/teamProject/teamProject/src/main"
-				+ "/webapp/resources/storeImage/" + store;
+				+ "/webapp/resources/storeImage/" + sellerVO.getStore();
 		File f = new File(path);
 		File[] files = f.listFiles();
 		ArrayList<String> extension = new ArrayList<String>();
@@ -72,7 +73,8 @@ public class SellerGdsController {
 		}
 		System.out.println("파일의 갯수 : " + count);
 		
-		model.addAttribute("store", store);
+		model.addAttribute("store", sellerVO.getStore());
+		model.addAttribute("phoneNum", sellerVO.getPhonenum());
 		model.addAttribute("count", count);
 		model.addAttribute("extension", extension);
 		

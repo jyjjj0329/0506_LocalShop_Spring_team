@@ -48,8 +48,8 @@
 	where idx = #{idx}
 </update>
 
-<select id="store" parameterType="String" resultType="String">
-	select store, PHONENUM from seller where id = #{id}
+<select id="store" parameterType="String" resultType="sellerVO">
+	select store, phonenum from seller where id = #{id}
 </select>
 
 </mapper>

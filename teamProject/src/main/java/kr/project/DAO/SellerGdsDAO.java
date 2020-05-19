@@ -26,6 +26,6 @@ public interface SellerGdsDAO {
 
 	void gdsUpdate(SellerGdsVO sellerGdsVO);
 
-	String store(String id);
+	SellerVO store(String id);
 
 }
