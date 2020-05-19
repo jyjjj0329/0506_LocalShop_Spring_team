@@ -5,23 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>소비자 회원가입</title>
-<script type="text/javascript" src="resources/js/buyerWarnings.js"></script>
+<script type="text/javascript" src="resources/js/buyerSignUp.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-function fn_setAddr(){
-	daum.postcode.load(function() {
-		new daum.Postcode({
-			oncomplete : function(data) {
-				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-				// 예제를 참고하여 다양한 활용법을 확인해 보세요.
-			}
-		}).open();
-	})
-}
-</script>
 </head>
 <body>
-	<form method="post">
+	<form action="buyerSignUpOK" id="buyerSignUp" method="post" enctype="multipart/fomr-data">
 		<h2 align="center">소비자 회원가입</h2>
 		<table align="center">
 			<tr>
@@ -31,62 +19,62 @@ function fn_setAddr(){
 			<tr>
 				<th>아이디</th>
 				<td height="40px">
-					<input id="id" type="text"/>
-					<input type="submit" value="중복확인" onclick="">
+					<input id="id" name="id" type="text"/>
+					<input type="submit" value="중복확인" onclick="CheckID()">
+					<input type="hidden" name="hidden1" id="hidden1" value="unCheck">
 				</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
-				<td><input id="pw" type="text"/></td>
+				<td><input id="pw" type="password"/></td>
 			</tr>
 			<tr>
 				<th>비밀번호 확인</th>
 				<td>
-					<input id="pwOK" type="text"/>
+					<input id="pwCheck" type="password"/>
 				</td>
 			</tr>
 			<tr>
 				<th>별명</th>
 				<td>
 					<input id="nickname" type="text"/>
-					<input type="submit" value="중복확인" onclick="">
+					<input type="submit" value="중복확인" onclick="CheckNickname()">
+					<input type="hidden" name="hidden2"	id="hidden2" value="unCheck">
 				</td>
 			</tr>
 			<tr>
 				<th>성별</th>
 				<td>
-					<input name="gender" type="radio" value="남"/>남&nbsp;&nbsp;&nbsp;&nbsp;
-					<input name="gender" type="radio" value="여"/>여
+					<input name="gender" type="radio" value="true"/>남&nbsp;&nbsp;&nbsp;&nbsp;
+					<input name="gender" type="radio" value="false"/>여
 				</td>
 			</tr>
 			<tr>
 				<th>생년월일</th>
-				<td><input id="phone" type="text"/></td>
+				<td><input id="age" type="number"/></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
 				<td>
-					<input id="email1" type="text" style="width:80px"/>
-					@&nbsp;<input id="email2" type="text" style="width:80px"/>
+					<input id="email1" type="text" style="width:80px"/>@&nbsp;
+					<input id="email2" type="text" style="width:80px"/>
+					<select name="eamil3" id="email3" onchange="emailChange()">
+						<option value="직접입력" selected>직접입력</option>
+						<option value="naver.com">naver.com</option>
+						<option value="google.com">google.com</option>
+						<option value="daum.net">daum.net</option>
+					</select>
 				</td>
 			</tr>
 			<tr>
 				<th>*전화번호</th>
 				<td>
-					<select id="mobile">
-						<option value="SKT">SKT</option>
-						<option value="KT">KT</option>
-						<option value="LG">LG</option>
+					<select id="phone">
+						<option value="skt">SKT</option>
+						<option value="kt">KT</option>
+						<option value="lg">LG</option>
 					</select>
-					<select id="phonenum1">
-						<option value="010">010</option>
-						<option value="011">011</option>
-						<option value="016">016</option>
-						<option value="017">017</option>
-						<option value="019">019</option>
-					</select>
-					<input name="phonenum" type="text" style="width:40px;"/>
-					<input name="phonenum" type="text" style="width:40px;"/>
+					<input name="phonenum" type="tel" style="width:90px;"/>
 				</td>
 			</tr>
 			<tr>
@@ -133,15 +121,20 @@ function fn_setAddr(){
 			<tr>
 				<th>주소</th>
 				<td>
-					<input type="button" value="주소 검색" onclick="fn_setAddr()"/>
-					
-					<input id="address" type="text"/>
+					<input type="text" id="postcode" name="postcode" placeholder="우편번호" readonly style="width: 100px">
+					<input type="button" onclick="addressAPI()" value="우편번호 찾기"><br>
+					<input type="text" id="address1" name="address1" placeholder="도로명주소" readonly style="width: 250px;">
+					<input type="hidden" id="address2" name="address2" placeholder="지번주소" readonly>
+					<span id="guide" style="color:#999;display:none"></span>
+					<input type="text" id="address3" name="address3" placeholder="상세주소">
 				</td>
 			</tr>
 			<tr>
-				<td rowspan="2" colspan="2" align="center" style="height:50px">
-					<input type="button" value="가입하기" onclick="signUp()"/>
-				</td>
+			<td colspan="2" align="center" style="margin-top: 10px">
+				<input type="button" value="회원가입" onclick="sellSignUp()"/>
+				<input type="reset" value="초기화"/>
+				<input type="button" value="뒤로가기" onclick="history.back()"/>
+			</td> 
 			</tr>
 		</table>
 	</form>

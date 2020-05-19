@@ -37,7 +37,7 @@ public class SignUpController {
 		
 		return "signUp/signUp";
 	}
-	
+
 //	판매자 회원가입
 	@RequestMapping(value = "/sellerSignUp")
 	public String sellerSignUp() {
@@ -169,5 +169,16 @@ public class SignUpController {
 		model.addAttribute("result", result);
 		return "login/loginResult";
 	}
+	
+// ----------------------------------------판매자 페이지 끝	
+	
+// 소비자 회원가입
+	
+	@RequestMapping(value = "/buyerSignUpOK")
+	public String buyerSignUp() {
+		
+		return "main/mainpage";
+	}
+	
 	
 }

@@ -1,7 +1,10 @@
-package kr.project.buyerVO;
+package kr.project.VO;
 
-// 일반 회원(소비자)의 회원가입 정보 한 건을 저장하는 클래스
+import org.springframework.stereotype.Repository;
 
+// 일반 회원(소비자)의 회원가입 정보 한 건
+
+@Repository
 public class BuyerVO {
 	private int idx;
 	private String name;
@@ -15,6 +18,7 @@ public class BuyerVO {
 	private String cardNum;
 	private String area;
 	private String address;
+	
 	public int getIdx() {
 		return idx;
 	}

@@ -1,4 +1,4 @@
-package kr.project.buyerDAO;
+package kr.project.DAO;
 
 public class BuyerDAO {
 	
