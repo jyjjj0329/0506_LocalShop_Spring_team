@@ -6,8 +6,6 @@
 <head>
 <title>Bootstrap Example</title>
 
-<link rel="stylesheet" type="text/css" href="layout/layout.css">
-
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -15,8 +13,9 @@
 
 <!-- Bootstrap CSS -->
 
+<link href="resources/css/login.css" rel="stylesheet"/>
 <link rel="stylesheet" href="resources/css/style-mainpage.css" />
-
+<script type="text/javascript" src="resources/js/login.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -30,6 +29,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
+
 
 </head>
 <body>
@@ -45,11 +45,13 @@
 					<span class="navbar-toggler-icon"></span>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-right">
-					<c:if test="${sessionScope.seller_id == null }">
-					<li><a class="dropdown-item" href="#">고객지원</a></li>
-					<li><a class="dropdown-item" href="#">마이페이지</a></li>
+					<c:if test="${sessionScope.seller_id == null && sessionScope.buyer_id == null}">
 					<li><a class="dropdown-item" href="login">로그인</a></li>
 					<li><a class="dropdown-item" href="signUp">회원가입</a></li>
+					</c:if>
+					<c:if test="${sessionScope.buyer_id != null }">
+					<li><a class="dropdown-item" href="#">마이페이지</a></li>
+					<li><a class="dropdown-item" href="buyerLogout">로그아웃</a></li>
 					</c:if>
 					<c:if test="${sessionScope.seller_id != null }">
 					<li><a class="dropdown-item" href="seller">판매자 Home</a></li>
