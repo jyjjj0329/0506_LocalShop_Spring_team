@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import kr.project.DAO.BuyerDAO;
 import kr.project.DAO.SellerGdsDAO;
 import kr.project.VO.SellerVO;
 
@@ -140,9 +141,33 @@ public class SignUpController {
 		return "login/login";
 	}
 	
-//	로그인
-	@RequestMapping(value = "/loginResult")
-	public String loginResult(HttpServletRequest req, Model model) {
+//	소비자 로그인
+	@RequestMapping(value = "/buyerLoginResult")
+	public String buyerLoginResult(HttpServletRequest req, Model model) {
+		String id = req.getParameter("id");
+		String pw = req.getParameter("pw");
+		
+		HashMap<String, String> hmap = new HashMap<String, String>();
+		hmap.put("id", id);
+		hmap.put("pw", pw);
+		
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		int buyerResult = mapper.buyerLogin(hmap);
+		
+		HttpSession session = req.getSession();
+		if(buyerResult == 1) {
+			session.setAttribute("buyer_id", id);
+			session.setAttribute("pw", pw);
+			
+		}
+		
+		model.addAttribute("buyerResult", buyerResult);
+		return "login/loginResult";
+	}
+	
+//	판매자 로그인
+	@RequestMapping(value = "/sellerLoginResult")
+	public String sellerLoginResult(HttpServletRequest req, Model model) {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		
@@ -151,17 +176,27 @@ public class SignUpController {
 		hmap.put("pw", pw);
 		
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
-//		임시로 로그인으로 만들었지만 sellerLogin입니다.
-		int result = mapper.login(hmap);
+		int sellerResult = mapper.sellerLogin(hmap);
 		
-		if(result == 1) {
-			HttpSession session = req.getSession();
+		HttpSession session = req.getSession();
+		if(sellerResult == 1) {
 			session.setAttribute("seller_id", id);
 			session.setAttribute("pw", pw);
 		}
 		
-		model.addAttribute("result", result);
+		model.addAttribute("sellerResult", sellerResult);
 		return "login/loginResult";
 	}
 	
+//	로그아웃
+	@RequestMapping(value="/buyerLogout")
+	public String buyerLogout(HttpServletRequest req) {
+		System.out.println("컨트롤러에서 logout에 들어옴");
+		
+		HttpSession session = req.getSession();
+		session.removeAttribute("buyer_id");
+		session.removeAttribute("pw");
+		
+		return "main/mainpage";
+	}
 }

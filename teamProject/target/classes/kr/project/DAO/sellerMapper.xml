@@ -30,7 +30,7 @@
 	sysdate, #{storeimg_Name}, #{extension})
 </insert>
 
-<select id="login" parameterType="java.util.HashMap" resultType="int">
+<select id="sellerLogin" parameterType="java.util.HashMap" resultType="int">
 	select count(*) from seller where id = #{id} and pw = #{pw}
 </select>
 
