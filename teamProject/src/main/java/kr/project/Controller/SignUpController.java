@@ -25,11 +25,6 @@ public class SignUpController {
 	@Autowired
 	public SqlSession sqlSession;
 	
-	@RequestMapping(value = "/dd")
-	public String home() {
-		
-		return "index";
-	}
 	
 //	회원가입 버튼 클릭시
 	@RequestMapping(value = "/signUp")
@@ -81,12 +76,12 @@ public class SignUpController {
 		
 		/* 파일 추가 부분. */
 //		확장자
-		String extension = null;
+		String extension = ".png";
 //		경로
 		String filePath = "C:/Users/CHOYEJI/git/teamProject/teamProject/src/main"
 				+ "/webapp/resources/storeImage/" + store + "/";
 //		가게 사진 이름
-		String storeimg_Name = "사진 안올림";
+		String storeimg_Name = "storeImg";
 		System.out.println(filePath);
 		
 //		폴더 없으면 생성
@@ -95,12 +90,11 @@ public class SignUpController {
 			fileDirectory.mkdir();
 			System.out.println("폴더 생성!!!");
 		}
-		
 //		list배열로 파일들 다 받음
 		List<MultipartFile> fileList = mtp.getFiles("storeImg[]");
-		
+		System.out.println("컨트롤러에서 fileList의 size의 값은 : " + fileList.size());
 //		fileList의 사이즈가 0보다 크면(파일이 있으면) 밑에를 실행해라.
-		if(fileList.size() > 0) {
+		if(fileList.size() > 1) {
 			storeimg_Name = i + "-";
 			int j = 1;
 			for(MultipartFile mf : fileList) {

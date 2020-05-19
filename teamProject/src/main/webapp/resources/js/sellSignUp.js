@@ -159,7 +159,14 @@ function addressAPI() {
     }).open();
 }
 
-
+function success(id) {
+	alert(id + "님 환영합니다.")
+	location.href = "seller"
+}
+function fail() {
+	alert("로그인에 실패하셨습니다. 아이디와 비밀번호를 다시 확인해주세요.")
+	location.href = "login"
+}
 
 
 
