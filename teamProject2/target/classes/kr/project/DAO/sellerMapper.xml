@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.project.DAO.SellerGdsDAO">
+
+<insert id="insert" parameterType="sellerGdsVO">
+	insert into sellgds values (sellgds_idx.nextval, #{seller_id}, #{price}, 
+	#{num}, #{name}, #{origin}, #{category}, #{content}, sysdate, #{image_name}, #{image_size})
+</insert>
+
+<select id="selectList" resultType="sellerGdsVO" parameterType="java.util.HashMap">
+	<![CDATA[
+	select name, price, origin, image_name, category from 
+	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM sellgds order by idx desc) 
+	TT where seller_id = #{seller_id}) where rn >= #{startNo} AND rn <= #{endNo}
+	]]>
+</select>
+
+<select id="sellectCount" resultType="int" parameterType="String">
+	select count(*) from sellgds where seller_id = #{seller_id}
+</select>
+
+<select id="CheckID" parameterType="String" resultType="int">
+	select count(*) from seller where id = #{id}
+</select>
+
+<insert id="sellerInsert" parameterType="sellerVO">
+	insert into seller values (seller_idx_seq.nextval, #{id}, #{pw}, #{name}, #{gender}, 
+	#{age}, #{email}, #{phonenum}, #{regnum}, #{area}, #{store}, #{storeaddress}, 
+	sysdate, #{storeimg_Name}, #{extension})
+</insert>
+
+<select id="login" parameterType="java.util.HashMap" resultType="int">
+	select count(*) from seller where id = #{id} and pw = #{pw}
+</select>
+
+</mapper>
