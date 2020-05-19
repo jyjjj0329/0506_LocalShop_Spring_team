@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="/WEB-INF/layout/nav.jsp"/>
+<jsp:include page="/WEB-INF/layout/sellerNav.jsp"/>
 
 <c:set var="list" value="${sellerGdsListVO.sellerGdsVO}"/>
 <caption><h2>판매목록</h2></caption>

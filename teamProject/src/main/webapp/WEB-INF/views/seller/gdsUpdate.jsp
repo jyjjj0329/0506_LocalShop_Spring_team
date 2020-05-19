@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% request.setCharacterEncoding("UTF-8"); %>    
-<jsp:include page="/WEB-INF/layout/nav.jsp"/>
+<jsp:include page="/WEB-INF/layout/sellerNav.jsp"/>
 <script type="text/javascript" src="resources/js/upload.js"></script>
 
 <form action="gdsUpdateResult" name="gdsUpdateForm">

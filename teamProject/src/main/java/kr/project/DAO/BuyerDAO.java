@@ -1,6 +1,9 @@
 package kr.project.DAO;
 
-public class BuyerDAO {
-	
-	
+import java.util.HashMap;
+
+public interface BuyerDAO {
+
+	int buyerLogin(HashMap<String, String> hmap);
+
 }
