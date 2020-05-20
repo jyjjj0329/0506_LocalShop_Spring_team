@@ -9,7 +9,7 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
-	<form action="buyerSignUpOK" id="buyerSignUp" method="post" enctype="multipart/fomr-data">
+	<form action="buyerSignUpOK" id="buyerSignUp" method="post" enctype="multipart/form-data">
 		<h2 align="center">소비자 회원가입</h2>
 		<table align="center">
 			<tr>
@@ -20,7 +20,7 @@
 				<th>아이디</th>
 				<td height="40px">
 					<input id="id" name="id" type="text"/>
-					<input type="submit" value="중복확인" onclick="CheckID()">
+					<input type="button" value="중복확인" onclick="CheckID()">
 					<input type="hidden" name="hidden1" id="hidden1" value="unCheck">
 				</td>
 			</tr>
@@ -38,7 +38,7 @@
 				<th>별명</th>
 				<td>
 					<input id="nickname" type="text"/>
-					<input type="submit" value="중복확인" onclick="CheckNickname()">
+					<input type="button" value="중복확인" onclick="CheckNickname()">
 					<input type="hidden" name="hidden2"	id="hidden2" value="unCheck">
 				</td>
 			</tr>
@@ -56,7 +56,7 @@
 			<tr>
 				<th>이메일</th>
 				<td>
-					<input id="email1" type="text" style="width:80px"/>@&nbsp;
+					<input id="email1" type="text" style="width:80px"/>&nbsp;@&nbsp;
 					<input id="email2" type="text" style="width:80px"/>
 					<select name="eamil3" id="email3" onchange="emailChange()">
 						<option value="직접입력" selected>직접입력</option>
@@ -80,10 +80,10 @@
 			<tr>
 				<th>카드 번호</th>
 				<td>
-					<input name="cardNum" type="text" style="width:40px"/>
-					<input name="cardNum" type="text" style="width:40px"/>
-					<input name="cardNum" type="text" style="width:40px"/>
-					<input name="cardNum" type="text" style="width:40px"/>
+					<input name="cardNum1" type="text" style="width:40px"/>
+					<input name="cardNum2" type="text" style="width:40px"/>
+					<input name="cardNum3" type="text" style="width:40px"/>
+					<input name="cardNum4" type="text" style="width:40px"/>
 				</td>
 			</tr>
 			<tr>
@@ -119,22 +119,26 @@
 				</td>
 			</tr>
 			<tr>
-				<th>주소</th>
+				<th rowspan="2">주소</th>
 				<td>
 					<input type="text" id="postcode" name="postcode" placeholder="우편번호" readonly style="width: 100px">
 					<input type="button" onclick="addressAPI()" value="우편번호 찾기"><br>
 					<input type="text" id="address1" name="address1" placeholder="도로명주소" readonly style="width: 250px;">
 					<input type="hidden" id="address2" name="address2" placeholder="지번주소" readonly>
 					<span id="guide" style="color:#999;display:none"></span>
+					
+				</td>
+			<tr>
+				<td>
 					<input type="text" id="address3" name="address3" placeholder="상세주소">
 				</td>
 			</tr>
-			<tr>
-			<td colspan="2" align="center" style="margin-top: 10px">
-				<input type="button" value="회원가입" onclick="sellSignUp()"/>
-				<input type="reset" value="초기화"/>
-				<input type="button" value="뒤로가기" onclick="history.back()"/>
-			</td> 
+			<tr style="height: 80px">
+				<td colspan="2" align="center">
+					<input type="button" value="회원가입" onclick="buySignUp()"/>
+					<input type="reset" value="초기화"/>
+					<input type="button" value="뒤로가기" onclick="history.back()"/>
+				</td> 
 			</tr>
 		</table>
 	</form>

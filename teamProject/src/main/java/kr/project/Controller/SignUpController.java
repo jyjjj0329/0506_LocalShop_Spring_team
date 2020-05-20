@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import kr.project.DAO.BuyerDAO;
 import kr.project.DAO.SellerGdsDAO;
+import kr.project.VO.BuyerVO;
 import kr.project.VO.SellerVO;
 
 @Controller
@@ -170,15 +172,30 @@ public class SignUpController {
 		return "login/loginResult";
 	}
 	
-// ----------------------------------------판매자 페이지 끝	
+// 판매자 페이지 끝	============================================================================
 	
-// 소비자 회원가입
-	
-	@RequestMapping(value = "/buyerSignUpOK")
+//	소비자 회원가입
+	@RequestMapping(value = "/buyerSignUp")
 	public String buyerSignUp() {
-		
-		return "main/mainpage";
+		System.out.println("소비자 회원가입 페이지로 넘어옴");
+		return "signUp/buyerSignUp";
 	}
+
 	
-	
+//	ID 중복체크
+	@RequestMapping(value = "/buyerCheckID")
+	public String buyerCheckID(HttpServletRequest req, Model model) {
+		System.out.println("컨트롤러에서 buyerCheckID 들어옴.");
+		
+		String id = req.getParameter("id");
+		System.out.println("buyerCheckID에서 id의 값은 : " + id);
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		int result = mapper.CheckID(id);
+		System.out.println("buyerCheckID에서 result의 값은 : " + result);
+		
+		model.addAttribute("result", result);
+		model.addAttribute("id", id);
+		
+		return "signUp/buyerCheckID";
+	}
 }

@@ -1,5 +1,5 @@
 // 소비자 회원가입
-function buyerSignUp() {
+function buySignUp() {
 	var name = buyerSignUp.name.value.trim();
 	var id = buyerSignUp.id.value.trim();
 	var hidden1 = buyerSignUp.hidden1.value;
@@ -12,7 +12,10 @@ function buyerSignUp() {
 	var email1 = buyerSignUp.email1.value.trim();
 	var email2 = buyerSignUp.email2.value.trim();
 	var phonenum = buyerSignUp.phonenum.value.trim();
-	var cardNum = buyerSignUp.cardNum.value.trim()
+	var cardNum = buyerSignUp.cardNum1.value.trim()
+				+ buyerSignUp.cardNum2.value.trim()
+				+ buyerSignUp.cardNum3.value.trim()
+				+ buyerSignUp.cardNum4.value.trim();
 	var address = buyerSignUp.address1.value.trim();
 	
 	if(id == ""){
@@ -79,10 +82,10 @@ function CheckID2() {
 
 //	중복확인 후 close
 function IDok(sid) {
-	opener.document.buyerSignUp.id.value = sid;
-	opener.document.buyerSignUp.hidden1.value = sid;
-	opener.document.buyerSignUp.id.readOnly=true;
-	window.close()
+	opener.buyerSignUp.id.value = sid;
+	opener.buyerSignUp.hidden1.value = sid;
+	opener.buyerSignUp.id.readOnly = true;
+	window.close();
 }
 
 //	별명 중복체크
@@ -109,10 +112,10 @@ function CheckNickname2() {
 
 //	중복확인 후 close
 function Nicknameok(snickname) {
-	opener.document.buyerSignUp.nickname.value = sid;
-	opener.document.buyerSignUp.hidden2.value = sid;
-	opener.document.buyerSignUp.nickname.readOnly=true;
-	window.close()
+	opener.buyerSignUp.nickname.value = snickname;
+	opener.buyerSignUp.hidden2.value = snickname;
+	opener.buyerSignUp.nickname.readOnly=true;
+	window.close();
 }
 
 
