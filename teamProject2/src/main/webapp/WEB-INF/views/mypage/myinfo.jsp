@@ -17,15 +17,35 @@
 		<table border="1">
 		<tr>
 			<th>${buyerVO.id}님</th>
+		</tr>
+		<tr>
 			<th>이  름 : ${buyerVO.name}</th>
+		</tr>
+		<tr>
 			<th>닉네임: ${buyerVO.nickname}</th>
+		</tr>
+		<tr>
 			<th><button type="button" onclick="location.href='pwchange'">비밀번호변경</button></th>
+		</tr>
+		<tr>
 			<th>성  별 :  ${buyerVO.gender}</th>
+		</tr>
+		<tr>
 			<th>나  이 : ${buyerVO.age}</th>
+		</tr>
+		<tr>
 			<th>이메일: ${buyerVO.email}</th>
+		</tr>
+		<tr>
 			<th>휴대폰: ${buyerVO.phonenum}</th>
+		</tr>
+		<tr>
 			<th>카  드 : ${buyerVO.cardNum}</th>
+		</tr>
+		<tr>
 			<th>지  역 : ${buyerVO.area}</th>
+		</tr>
+		<tr>
 			<th>주  소 : ${buyerVO.address}</th>
 		</tr>
 		</table>
