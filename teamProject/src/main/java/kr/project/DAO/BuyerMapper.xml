@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.project.DAO.BuyerDAO">
+
+<select id="buyerLogin" parameterType="java.util.HashMap" resultType="int">
+	select count(*) from buyer where id = #{id} and pw = #{pw}
+</select>
+
+<select id="sellectCount" parameterType="java.util.HashMap" resultType="int">
+	select count(*) from sellgds where category = #{category}
+	and #{area} in (select area from seller)
+</select>
+
+<select id="selectList" resultType="sellerGdsVO" parameterType="java.util.HashMap">
+	<![CDATA[
+	select idx, name, price, origin, image_name, category from 
+	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM sellgds order by idx desc) 
+	TT where category = #{category} and #{area} in (select area from seller)) 
+	where rn >= #{startNo} AND rn <= #{endNo}
+	]]>
+</select>
+
+</mapper>
