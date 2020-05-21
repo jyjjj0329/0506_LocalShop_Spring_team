@@ -172,7 +172,7 @@ public class SellerGdsController {
 		hmap.put("startNo", sellerGdsListVO.getStartNo());
 		hmap.put("endNo", sellerGdsListVO.getEndNo());
 		hmap.put("seller_id", seller_id);
-		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));;
+		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));
 		model.addAttribute("sellerGdsListVO", sellerGdsListVO);
 		System.out.println("컨트롤러 나감.");
 		

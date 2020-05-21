@@ -50,7 +50,7 @@
 					</c:if>
 					<c:if test="${sessionScope.buyer_id != null }">
 					<li><a class="dropdown-item" href="#">마이페이지</a></li>
-					<li><a class="dropdown-item" href="buyerLogout">로그아웃</a></li>
+					<li><a class="dropdown-item" href="logout">로그아웃</a></li>
 					</c:if>
 					<c:if test="${sessionScope.seller_id != null }">
 					<li><a class="dropdown-item" href="seller">판매자 Home</a></li>

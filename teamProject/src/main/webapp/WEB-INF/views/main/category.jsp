@@ -26,11 +26,11 @@
 
 	<div class="row">
 		<div class="areaname">
-			<h1>${area}구</h1>
+			<h1>${area}</h1>
 			<button type="button" class="btn btn-lg btn-dark back"
 				onclick="location.href='mainpage'">변 경</button>
 		</div>
-		<form action="buyerList" method="post">
+		<form action="buyerList?page=1" method="post">
 			<input type="hidden" name="area" value="${area }" >
 			<div class="categorylist">
 

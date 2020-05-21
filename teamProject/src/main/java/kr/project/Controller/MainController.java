@@ -48,6 +48,7 @@ public class MainController {
 		return "main/category";
 	}
 	
+//	소비자 물품
 	@RequestMapping(value = "/buyerList")
 	public String buyerList(Model model, HttpServletRequest req, SellerGdsListVO sellerGdsListVO) {
 		System.out.println("컨트롤러에서 sellerList에 들어옴.");
@@ -56,8 +57,8 @@ public class MainController {
 		String area = req.getParameter("area");
 		String category = req.getParameter("category");
 //		값이 잘 들어왔는지 확인
-		System.out.println("list에서 area의 값은 : " + area);
-		System.out.println("list에서 category의 값은 : " + category);
+		System.out.println("컨트롤러에서 area의 값은 : " + area);
+		System.out.println("컨트롤러에서 category의 값은 : " + category);
 		
 //		페이지 관련 코드
 		int page = Integer.parseInt(req.getParameter("page"));
@@ -68,6 +69,7 @@ public class MainController {
 		hmap.put("area", area);
 		hmap.put("category", category);
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+//		페이징을 하기 위한 총 페이지 갯수 가져오는 코드.
 		sellerGdsListVO.setTotalCount(mapper.sellectCount(hmap));
 		System.out.println("컨트롤러에서 sellectCount의 값은 : " + sellerGdsListVO.getTotalCount());
 //		Page값 초기화
@@ -75,7 +77,7 @@ public class MainController {
 		
 		hmap.put("startNo", sellerGdsListVO.getStartNo());
 		hmap.put("endNo", sellerGdsListVO.getEndNo());
-//		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));
+		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));
 		model.addAttribute("sellerGdsListVO", sellerGdsListVO);
 		model.addAttribute("area", area);
 		model.addAttribute("category", category);
