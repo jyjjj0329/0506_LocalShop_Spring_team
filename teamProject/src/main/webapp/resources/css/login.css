@@ -1,29 +1,65 @@
 button {
-  background:none;
-  border:0;
-  outline:0;
-  cursor:pointer;
+	background: none;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
 }
+
 .tab_menu_container {
-  display:flex;
+	display: flex;
 }
+
 .tab_menu_btn {
-  width:80px;
-  height:40px;
-  transition:0.3s all;
+	width: 80px;
+	height: 40px;
+	transition: 0.3s all;
 }
+
 .tab_menu_btn.on {
-  border-bottom:2px solid #df0000;
-  font-weight:700;
-  color:#df0000;
+	border-bottom: 2px solid #df0000;
+	font-weight: 700;
+	color: #df0000;
 }
+
 .tab_menu_btn:hover {
-  color:#df0000;
+	color: #df0000;
 }
+
 .tab_box {
-  display:none;
-  padding:20px;
+	display: none;
+	padding: 20px;
 }
+
 .tab_box.on {
-  display:block;
+	display: block;
+}
+
+.tab_teduri:focus {
+	outline: none;
+}
+
+.tab_wrap {
+	position: absolute;
+	margin: 0 auto;
+}
+
+.inputcss{
+	width: 300px;
+	height: 40px;
+	font-size: 20px;
+	
+    
+}
+.inputcss:focus{
+	outline:red;
+	border: 2px solid red;
+}
+
+input::placeholder{
+	color:lightslategray;
+}
+
+.tab_teduri{
+	width:400px;
+	height:40px;
 }

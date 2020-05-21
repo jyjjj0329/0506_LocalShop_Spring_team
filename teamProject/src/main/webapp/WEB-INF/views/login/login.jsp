@@ -3,21 +3,19 @@
 <jsp:include page="/WEB-INF/layout/nav.jsp"></jsp:include>
 <div class="tab_wrap">
   <div class="tab_menu_container">
-    <button class="tab_menu_btn on" type="button">소비자</button>
-    <button class="tab_menu_btn" type="button">판매자</button>
+    <button class="tab_menu_btn on tab_teduri" type="button">소비자</button>
+    <button class="tab_menu_btn tab_teduri" type="button">판매자</button>
   </div> <!-- tab_menu_container e -->
 
   <div class="tab_box_container">
     <form action="buyerLoginResult" name="buyerForm" method="post">
     <div class="tab_box on">
 		<table>
-		<tr align="center">
-			<th>아이디</th>
-				<td><input type="text" name="id"></td>
+			<tr>			
+				<td><input type="text" name="id" class="inputcss" placeholder="아이디"></td>
 			</tr>
 			<tr>
-				<th>비밀번호</th>
-				<td><input type="password" name="pw"></td>
+				<td><input type="password" name="pw" class="inputcss" placeholder="비밀번호"></td>
 			</tr>
 			<tr>
 				<td colspan="2">
@@ -31,13 +29,11 @@
     <form action="sellerLoginResult" name="sellerForm" method="post">
     <div class="tab_box">
 		<table>
-			<tr align="center">
-				<th>아이디</th>
-				<td><input type="text" name="id" class="input"></td>
+			<tr>
+				<td><input type="text" name="id" class="input inputcss" placeholder="아이디"></td>
 			</tr>
 			<tr>
-				<th>비밀번호</th>
-				<td><input type="password" name="pw"></td>
+				<td><input type="password" name="pw" class="inputcss" placeholder="비밀번호"></td>
 			</tr>
 			<tr>
 				<td colspan="2">

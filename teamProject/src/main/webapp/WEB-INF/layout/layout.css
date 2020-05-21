@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.table {
+/* .table {
 	border: 2px thin;
 	border-color: #422a3a;
 	font: sans-serif;
@@ -22,7 +22,16 @@
 	width: auto;
 	max-width: 200px;
 	max-height: 200px;
+} */
+
+.search-content .search-content-with-feedback{
+	margin-bottom: -115px;
+	
 }
+
+p { margin:20px 0px; }
+
+
 
 
 
