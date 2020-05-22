@@ -262,7 +262,7 @@ public class SignUpController {
 		return "main/mainpage";
 	}
 	
-<<<<<<< HEAD
+
 	
 //	로그아웃
 	@RequestMapping(value="/buyerLogout")
@@ -275,6 +275,5 @@ public class SignUpController {
 		
 		return "main/mainpage";
 	}
-=======
->>>>>>> refs/heads/mkw
+
 }
