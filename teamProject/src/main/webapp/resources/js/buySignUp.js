@@ -12,11 +12,13 @@ function buySignUp() {
 	var email1 = buyerSignUp.email1.value.trim();
 	var email2 = buyerSignUp.email2.value.trim();
 	var phonenum = buyerSignUp.phonenum.value.trim();
-	var cardNum = buyerSignUp.cardNum1.value.trim()
-				+ buyerSignUp.cardNum2.value.trim()
-				+ buyerSignUp.cardNum3.value.trim()
-				+ buyerSignUp.cardNum4.value.trim();
-	var address = buyerSignUp.address1.value.trim();
+	var cardNum1 = buyerSignUp.cardNum1.value.trim();
+	var cardNum2 = buyerSignUp.cardNum2.value.trim();
+	var cardNum3 = buyerSignUp.cardNum3.value.trim();
+	var cardNum4 = buyerSignUp.cardNum4.value.trim();
+	var address1 = buyerSignUp.address1.value.trim();
+	var address2 = buyerSignUp.address2.value.trim();
+	var address3 = buyerSignUp.address3.value.trim();
 	
 	if(id == ""){
 		alert("ID를 입력해주세요.")
@@ -36,7 +38,7 @@ function buySignUp() {
 		alert("별명을 입력해주세요.")
 	}else if(hidden2 == "unCheck"){
 		alert("별명 중복체크를 해주세요.")
-	}else if(!/^[가-힣]+[가-힣0-9]{4,8}$/g.text(nickname)){	
+	}else if(!/^[가-힣|0-9]{4,8}$/g.test(nickname)){	
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else if(gender == ""){
 		alert("성별을 선택해주세요.")
@@ -50,7 +52,13 @@ function buySignUp() {
 		alert("휴대폰 번호를 입력해주세요.")
 	}else if(!/^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/.test(phonenum)){
 		alert("휴대폰 번호 형식이 다릅니다. 다시 확인해주세요.")
-	}else if(!/^[0-9]{16}$/g.test(cardNum)){	
+	}else if(!/^[0-9]{4}$/g.test(cardNum1)){	
+		alert("카드 번호를 올바르게 입력해주세요.")
+	}else if(!/^[0-9]{4}$/g.test(cardNum2)){	
+		alert("카드 번호를 올바르게 입력해주세요.")
+	}else if(!/^[0-9]{4}$/g.test(cardNum3)){	
+		alert("카드 번호를 올바르게 입력해주세요.")
+	}else if(!/^[0-9]{4}$/g.test(cardNum4)){	
 		alert("카드 번호를 올바르게 입력해주세요.")
 	}else{
 		alert("회원가입이 정상적으로 처리되었습니다.");
@@ -93,20 +101,20 @@ function CheckNickname() {
 	var nickname = buyerSignUp.nickname.value.trim();
 	if(nickname == ""){
 		alert("별명을 입력해주세요.")
-	}else if(!/^[가-힣]+[가-힣0-9]{4,8}$/g.test(nickname)){
+	}else if(!/^[가-힣0-9]{4,8}$/g.test(nickname)){
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else{
-		window.open("buyerCheckNickname?id=" + nickname, "별명 중복체크", "width=450 height=150 left=400 top=350");
+		window.open("buyerCheckNickname?nickname=" + nickname, "별명 중복체크", "width=450 height=150 left=400 top=350");
 	}
 }
 function CheckNickname2() {
 	var nickname2 = document.getElementById("nickname").value.trim();
 	if(nickname2 == ""){
 		alert("별명을 입력해주세요.")
-	}else if(!/^[가-힣]+[가-힣0-9]{4,8}$/g.test(nickname2)){
+	}else if(!/^[가-힣0-9]{4,8}$/g.test(nickname2)){
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else{
-		location.href="buyerCheckNickname?id=" + nickname2;
+		location.href="buyerCheckNickname?nickname=" + nickname2;
 	}
 }
 
@@ -121,9 +129,9 @@ function Nicknameok(snickname) {
 
 //	email value값 변경
 function emailChange() {
-	var target = document.buyerSignUp.email3.selectedIndex;
-	var mail = document.buyerSignUp.email3.options[target].value
-	document.buyerSignUp.email2.value = mail;
+	var target = buyerSignUp.email3.selectedIndex;
+	var mail = buyerSignUp.email3.options[target].value
+	buyerSignUp.email2.value = mail;
 	if(mail == "직접입력"){
 		buyerSignUp.email2.readOnly=false;
 	}else{

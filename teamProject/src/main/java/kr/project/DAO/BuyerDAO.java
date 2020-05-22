@@ -5,7 +5,7 @@ import kr.project.VO.BuyerVO;
 
 public interface BuyerDAO {
 	
-	void insert(BuyerVO buyerVO);
+	void buyerInsert(BuyerVO buyerVO);
 	
 	int CheckID(String id);
 	

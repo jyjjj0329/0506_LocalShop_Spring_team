@@ -174,10 +174,10 @@ public class SignUpController {
 	
 // 판매자 페이지 끝	============================================================================
 	
-//	소비자 회원가입
+//	소비자 회원가입 페이지
 	@RequestMapping(value = "/buyerSignUp")
 	public String buyerSignUp() {
-		System.out.println("소비자 회원가입 페이지로 넘어옴");
+		System.out.println("소비자 회원가입 페이지로 들어옴");
 		return "signUp/buyerSignUp";
 	}
 
@@ -198,4 +198,51 @@ public class SignUpController {
 		
 		return "signUp/buyerCheckID";
 	}
+	
+//	별명 중복체크
+	@RequestMapping(value = "/buyerCheckNickname")
+	public String buyerCheckNickname(HttpServletRequest req, Model model) {
+		System.out.println("컨트롤러에서 buyerCheckNickname 들어옴.");
+		
+		String nickname = req.getParameter("nickname");
+		System.out.println("buyerCheckNickname에서 nickname의 값은 : " + nickname);
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		int result = mapper.CheckNickname(nickname);
+		System.out.println("buyerCheckNickname에서 result의 값은 : " + result);
+		
+		model.addAttribute("result", result);
+		model.addAttribute("nickname", nickname);
+		
+		return "signUp/buyerCheckNickname";
+	}
+	
+//	소비자 회원가입 완료 페이지
+	@RequestMapping(value = "/buyerSignUpOK")
+	public String buyerSignUpOK(HttpServletRequest req, BuyerVO buyerVO, 
+			MultipartHttpServletRequest mtp) {
+		
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		
+		
+//		합쳐서 넣어줘야 하는것들 따로 값을 넣어줌.
+		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
+		buyerVO.setEmail(email);
+		String Phone = "(" + req.getParameter("phone") + ")" + req.getParameter("phonenum");
+		buyerVO.setPhonenum(Phone);
+		String cardNum = req.getParameter("cardNum1") + req.getParameter("cardNum2")
+		+ req.getParameter("cardNum3") + req.getParameter("cardNum4");
+		System.out.println("cardNum의 값은 : " + cardNum);
+		buyerVO.setCardNum(cardNum);
+		String address = "(" + req.getParameter("postcode") + ")" + req.getParameter("address1")
+		 + req.getParameter("address2") + " " + req.getParameter("address3");
+		buyerVO.setAddress(address);
+		
+		System.out.println("컨트롤러에서 buyerVO의 값은 : " + buyerVO.toString());
+
+		mapper.buyerInsert(buyerVO);
+		
+		
+		return "main/mainpage";
+	}
+	
 }
