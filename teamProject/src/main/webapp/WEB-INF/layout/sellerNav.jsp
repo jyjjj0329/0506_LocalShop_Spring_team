@@ -21,8 +21,19 @@
       <li><a href="sellerInsert">판매 물품 등록</a></li>
       <li><a href="sellerList?page=1">물품 리스트</a></li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;${sessionScope.seller_id }</a></li>
-    </ul>
+    <%-- <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>
+      &nbsp;${sessionScope.seller_id }</a></li>
+	</ul> --%>
+	<ul class="nav nav-pills">
+	<li class="nav-item dropdown">
+	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>
+      &nbsp;${sessionScope.seller_id }</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Link 1</a><br/>
+      <a class="dropdown-item" href="#">Link 2</a>
+    </div>
+  	</li>
+  	</ul>
   </div>
 </nav>
