@@ -82,6 +82,6 @@ public class MainController {
 		model.addAttribute("area", area);
 		model.addAttribute("category", category);
 		
-		return "/seller/buyer";
+		return "/seller/sellerList";
 	}
 }
