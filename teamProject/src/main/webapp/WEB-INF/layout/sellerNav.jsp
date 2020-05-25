@@ -23,6 +23,7 @@
       <li class="active"><a href="seller">판매자 Home</a></li>
       <li><a href="sellerInsert">판매 물품 등록</a></li>
       <li><a href="sellerList?page=1">물품 리스트</a></li>
+      <li><a href="goodsSold?page=1">판매된 물품</a></li>
     </ul>
 	<ul class="nav nav-pills">
 		<li class="nav-item dropdown">

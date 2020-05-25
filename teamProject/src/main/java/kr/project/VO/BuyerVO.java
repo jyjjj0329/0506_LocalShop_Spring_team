@@ -1,10 +1,8 @@
-
 package kr.project.VO;
 
 import org.springframework.stereotype.Repository;
 
-// 일반 회원(소비자)의 회원가입 정보 한 건
-
+/** 일반 회원(소비자)의 회원가입 정보 한 건*/
 @Repository
 public class BuyerVO {
 	private int idx;

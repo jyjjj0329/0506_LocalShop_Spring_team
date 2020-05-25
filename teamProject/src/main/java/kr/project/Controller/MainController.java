@@ -32,6 +32,7 @@ public class MainController {
 		return "main/mainpage";
 	}
 	
+	/** 메인 페이지 */
 	@RequestMapping("/mainpage")
 	private String mainpage() {
 		System.out.println("컨트롤러에서 mainpage로 들어옴");
@@ -39,8 +40,10 @@ public class MainController {
 		return "main/mainpage";
 	}
 	
+	/** 분류 페이지 */
 	@RequestMapping("/category")
 	private String category(HttpServletRequest request, Model model) {
+		System.out.println("컨트롤러에서 category로 들어옴");
 		
 		String area = request.getParameter("area");
 		model.addAttribute("area", area);
@@ -48,31 +51,31 @@ public class MainController {
 		return "main/category";
 	}
 	
-//	소비자 물품
+	/** 소비자 물품 */
 	@RequestMapping(value = "/buyerList")
 	public String buyerList(Model model, HttpServletRequest req, SellerGdsListVO sellerGdsListVO) {
 		System.out.println("컨트롤러에서 sellerList에 들어옴.");
 		
-//		area와 category의 값을 받아옴.
+/**		area와 category의 값을 받아옴. */
 		String area = req.getParameter("area");
 		String category = req.getParameter("category");
-//		값이 잘 들어왔는지 확인
+		/** 값이 잘 들어왔는지 확인 */
 		System.out.println("컨트롤러에서 area의 값은 : " + area);
 		System.out.println("컨트롤러에서 category의 값은 : " + category);
 		
-//		페이지 관련 코드
+		/** 페이지 관련 코드 */
 		int page = Integer.parseInt(req.getParameter("page"));
 		int pageSize = 4;
 		
-//		hmap에 area와 category 배열을 저장함.
+		/** hmap에 area와 category 배열을 저장함. */
 		HashMap<String, Object> hmap = new HashMap<String, Object>();
 		hmap.put("area", area);
 		hmap.put("category", category);
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
-//		페이징을 하기 위한 총 페이지 갯수 가져오는 코드.
+		/** 페이징을 하기 위한 총 페이지 갯수 가져오는 코드. */
 		sellerGdsListVO.setTotalCount(mapper.sellectCount(hmap));
 		System.out.println("컨트롤러에서 sellectCount의 값은 : " + sellerGdsListVO.getTotalCount());
-//		Page값 초기화
+		/** Page값 초기화 */
 		sellerGdsListVO.initPageList(pageSize, sellerGdsListVO.getTotalCount(), page);
 		
 		hmap.put("startNo", sellerGdsListVO.getStartNo());
