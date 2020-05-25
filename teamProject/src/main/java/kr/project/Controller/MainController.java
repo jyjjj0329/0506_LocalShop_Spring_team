@@ -1,15 +1,26 @@
 package kr.project.Controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.project.DAO.BuyerDAO;
+import kr.project.DAO.SellerGdsDAO;
+import kr.project.VO.SellerGdsListVO;
+
 @Controller
 public class MainController {
+	
+	@Autowired
+	SqlSession sqlSession;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest req) {
@@ -37,15 +48,40 @@ public class MainController {
 		return "main/category";
 	}
 	
-	@RequestMapping("/list")
-	private String list(HttpServletRequest request, Model model) {
+//	소비자 물품
+	@RequestMapping(value = "/buyerList")
+	public String buyerList(Model model, HttpServletRequest req, SellerGdsListVO sellerGdsListVO) {
+		System.out.println("컨트롤러에서 sellerList에 들어옴.");
 		
+//		area와 category의 값을 받아옴.
+		String area = req.getParameter("area");
+		String category = req.getParameter("category");
+//		값이 잘 들어왔는지 확인
+		System.out.println("컨트롤러에서 area의 값은 : " + area);
+		System.out.println("컨트롤러에서 category의 값은 : " + category);
 		
-		String area = request.getParameter("area");
+//		페이지 관련 코드
+		int page = Integer.parseInt(req.getParameter("page"));
+		int pageSize = 4;
+		
+//		hmap에 area와 category 배열을 저장함.
+		HashMap<String, Object> hmap = new HashMap<String, Object>();
+		hmap.put("area", area);
+		hmap.put("category", category);
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+//		페이징을 하기 위한 총 페이지 갯수 가져오는 코드.
+		sellerGdsListVO.setTotalCount(mapper.sellectCount(hmap));
+		System.out.println("컨트롤러에서 sellectCount의 값은 : " + sellerGdsListVO.getTotalCount());
+//		Page값 초기화
+		sellerGdsListVO.initPageList(pageSize, sellerGdsListVO.getTotalCount(), page);
+		
+		hmap.put("startNo", sellerGdsListVO.getStartNo());
+		hmap.put("endNo", sellerGdsListVO.getEndNo());
+		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));
+		model.addAttribute("sellerGdsListVO", sellerGdsListVO);
 		model.addAttribute("area", area);
-		String[] category = request.getParameterValues("category");
 		model.addAttribute("category", category);
 		
-		return "main/list";
+		return "/seller/sellerList";
 	}
 }

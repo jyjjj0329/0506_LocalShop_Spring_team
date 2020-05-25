@@ -162,7 +162,7 @@ public class SellerGdsController {
 		int pageSize = 4;
 		
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
-//		나중에 seller_id도 받아서 where문에 넣어주자. 일단은 없이 아무것도 받지 않는다.
+//		seller_id를 받아 where문에 넣어준다.
 		sellerGdsListVO.setTotalCount(mapper.sellectCount(seller_id));
 		System.out.println("컨트롤러에서 sellectCount의 값은 : " + sellerGdsListVO.getTotalCount());
 //		Page값 초기화
@@ -172,7 +172,7 @@ public class SellerGdsController {
 		hmap.put("startNo", sellerGdsListVO.getStartNo());
 		hmap.put("endNo", sellerGdsListVO.getEndNo());
 		hmap.put("seller_id", seller_id);
-		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));;
+		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));
 		model.addAttribute("sellerGdsListVO", sellerGdsListVO);
 		System.out.println("컨트롤러 나감.");
 		

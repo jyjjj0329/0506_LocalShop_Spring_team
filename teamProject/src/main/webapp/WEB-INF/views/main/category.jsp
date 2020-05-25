@@ -26,51 +26,37 @@
 
 	<div class="row">
 		<div class="areaname">
-			<h1>${area}구</h1>
+			<h1>${area}</h1>
 			<button type="button" class="btn btn-lg btn-dark back"
 				onclick="location.href='mainpage'">변 경</button>
 		</div>
-		<form action="list" method="post">
+		<form action="buyerList?page=1" method="post">
 			<input type="hidden" name="area" value="${area }" >
 			<div class="categorylist">
 
 				<h1>
-					<input type="checkbox" id="clothes" value="clothes" name="category">
-					<label for="clothes" class="categoryname">의 류</label>
+					<input type="submit" id="clothes" value="의류" name="category">
 				</h1>
 				<h1>
-					<input type="checkbox" id="food" value="food" name="category">
-					<label for="food" class="categoryname">음 식</label>
+					<input type="submit" id="food" value="음식" name="category">
 				</h1>
 				<h1>
-					<input type="checkbox" id="furniture" value="furniture" name="category">
-					<label for="furniture" class="categoryname">가 구</label>
+					<input type="submit" id="furniture" value="가구" name="category">
 				</h1>
 				<h1>
-					<input type="checkbox" id="toy" value="toy" name="category">
-					<label for="toy" class="categoryname">완 구</label>
+					<input type="submit" id="toy" value="완구" name="category">
 				</h1>
 				<h1>
-					<input type="checkbox" id="electronic" value="electronic" name="category">
-					<label for="electronic" class="categoryname">전자 제품</label>
+					<input type="submit" id="electronic" value="전자제품" name="category">
 				</h1>
 				<h1>
-					<input type="checkbox" id="traditional" value="traitional" name="category">
-					<label for="traditional" class="categoryname">전통 시장</label>
+					<input type="submit" id="traditional" value="전통시장" name="category">
 				</h1>
 				<h1>
-					<input type="checkbox" id="etc" value="etc" name="category">
-					<label for="etc" class="categoryname">기 타</label>
-				</h1>
-				<h1>
-					<input type="checkbox" id="all" value="all">
-					<label for="all" class="categoryall">전 체</label>
+					<input type="submit" id="etc" value="기타" name="category">
 				</h1>
 
 			</div>
-
-			<button type="submit" class="btn btn-lg btn-dark btn-ok" value="전송">보기</button>
-			<button type="reset" class="btn btn-lg btn-dark btn-ok" value="리셋">리셋</button>
 		</form>
 
 	</div>

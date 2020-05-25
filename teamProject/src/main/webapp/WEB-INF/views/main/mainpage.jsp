@@ -18,31 +18,31 @@
 		<div class="tab-pane fade show active region" id="map">
 			<img id="mainMap" name="mainMap" src="resources/image/map.gif" />
 			<form action="category" method="post">
-				<!-- 도봉구 --><button type="submit" class="btn btn-lg btn-dobong" name="area" value="도봉"></button>
-				<!-- 노원구 --><button type="submit" class="btn btn-lg btn-nowon" name="area" value="노원"></button>
-				<!-- 강북구 --><button type="submit" class="btn btn-lg btn-gangbuk" name="area" value="강북"></button>
-				<!-- 성북구 --><button type="submit" class="btn btn-lg btn-sungbuk" name="area" value="성북"></button>
-				<!-- 은평구 --><button type="submit" class="btn btn-lg btn-eunpyeong" name="area" value="은평"></button>
-				<!-- 서대문구 --><button type="submit" class="btn btn-lg btn-seodaemun" name="area" value="서대문"></button>
-				<!-- 종로구 --><button type="submit" class="btn btn-lg btn-jongro" name="area" value="종로"></button>
-				<!-- 동대문구 --><button type="submit" class="btn btn-lg btn-dongdaemun" name="area" value="동대문"></button>
-				<!-- 중랑구 --><button type="submit" class="btn btn-lg btn-jungrang" name="area" value="중랑"></button>
-				<!-- 중구 --><button type="submit" class="btn btn-lg btn-jung" name="area" value="중"></button>
-				<!-- 마포구 --><button type="submit" class="btn btn-lg btn-mapo" name="area" value="마포"></button>
-				<!-- 용산구 --><button type="submit" class="btn btn-lg btn-yongsan" name="area" value="용산"></button>
-				<!-- 성동구 --><button type="submit" class="btn btn-lg btn-sungdong" name="area" value="성동"></button>
-				<!-- 광진구 --><button type="submit" class="btn btn-lg btn-gwangjin" name="area" value="광진"></button>
-				<!-- 강서구--><button type="submit" class="btn btn-lg btn-gangseo" name="area" value="강서"></button>
-				<!-- 양천구 --><button type="submit" class="btn btn-lg btn-yangcheon" name="area" value="양천"></button>
-				<!-- 구로구 --><button type="submit" class="btn btn-lg btn-guro" name="area" value="구로"></button>
-				<!-- 영등포구 --><button type="submit" class="btn btn-lg btn-yeongdeungpo" name="area" value="영등포"></button>
-				<!-- 금천구 --><button type="submit" class="btn btn-lg btn-geumcheon" name="area" value="금천"></button>
-				<!-- 동작구 --><button type="submit" class="btn btn-lg btn-dongjak" name="area" value="동작"></button>
-				<!-- 관악구 --><button type="submit" class="btn btn-lg btn-gwanak" name="area" value="관악"></button>
-				<!-- 서초구 --><button type="submit" class="btn btn-lg btn-seocho" name="area" value="서초"></button>
-				<!-- 강남구 --><button type="submit" class="btn btn-lg btn-gangnam" name="area" value="강남"></button>
-				<!-- 송파구 --><button type="submit" class="btn btn-lg btn-songpa" name="area" value="송파"></button>
-				<!-- 강동구 --><button type="submit" class="btn btn-lg btn-gangdong" name="area" value="강동"></button>
+				<!-- 도봉구 --><button type="submit" class="btn btn-lg btn-dobong" name="area" value="도봉구"></button>
+				<!-- 노원구 --><button type="submit" class="btn btn-lg btn-nowon" name="area" value="노원구"></button>
+				<!-- 강북구 --><button type="submit" class="btn btn-lg btn-gangbuk" name="area" value="강북구"></button>
+				<!-- 성북구 --><button type="submit" class="btn btn-lg btn-sungbuk" name="area" value="성북구"></button>
+				<!-- 은평구 --><button type="submit" class="btn btn-lg btn-eunpyeong" name="area" value="은평구"></button>
+				<!-- 서대문구 --><button type="submit" class="btn btn-lg btn-seodaemun" name="area" value="서대문구"></button>
+				<!-- 종로구 --><button type="submit" class="btn btn-lg btn-jongro" name="area" value="종로구"></button>
+				<!-- 동대문구 --><button type="submit" class="btn btn-lg btn-dongdaemun" name="area" value="동대문구"></button>
+				<!-- 중랑구 --><button type="submit" class="btn btn-lg btn-jungrang" name="area" value="중랑구"></button>
+				<!-- 중구 --><button type="submit" class="btn btn-lg btn-jung" name="area" value="중구"></button>
+				<!-- 마포구 --><button type="submit" class="btn btn-lg btn-mapo" name="area" value="마포구"></button>
+				<!-- 용산구 --><button type="submit" class="btn btn-lg btn-yongsan" name="area" value="용산구"></button>
+				<!-- 성동구 --><button type="submit" class="btn btn-lg btn-sungdong" name="area" value="성동구"></button>
+				<!-- 광진구 --><button type="submit" class="btn btn-lg btn-gwangjin" name="area" value="광진구"></button>
+				<!-- 강서구--><button type="submit" class="btn btn-lg btn-gangseo" name="area" value="강서구"></button>
+				<!-- 양천구 --><button type="submit" class="btn btn-lg btn-yangcheon" name="area" value="양천구"></button>
+				<!-- 구로구 --><button type="submit" class="btn btn-lg btn-guro" name="area" value="구로구"></button>
+				<!-- 영등포구 --><button type="submit" class="btn btn-lg btn-yeongdeungpo" name="area" value="영등포구"></button>
+				<!-- 금천구 --><button type="submit" class="btn btn-lg btn-geumcheon" name="area" value="금천구"></button>
+				<!-- 동작구 --><button type="submit" class="btn btn-lg btn-dongjak" name="area" value="동작구"></button>
+				<!-- 관악구 --><button type="submit" class="btn btn-lg btn-gwanak" name="area" value="관악구"></button>
+				<!-- 서초구 --><button type="submit" class="btn btn-lg btn-seocho" name="area" value="서초구"></button>
+				<!-- 강남구 --><button type="submit" class="btn btn-lg btn-gangnam" name="area" value="강남구"></button>
+				<!-- 송파구 --><button type="submit" class="btn btn-lg btn-songpa" name="area" value="송파구"></button>
+				<!-- 강동구 --><button type="submit" class="btn btn-lg btn-gangdong" name="area" value="강동구"></button>
 			</form>
 		</div>
 

@@ -265,15 +265,16 @@ public class SignUpController {
 
 	
 //	로그아웃
-	@RequestMapping(value="/buyerLogout")
+	@RequestMapping(value="/logout")
 	public String buyerLogout(HttpServletRequest req) {
 		System.out.println("컨트롤러에서 logout에 들어옴");
 		
 		HttpSession session = req.getSession();
 		session.removeAttribute("buyer_id");
+		session.removeAttribute("seller_id");
 		session.removeAttribute("pw");
 		
-		return "main/mainpage";
+		return "login/logout";
 	}
 
 }

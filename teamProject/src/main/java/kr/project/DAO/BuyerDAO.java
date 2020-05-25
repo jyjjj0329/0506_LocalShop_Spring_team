@@ -1,20 +1,18 @@
-<<<<<<< HEAD
 package kr.project.DAO;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+
+import kr.project.VO.BuyerVO;
+import kr.project.VO.SellerGdsVO;
 
 public interface BuyerDAO {
 
 	int buyerLogin(HashMap<String, String> hmap);
 
-}
-=======
-package kr.project.DAO;
+	int sellectCount(HashMap<String, Object> hmap);
 
-
-import kr.project.VO.BuyerVO;
-
-public interface BuyerDAO {
+	ArrayList<SellerGdsVO> selectList(HashMap<String, Object> hmap);
 	
 	void buyerInsert(BuyerVO buyerVO);
 	
@@ -23,4 +21,3 @@ public interface BuyerDAO {
 	int CheckNickname(String nickname);
 	
 }
->>>>>>> refs/heads/mkw
