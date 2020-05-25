@@ -1,4 +1,4 @@
-<!-- 푸터 부분 -->
+<!-- 푸터부분 -->
 		</div>
 		<div class="footer" align="center"> Yeji's Work copyright</div>
 	</div>

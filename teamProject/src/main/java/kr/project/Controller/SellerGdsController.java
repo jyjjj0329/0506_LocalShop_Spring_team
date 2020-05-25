@@ -42,10 +42,12 @@ public class SellerGdsController {
 		String id = (String) session.getAttribute("seller_id");
 		System.out.println("컨트롤러에서 seller_id의 값은 : " + id);
 		
-//		가게 이미지 가져오기 위한 store 이름 가져오기.
+//		가게 이미지와 가게 번호 가져오기 위한 store 이름 가져오기.
 		sellerVO = mapper.store(id); 
-		System.out.println("store의 값은 : " + sellerVO.getStore());
-		System.out.println("phoneNum의 값은 : " + sellerVO.getPhonenum());
+		session.setAttribute("store", sellerVO.getStore());
+		session.setAttribute("phoneNum", sellerVO.getPhonenum());
+		System.out.println("store의 값은 : " + session.getAttribute("store"));
+		System.out.println("phoneNum의 값은 : " + session.getAttribute("phoneNum"));
 		
 //		폴더 안에 들어있는 파일 갯수들 가져오는 코드들.
 //		반드시 자바에서 경로는 절댓값으로 잡아줘야함. 상대경로는 인식 못하는것같습니다
@@ -70,8 +72,6 @@ public class SellerGdsController {
 		}
 		System.out.println("파일의 갯수 : " + count);
 		
-		model.addAttribute("store", sellerVO.getStore());
-		model.addAttribute("phoneNum", sellerVO.getPhonenum());
 		model.addAttribute("count", count);
 		model.addAttribute("extension", extension);
 		

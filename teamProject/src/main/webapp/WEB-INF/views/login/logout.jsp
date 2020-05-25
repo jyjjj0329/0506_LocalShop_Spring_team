@@ -6,3 +6,4 @@
 <script type="text/javascript" src="resources/js/login.js"></script>
 
 <body onload="logout()"/>
+
