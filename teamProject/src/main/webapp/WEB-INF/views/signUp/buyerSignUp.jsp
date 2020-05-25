@@ -1,44 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<% request.setCharacterEncoding("UTF-8"); %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<jsp:include page="/WEB-INF/layout/nav.jsp"/>
 <title>소비자 회원가입</title>
-<script type="text/javascript" src="resources/js/buyerSignUp.js"></script>
+<script type="text/javascript" src="resources/js/buySignUp.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
-	<form action="buyerSignUpOK" id="buyerSignUp" method="post" enctype="multipart/fomr-data">
-		<h2 align="center">소비자 회원가입</h2>
-		<table align="center">
+	<form action="buyerSignUpOK" id="buyerSignUp" method="post" enctype="multipart/form-data">
+		<table align="left">
 			<tr>
 				<th>이름</th>
-				<td><input id="name" type="text"/></td>
+				<td><input id="name" name="name" type="text"/></td>
 			</tr>
 			<tr>
 				<th>아이디</th>
 				<td height="40px">
 					<input id="id" name="id" type="text"/>
-					<input type="submit" value="중복확인" onclick="CheckID()">
+					<input type="button" value="중복확인" onclick="CheckID()">
 					<input type="hidden" name="hidden1" id="hidden1" value="unCheck">
 				</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
-				<td><input id="pw" type="password"/></td>
+				<td><input id="pw" name="pw" type="password"/></td>
 			</tr>
 			<tr>
 				<th>비밀번호 확인</th>
 				<td>
-					<input id="pwCheck" type="password"/>
+					<input id="pwCheck" name="pwCheck" type="password"/>
 				</td>
 			</tr>
 			<tr>
 				<th>별명</th>
 				<td>
-					<input id="nickname" type="text"/>
-					<input type="submit" value="중복확인" onclick="CheckNickname()">
+					<input id="nickname" name="nickname" type="text"/>
+					<input type="button" value="중복확인" onclick="CheckNickname()">
 					<input type="hidden" name="hidden2"	id="hidden2" value="unCheck">
 				</td>
 			</tr>
@@ -50,14 +48,14 @@
 				</td>
 			</tr>
 			<tr>
-				<th>생년월일</th>
-				<td><input id="age" type="number"/></td>
+				<th>나이</th>
+				<td><input id="age" name="age" type="number"/></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
 				<td>
-					<input id="email1" type="text" style="width:80px"/>@&nbsp;
-					<input id="email2" type="text" style="width:80px"/>
+					<input id="email1" name="email1" type="text" style="width:80px"/>&nbsp;@&nbsp;
+					<input id="email2" name="email2" type="text" style="width:80px"/>
 					<select name="eamil3" id="email3" onchange="emailChange()">
 						<option value="직접입력" selected>직접입력</option>
 						<option value="naver.com">naver.com</option>
@@ -69,27 +67,27 @@
 			<tr>
 				<th>*전화번호</th>
 				<td>
-					<select id="phone">
+					<select id="phone" name="phone">
 						<option value="skt">SKT</option>
 						<option value="kt">KT</option>
 						<option value="lg">LG</option>
 					</select>
-					<input name="phonenum" type="tel" style="width:90px;"/>
+					<input name="phonenum" type="tel" style="width:120px;"/>
 				</td>
 			</tr>
 			<tr>
 				<th>카드 번호</th>
 				<td>
-					<input name="cardNum" type="text" style="width:40px"/>
-					<input name="cardNum" type="text" style="width:40px"/>
-					<input name="cardNum" type="text" style="width:40px"/>
-					<input name="cardNum" type="text" style="width:40px"/>
+					<input name="cardNum1" type="text" style="width:40px"/>
+					<input name="cardNum2" type="text" style="width:40px"/>
+					<input name="cardNum3" type="text" style="width:40px"/>
+					<input name="cardNum4" type="text" style="width:40px"/>
 				</td>
 			</tr>
 			<tr>
 				<th>지역</th>
 				<td>
-					<select id="area" style="height:20px">
+					<select id="area" name="area" style="height:30px">
 						<option value="강남구">강남구</option>
 						<option value="강동구">강동구</option>
 						<option value="강북구">강북구</option>
@@ -119,24 +117,26 @@
 				</td>
 			</tr>
 			<tr>
-				<th>주소</th>
+				<th rowspan="2">주소</th>
 				<td>
 					<input type="text" id="postcode" name="postcode" placeholder="우편번호" readonly style="width: 100px">
 					<input type="button" onclick="addressAPI()" value="우편번호 찾기"><br>
 					<input type="text" id="address1" name="address1" placeholder="도로명주소" readonly style="width: 250px;">
 					<input type="hidden" id="address2" name="address2" placeholder="지번주소" readonly>
 					<span id="guide" style="color:#999;display:none"></span>
+				</td>
+			<tr>
+				<td>
 					<input type="text" id="address3" name="address3" placeholder="상세주소">
 				</td>
 			</tr>
-			<tr>
-			<td colspan="2" align="center" style="margin-top: 10px">
-				<input type="button" value="회원가입" onclick="sellSignUp()"/>
-				<input type="reset" value="초기화"/>
-				<input type="button" value="뒤로가기" onclick="history.back()"/>
-			</td> 
+			<tr style="height: 80px">
+				<td colspan="2" align="center">
+					<input type="button" value="회원가입" onclick="buySignUp()"/>
+					<input type="reset" value="초기화"/>
+					<input type="button" value="뒤로가기" onclick="history.back()"/>
+				</td> 
 			</tr>
 		</table>
 	</form>
 </body>
-</html>

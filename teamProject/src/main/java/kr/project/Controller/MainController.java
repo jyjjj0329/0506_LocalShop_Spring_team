@@ -36,7 +36,6 @@ public class MainController {
 	@RequestMapping("/mainpage")
 	private String mainpage() {
 		System.out.println("컨트롤러에서 mainpage로 들어옴");
-		
 		return "main/mainpage";
 	}
 	

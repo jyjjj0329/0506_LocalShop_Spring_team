@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.project.DAO.BuyerDAO;
 import kr.project.DAO.SellerGdsDAO;
+import kr.project.VO.BuyerVO;
 import kr.project.VO.SellerVO;
 
 @Controller
@@ -95,7 +96,7 @@ public class SignUpController {
 		List<MultipartFile> fileList = mtp.getFiles("storeImg[]");
 		System.out.println("컨트롤러에서 fileList의 size의 값은 : " + fileList.size());
 		/** fileList의 사이즈가 1보다 크면(파일이 있으면) 밑에를 실행해라. */
-		if(fileList.size() > 1) {
+		if(fileList.size() > 0) {
 			storeimg_Name = i + "-";
 			int j = 1;
 			for(MultipartFile mf : fileList) {
@@ -188,16 +189,79 @@ public class SignUpController {
 		return "login/loginResult";
 	}
 	
-	/** ----------------------------------------판매자 페이지 끝 */
+// 판매자 페이지 끝	============================================================================
 	
-	/** 소비자 회원가입 */
-	
-	@RequestMapping(value = "/buyerSignUpOK")
-	public String buyerSignUp() {
+//	소비자 회원가입 페이지
+	@RequestMapping(value = "/buyerSignUp")
+	public String buyerSignUp(){
+		System.out.println("컨트롤러에서 buyerSignUp 페이지 들어옴");
 		
+		return "signUp/buyerSignUp";
+	}
+	
+//	ID 중복체크
+	@RequestMapping(value = "/buyerCheckID")
+	public String buyerCheckID(HttpServletRequest req, Model model) {
+		System.out.println("컨트롤러에서 buyerCheckID 들어옴.");
+		
+		String id = req.getParameter("id");
+		System.out.println("buyerCheckID에서 id의 값은 : " + id);
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		int result = mapper.CheckID(id);
+		System.out.println("buyerCheckID에서 result의 값은 : " + result);
+		
+		model.addAttribute("result", result);
+		model.addAttribute("id", id);
+		
+		return "signUp/buyerCheckID";
+	}
+	
+//	별명 중복체크
+	@RequestMapping(value = "/buyerCheckNickname")
+	public String buyerCheckNickname(HttpServletRequest req, Model model) {
+		System.out.println("컨트롤러에서 buyerCheckNickname 들어옴.");
+		
+		String nickname = req.getParameter("nickname");
+		System.out.println("buyerCheckNickname에서 nickname의 값은 : " + nickname);
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		int result = mapper.CheckNickname(nickname);
+		System.out.println("buyerCheckNickname에서 result의 값은 : " + result);
+		
+		model.addAttribute("result", result);
+		model.addAttribute("nickname", nickname);
+		
+		return "signUp/buyerCheckNickname";
+	}
+	
+//	소비자 회원가입 완료 페이지
+	@RequestMapping(value = "/buyerSignUpOK")
+	public String buyerSignUpOK(HttpServletRequest req, BuyerVO buyerVO, 
+			MultipartHttpServletRequest mtp) {
+		
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		
+		
+//		합쳐서 넣어줘야 하는것들 따로 값을 넣어줌.
+		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
+		buyerVO.setEmail(email);
+		String Phone = "(" + req.getParameter("phone") + ")" + req.getParameter("phonenum");
+		buyerVO.setPhonenum(Phone);
+		String cardNum = req.getParameter("cardNum1") + req.getParameter("cardNum2")
+		+ req.getParameter("cardNum3") + req.getParameter("cardNum4");
+		System.out.println("cardNum의 값은 : " + cardNum);
+		buyerVO.setCardNum(cardNum);
+		String address = "(" + req.getParameter("postcode") + ")" + req.getParameter("address1")
+		 + req.getParameter("address2") + " " + req.getParameter("address3");
+		buyerVO.setAddress(address);
+
+		mapper.buyerInsert(buyerVO);
+		
+		System.out.println("컨트롤러에서 buyerVO의 값은 : " + buyerVO.toString());
+
 		return "main/mainpage";
 	}
 	
+
 	
 	/** 로그아웃 */
 	@RequestMapping(value="/logout")
@@ -214,4 +278,5 @@ public class SignUpController {
 		
 		return "login/logout";
 	}
+
 }

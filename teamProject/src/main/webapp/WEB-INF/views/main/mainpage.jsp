@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>    
+<% request.setCharacterEncoding("UTF-8"); %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%@ page session="false" %>
 <link rel="stylesheet" href="resources/css/style-mainpage.css" />
 <link rel="stylesheet" type ="text/css" href="resources/css/common.css">
@@ -50,7 +51,6 @@
 			<div id="list_area">
             <div class="area_list">
                 <ul>
-                    
                         <li data-id="1"><span>도봉구</span></li>
                         <li data-id="2"><span>노원구</span></li>
                         <li data-id="3"><span>강북구</span></li>                        
