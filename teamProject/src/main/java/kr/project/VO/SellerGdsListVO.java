@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+/** 페이징 VO */
 @Repository
 public class SellerGdsListVO {
 	
@@ -17,8 +18,6 @@ public class SellerGdsListVO {
 	private int currentPage = 1;
 	private int startNo = 0;
 	private int endNo = 0;
-	private int startPage = 0;
-	private int endPage = 0;
 	
 	public SellerGdsListVO() { }
 	
@@ -38,9 +37,6 @@ public class SellerGdsListVO {
 		startNo = (currentPage - 1) * pageSize + 1;
 		endNo = startNo + pageSize - 1;
 		endNo = endNo > totalCount ? totalCount : endNo;
-		startPage = (currentPage - 1) / 10 * 10 + 1;
-		endPage = startPage + 4;
-		endPage = endPage > totalPage ? totalPage : endPage;
 	}
 	
 	public ArrayList<SellerGdsVO> getSellerGdsVO() {
@@ -85,18 +81,6 @@ public class SellerGdsListVO {
 	}
 	public void setEndNo(int endNo) {
 		this.endNo = endNo;
-	}
-	public int getStartPage() {
-		return startPage;
-	}
-	public void setStartPage(int startPage) {
-		this.startPage = startPage;
-	}
-	public int getEndPage() {
-		return endPage;
-	}
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
 	}
 	
 	

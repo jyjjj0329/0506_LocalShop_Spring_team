@@ -3,10 +3,10 @@
 <% request.setCharacterEncoding("UTF-8"); %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type ="text/css" href="resources/css/layout.css">
-<c:if test="${seller_id != null }">
+<c:if test="${sessionScope.seller_id != null }">
 	<jsp:include page="/WEB-INF/layout/sellerNav.jsp"/>
 </c:if>
-<c:if test="${seller_id == null }">
+<c:if test="${sessionScope.seller_id == null }">
 	<jsp:include page="/WEB-INF/layout/nav.jsp"/>
 	<caption><h5 style="margin: 10px">${area } >> ${category } >> </h5></caption>
 </c:if>
@@ -21,6 +21,9 @@
 <div class="container">
 <div class="card-deck" style="margin: 30px;">
 <c:forEach var="vo" items="${list }">
+<c:if test="${sessionScope.seller_id != null }">
+<a href="gdsUpdate?idx=${vo.idx }">
+</c:if>
 <div class="container" style="width:24%; display: inline-table; margin: 0px auto;">
 <div class="card" style="border: 0; outline: none; margin: 10px; padding: 0px;">
     <%-- <div class="card-header">
@@ -34,18 +37,20 @@
     </div>
   </div>
 </div>
+<c:if test="${sessionScope.seller_id != null }">
+	</a>
+</c:if>
 </c:forEach>
 </div>
-
 <!-- 페이징 -->
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item">
     <c:if test="${sellerGdsListVO.currentPage > 3}">
-		<c:if test="${seller_id != null }">
+		<c:if test="${sessionScope.seller_id != null }">
 			<a class="page-link" aria-label="Previous" href="sellerList?page=${sellerGdsListVO.currentPage - 3 }">
 		</c:if>
-		<c:if test="${seller_id == null }">
+		<c:if test="${sessionScope.seller_id == null }">
 			<a class="page-link" aria-label="Previous" href="buyerList?page=${sellerGdsListVO.currentPage - 3 }&area=${area}&category=${category}">
 		</c:if>
 			<span aria-hidden="true">&laquo;</span>
@@ -54,23 +59,23 @@
 	</c:if>
     </li>
     <c:if test="${sellerGdsListVO.currentPage > 2}">
-    <li class="page-item">
-	<c:if test="${seller_id != null }">
-		<a class="page-link" href="sellerList?page=${sellerGdsListVO.currentPage - 2 }">
-	</c:if>
-	<c:if test="${seller_id == null }">
-		<a class="page-link" href="buyerList?page=${sellerGdsListVO.currentPage - 2 }&area=${area}&category=${category}">
-	</c:if>
-			${sellerGdsListVO.currentPage - 2 }
-		</a>
-    </li>
+	    <li class="page-item">
+			<c:if test="${sessionScope.seller_id != null }">
+				<a class="page-link" href="sellerList?page=${sellerGdsListVO.currentPage - 2 }">
+			</c:if>
+			<c:if test="${sessionScope.seller_id == null }">
+				<a class="page-link" href="buyerList?page=${sellerGdsListVO.currentPage - 2 }&area=${area}&category=${category}">
+			</c:if>
+					${sellerGdsListVO.currentPage - 2 }
+				</a>
+	    </li>
 	</c:if>
     <li class="page-item">
     	<c:if test="${sellerGdsListVO.currentPage > 1}">
-			<c:if test="${seller_id != null }">
+			<c:if test="${sessionScope.seller_id != null }">
 				<a class="page-link" href="sellerList?page=${sellerGdsListVO.currentPage - 1 }">
 			</c:if>
-			<c:if test="${seller_id == null }">
+			<c:if test="${sessionScope.seller_id == null }">
 				<a class="page-link" href="buyerList?page=${sellerGdsListVO.currentPage - 1 }&area=${area}&category=${category}">
 			</c:if>
 					${sellerGdsListVO.currentPage - 1 }
@@ -84,10 +89,10 @@
     </li>
     <li class="page-item">
     	<c:if test="${sellerGdsListVO.currentPage < sellerGdsListVO.totalPage}">
-			<c:if test="${seller_id != null }">
+			<c:if test="${sessionScope.seller_id != null }">
 				<a class="page-link" href="sellerList?page=${sellerGdsListVO.currentPage + 1 }">
 			</c:if>
-			<c:if test="${seller_id == null }">
+			<c:if test="${sessionScope.seller_id == null }">
 				<a class="page-link" href="buyerList?page=${sellerGdsListVO.currentPage + 1 }&area=${area}&category=${category}">
 			</c:if>
 					${sellerGdsListVO.currentPage + 1 }
@@ -96,10 +101,10 @@
     </li>
     <li class="page-item">
     	<c:if test="${sellerGdsListVO.currentPage + 1 < sellerGdsListVO.totalPage}">
-			<c:if test="${seller_id != null }">
+			<c:if test="${sessionScope.seller_id != null }">
 				<a class="page-link" href="sellerList?page=${sellerGdsListVO.currentPage + 2 }">
 			</c:if>
-			<c:if test="${seller_id == null }">
+			<c:if test="${sessionScope.seller_id == null }">
 				<a class="page-link" href="buyerList?page=${sellerGdsListVO.currentPage + 2 }&area=${area}&category=${category}">
 			</c:if>
 					${sellerGdsListVO.currentPage + 2 }
@@ -108,10 +113,10 @@
     </li>
     <c:if test="${sellerGdsListVO.currentPage + 2 < sellerGdsListVO.totalPage}">
     <li class="page-item">
-		<c:if test="${seller_id != null }">
+		<c:if test="${sessionScope.seller_id != null }">
 			<a class="page-link" aria-label="Next" href="sellerList?page=${sellerGdsListVO.currentPage + 3 }">
 		</c:if>
-		<c:if test="${seller_id == null }">
+		<c:if test="${sessionScope.seller_id == null }">
 			<a class="page-link" aria-label="Next" href="buyerList?page=${sellerGdsListVO.currentPage + 3 }&area=${area}&category=${category}">
 		</c:if>
 	        <span aria-hidden="true">&raquo;</span>
@@ -122,10 +127,10 @@
 </nav>
 </div>
 </c:if>
-<c:if test="${seller_id != null }">
+<c:if test="${sessionScope.seller_id != null }">
 	<jsp:include page="/WEB-INF/layout/sellerFooter.jsp"/>
 </c:if>
-<c:if test="${seller_id == null }">
+<c:if test="${sessionScope.seller_id == null }">
 </body>
 </html>
 </c:if>

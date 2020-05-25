@@ -3,9 +3,13 @@
 
 <mapper namespace="kr.project.DAO.SellerGdsDAO">
 
+<select id="selectarea" parameterType="String" resultType="String">
+	select area from seller where id = #{seller_id}
+</select>
+
 <insert id="insert" parameterType="sellerGdsVO">
 	insert into sellgds values (sellgds_idx.nextval, #{seller_id}, #{price}, 
-	#{num}, #{name}, #{origin}, #{category}, #{content}, sysdate, #{image_name}, #{image_size})
+	#{num}, #{name}, #{origin}, #{area}, #{category}, #{content}, sysdate, #{image_name}, #{image_size})
 </insert>
 
 <select id="selectList" resultType="sellerGdsVO" parameterType="java.util.HashMap">
@@ -16,8 +20,20 @@
 	]]>
 </select>
 
-<select id="sellectCount" resultType="int" parameterType="String">
+<select id="soldSelectList" resultType="goodsSoldVO" parameterType="java.util.HashMap">
+	<![CDATA[
+	select * from 
+	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM payment order by idx desc) 
+	TT where seller_id = #{seller_id}) where rn >= #{startNo} AND rn <= #{endNo}
+	]]>
+</select>
+
+<select id="selectCount" resultType="int" parameterType="String">
 	select count(*) from sellgds where seller_id = #{seller_id}
+</select>
+
+<select id="soldSelectCount" resultType="int" parameterType="String">
+	select count(*) from payment where seller_id = #{seller_id}
 </select>
 
 <select id="CheckID" parameterType="String" resultType="int">

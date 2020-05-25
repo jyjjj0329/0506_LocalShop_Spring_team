@@ -3,8 +3,8 @@
 <mapper namespace="kr.project.DAO.BuyerDAO">
 
 <insert id="buyerInsert" parameterType="buyerVO">
-	insert into buyer values (buyer_idx.nextval, #{name}, #{id}, 
-	#{pw}, #{nickname}, #{gender}, #{age}, #{email}, #{phonenum}, #{cardNum}, #{area}, #{address})
+	insert into buyer values (buyer_idx.nextval, #{id}, #{pw}, #{name}, 
+	#{nickname}, #{gender}, #{age}, #{email}, #{phonenum}, #{cardNum}, #{area}, #{address})
 </insert>
 
 <select id="CheckID" parameterType="String" resultType="int">

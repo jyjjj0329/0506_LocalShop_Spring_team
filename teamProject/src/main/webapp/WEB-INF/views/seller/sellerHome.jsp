@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% request.setCharacterEncoding("UTF-8"); %>  
-<link rel="stylesheet" type="text/css" href="resources/css/seller.css">  
 <jsp:include page="/WEB-INF/layout/sellerNav.jsp"/>
 
 <div class="container">
@@ -19,12 +18,12 @@
     <div class="carousel-inner">
 
       <div class="item active">
-        <img src="resources/storeImage/${store}/1-1${extension[1]}" alt="1번째 slide" class="img">
+        <img src="resources/storeImage/${sessionScope.store}/1-1${extension[1]}" alt="1번째 slide" class="img">
       </div>
 
 	<c:forEach var="i" begin="2" end="${count }">
       <div class="item">
-        <img src="resources/storeImage/${store}/1-${i}${extension[i]}" alt="${i }번째 slide" class="img">
+        <img src="resources/storeImage/${sessionScope.store}/1-${i}${extension[i]}" alt="${i }번째 slide" class="img">
       </div>
      </c:forEach>
     

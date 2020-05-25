@@ -2,6 +2,7 @@ package kr.project.VO;
 
 import org.springframework.stereotype.Repository;
 
+/** 판매 물품 VO */
 @Repository
 public class SellerGdsVO {
 
@@ -12,6 +13,7 @@ public class SellerGdsVO {
 	private String category;
 	private String name;
 	private String origin;
+	private String area;
 	private String content; 
 	private String image_name;
 	private long image_size;
@@ -76,12 +78,20 @@ public class SellerGdsVO {
 	public void setImage_size(long image_size) {
 		this.image_size = image_size;
 	}
+	
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
 	@Override
 	public String toString() {
 		return "SellerGdsVO [seller_id=" + seller_id + ", idx=" + idx + ", price=" + price + ", num=" + num
-				+ ", category=" + category + ", name=" + name + ", origin=" + origin + ", content=" + content
-				+ ", image_name=" + image_name + ", image_size=" + image_size + "]";
+				+ ", category=" + category + ", name=" + name + ", origin=" + origin + ", area=" + area + ", content="
+				+ content + ", image_name=" + image_name + ", image_size=" + image_size + "]";
 	}
+
 	
 	
 	
