@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.project.DAO.BuyerDAO;
-import kr.project.DAO.SellerGdsDAO;
 import kr.project.VO.SellerGdsListVO;
 
 @Controller
