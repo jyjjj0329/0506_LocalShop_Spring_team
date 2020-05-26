@@ -260,17 +260,41 @@ public class SellerGdsController {
 		goodsSoldList.initPageList(pageSize, goodsSoldList.getTotalCount(), page);
 		
 		HashMap<String, Object> hmap = new HashMap<String, Object>();
-		hmap.put("startNo", sellerGdsListVO.getStartNo());
-		hmap.put("endNo", sellerGdsListVO.getEndNo());
+		hmap.put("startNo", goodsSoldList.getStartNo());
+		hmap.put("endNo", goodsSoldList.getEndNo());
 		hmap.put("seller_id", seller_id);
 		goodsSoldList.setGoodsSoldVO(mapper.soldSelectList(hmap));
 		
 		/** goodsSoldVO를 jsp파일에서 가져오기 위해 모델에 넣어줌. */
 		model.addAttribute("goodsSoldList", goodsSoldList);
-		System.out.println("컨트롤러 나감.");
-		
+		System.out.println("컨트롤러에서 goodsSoldList의 값은 : " + goodsSoldList.toString());
 		return "seller/goodsSold";
 	}
 	
+	
+	@RequestMapping(value = "start_DEL", method = RequestMethod.GET)
+	public String start_DEL(HttpServletRequest req) {
+		System.out.println("컨트롤러에서 start_DEL에 들어옴.");
+		int idx = Integer.parseInt(req.getParameter("idx"));
+		System.out.println("컨트롤러에서 idx의 값은 : " + idx);
+		
+		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
+		mapper.start_DEL(idx);
+		
+		return "redirect:goodsSold?page=1";
+	}
+	
+	@RequestMapping(value = "complate_DEL", method = RequestMethod.GET)
+	public String complate_DEL(HttpServletRequest req) {
+		System.out.println("컨트롤러에서 complate_DEL에 들어옴.");
+		
+		int idx = Integer.parseInt(req.getParameter("idx"));
+		System.out.println("컨트롤러에서 idx의 값은 : " + idx);
+		
+		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
+		mapper.complate_DEL(idx);
+		
+		return "redirect:goodsSold?page=1";
+	}
 	
 }

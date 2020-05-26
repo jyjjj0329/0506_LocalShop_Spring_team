@@ -22,8 +22,7 @@
 
 <select id="soldSelectList" resultType="goodsSoldVO" parameterType="java.util.HashMap">
 	<![CDATA[
-	select * from 
-	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM payment order by idx desc) 
+	select * from (SELECT ROWNUM rn, tt.* FROM (SELECT * FROM payment order by idx desc) 
 	TT where seller_id = #{seller_id}) where rn >= #{startNo} AND rn <= #{endNo}
 	]]>
 </select>
@@ -67,5 +66,13 @@
 <select id="store" parameterType="String" resultType="sellerVO">
 	select store, phonenum from seller where id = #{id}
 </select>
+
+<update id="start_DEL" parameterType="int">
+	update payment set del_status = '배송 중' where idx = #{idx}
+</update>
+
+<update id="complate_DEL" parameterType="int">
+	update payment set del_status = '배송 완료' where idx = #{idx}
+</update>
 
 </mapper>

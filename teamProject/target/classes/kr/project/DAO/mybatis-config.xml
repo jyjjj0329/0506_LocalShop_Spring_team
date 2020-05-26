@@ -7,5 +7,6 @@
 		<typeAlias alias="sellerVO" type="kr.project.VO.SellerVO"/>
 		<typeAlias alias="buyerVO" type="kr.project.VO.BuyerVO"/>
 		<typeAlias alias="goodsSoldVO" type="kr.project.VO.GoodsSoldVO"/>
+		<typeAlias alias="goodsSoldList" type="kr.project.VO.GoodsSoldList"/>
 	</typeAliases>
 </configuration>

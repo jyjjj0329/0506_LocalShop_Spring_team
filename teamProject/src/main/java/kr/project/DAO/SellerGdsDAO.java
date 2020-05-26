@@ -35,4 +35,8 @@ public interface SellerGdsDAO {
 
 	ArrayList<GoodsSoldVO> soldSelectList(HashMap<String, Object> hmap);
 
+	void start_DEL(int idx);
+
+	void complate_DEL(int idx);
+
 }

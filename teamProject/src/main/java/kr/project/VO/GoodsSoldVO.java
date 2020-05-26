@@ -1,18 +1,37 @@
 package kr.project.VO;
 
-import org.springframework.stereotype.Repository;
-
 /** 판매된 물품 리스트 */
-@Repository
 public class GoodsSoldVO {
 
 	private int idx;
 	private String buyer_id;
 	private String seller_id;
+	private String goods_name;
+	private String img_name;
+	private String extension;
 	private String del_status;
 	private String name;
 	private String phonenum;
 	private String address;
+	
+	public String getGoods_name() {
+		return goods_name;
+	}
+	public void setGoods_name(String goods_name) {
+		this.goods_name = goods_name;
+	}
+	public String getImg_name() {
+		return img_name;
+	}
+	public void setImg_name(String img_name) {
+		this.img_name = img_name;
+	}
+	public String getExtension() {
+		return extension;
+	}
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}
 	public int getIdx() {
 		return idx;
 	}
