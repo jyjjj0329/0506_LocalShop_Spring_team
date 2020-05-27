@@ -6,18 +6,18 @@
 <head>
 <title>Bootstrap Example</title>
 
-<link rel="stylesheet" type="text/css" href="layout/layout.css">
+<link href="resources/css/login.css" rel="stylesheet"/>
+<link rel="stylesheet" href="resources/css/style-mainpage.css" />
+<script type="text/javascript" src="resources/js/login.js"></script>
+
+<!-- Bootstrap CSS -->
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
-<!-- Bootstrap CSS -->
-
-<link rel="stylesheet" href="resources/css/style-mainpage.css" />
-
-
+<!-- 네비게이션 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -45,13 +45,18 @@
 					<span class="navbar-toggler-icon"></span>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-right">
-					<li><a class="dropdown-item" href="#">고객지원</a></li>
-					<li><a class="dropdown-item" href="#">마이페이지</a></li>
+					<c:if test="${sessionScope.seller_id == null && sessionScope.buyer_id == null}">
 					<li><a class="dropdown-item" href="login">로그인</a></li>
 					<li><a class="dropdown-item" href="signUp">회원가입</a></li>
+					<li><a class="dropdown-item" href="consumerFAQ">고객센터</a></li>
+					</c:if>
+					<c:if test="${sessionScope.buyer_id != null }">
+					<li><a class="dropdown-item" href="#">마이페이지</a></li>
+					<li><a class="dropdown-item" href="logout">로그아웃</a></li>
+					<li><a class="dropdown-item" href="consumerFAQ">고객센터</a></li>
+					</c:if>
 					<c:if test="${sessionScope.seller_id != null }">
-						<li><a class="dropdown-item" href="sellerInsert">판매 물품 등록</a></li>
-						<li><a class="dropdown-item" href="sellerList?page=1">판매 리스트</a></li>
+					<li><a class="dropdown-item" href="seller">판매자 Home</a></li>
 					</c:if>
 				</ul>
 			</div>

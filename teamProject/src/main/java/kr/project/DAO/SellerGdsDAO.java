@@ -18,12 +18,14 @@ public interface SellerGdsDAO {
 
 	void sellerInsert(SellerVO sellerVO);
 
-	int login(HashMap<String, String> hmap);
-
+	int sellerLogin(HashMap<String, String> hmap);
+	
 	SellerGdsVO updateList(int idx);
 
 	void gdsDelete(int idx);
 
 	void gdsUpdate(SellerGdsVO sellerGdsVO);
+
+	SellerVO store(String id);
 
 }

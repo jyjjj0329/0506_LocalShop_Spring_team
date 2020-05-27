@@ -1,11 +1,14 @@
+
 package kr.project.VO;
 
 import org.springframework.stereotype.Repository;
 
-// 일반 회원(소비자)의 회원가입 정보 한 건
+/** 일반 회원(소비자)의 회원가입 정보 한 건 */
 
 @Repository
 public class BuyerVO {
+	/** 인덱스, 이름, 아이디, 비밀번호, 별명, 성별,
+	 * 나이, 이메일, 휴대폰 번호, 카드 번호, 지역, 주소 */
 	private int idx;
 	private String name;
 	private String id;

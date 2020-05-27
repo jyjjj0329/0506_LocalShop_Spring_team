@@ -27,11 +27,6 @@ public class SignUpController {
 	@Autowired
 	public SqlSession sqlSession;
 	
-	@RequestMapping(value = "/dd")
-	public String home() {
-		
-		return "index";
-	}
 	
 //	회원가입 버튼 클릭시
 	@RequestMapping(value = "/signUp")
@@ -83,12 +78,12 @@ public class SignUpController {
 		
 		/* 파일 추가 부분. */
 //		확장자
-		String extension = null;
+		String extension = ".png";
 //		경로
 		String filePath = "C:/Users/CHOYEJI/git/teamProject/teamProject/src/main"
 				+ "/webapp/resources/storeImage/" + store + "/";
 //		가게 사진 이름
-		String storeimg_Name = "사진 안올림";
+		String storeimg_Name = "storeImg";
 		System.out.println(filePath);
 		
 //		폴더 없으면 생성
@@ -97,12 +92,11 @@ public class SignUpController {
 			fileDirectory.mkdir();
 			System.out.println("폴더 생성!!!");
 		}
-		
 //		list배열로 파일들 다 받음
 		List<MultipartFile> fileList = mtp.getFiles("storeImg[]");
-		
-//		fileList의 사이즈가 0보다 크면(파일이 있으면) 밑에를 실행해라.
-		if(fileList.size() > 0) {
+		System.out.println("컨트롤러에서 fileList의 size의 값은 : " + fileList.size());
+//		fileList의 사이즈가 1보다 크면(파일이 있으면) 밑에를 실행해라.
+		if(fileList.size() > 1) {
 			storeimg_Name = i + "-";
 			int j = 1;
 			for(MultipartFile mf : fileList) {
@@ -148,9 +142,33 @@ public class SignUpController {
 		return "login/login";
 	}
 	
-//	로그인
-	@RequestMapping(value = "/loginResult")
-	public String loginResult(HttpServletRequest req, Model model) {
+//	소비자 로그인
+	@RequestMapping(value = "/buyerLoginResult")
+	public String buyerLoginResult(HttpServletRequest req, Model model) {
+		String id = req.getParameter("id");
+		String pw = req.getParameter("pw");
+		
+		HashMap<String, String> hmap = new HashMap<String, String>();
+		hmap.put("id", id);
+		hmap.put("pw", pw);
+		
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		int buyerResult = mapper.buyerLogin(hmap);
+		
+		HttpSession session = req.getSession();
+		if(buyerResult == 1) {
+			session.setAttribute("buyer_id", id);
+			session.setAttribute("pw", pw);
+			
+		}
+		
+		model.addAttribute("buyerResult", buyerResult);
+		return "login/loginResult";
+	}
+	
+//	판매자 로그인
+	@RequestMapping(value = "/sellerLoginResult")
+	public String sellerLoginResult(HttpServletRequest req, Model model) {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		
@@ -159,22 +177,21 @@ public class SignUpController {
 		hmap.put("pw", pw);
 		
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
-//		임시로 로그인으로 만들었지만 sellerLogin입니다.
-		int result = mapper.login(hmap);
+		int sellerResult = mapper.sellerLogin(hmap);
 		
-		if(result == 1) {
-			HttpSession session = req.getSession();
+		HttpSession session = req.getSession();
+		if(sellerResult == 1) {
 			session.setAttribute("seller_id", id);
 			session.setAttribute("pw", pw);
 		}
 		
-		model.addAttribute("result", result);
+		model.addAttribute("sellerResult", sellerResult);
 		return "login/loginResult";
 	}
 	
 // 판매자 페이지 끝	============================================================================
 	
-//	소비자 회원가입 페이지
+/** 소비자 회원가입 페이지 호출 */
 	@RequestMapping(value = "/buyerSignUp")
 	public String buyerSignUp() {
 		System.out.println("소비자 회원가입 페이지로 들어옴");
@@ -182,11 +199,13 @@ public class SignUpController {
 	}
 
 	
-//	ID 중복체크
+/** ID 중복체크 페이지 호출 */
 	@RequestMapping(value = "/buyerCheckID")
 	public String buyerCheckID(HttpServletRequest req, Model model) {
 		System.out.println("컨트롤러에서 buyerCheckID 들어옴.");
 		
+		/** ID 값을 받고, 받은 ID 값을 DB내의 ID 값과 대조하여
+		 *  일치하는 ID의 개수를 반환받아 출력 */
 		String id = req.getParameter("id");
 		System.out.println("buyerCheckID에서 id의 값은 : " + id);
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
@@ -199,11 +218,13 @@ public class SignUpController {
 		return "signUp/buyerCheckID";
 	}
 	
-//	별명 중복체크
+/** 별명 중복체크 페이지 호출 */
 	@RequestMapping(value = "/buyerCheckNickname")
 	public String buyerCheckNickname(HttpServletRequest req, Model model) {
 		System.out.println("컨트롤러에서 buyerCheckNickname 들어옴.");
 		
+		/** nickname 값을 받고, 받은 nickname 값을 DB내의 nickname 값과 대조하여
+		 *  일치하는 nickname의 개수를 반환받아 출력 */
 		String nickname = req.getParameter("nickname");
 		System.out.println("buyerCheckNickname에서 nickname의 값은 : " + nickname);
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
@@ -216,7 +237,7 @@ public class SignUpController {
 		return "signUp/buyerCheckNickname";
 	}
 	
-//	소비자 회원가입 완료 페이지
+/**	소비자 회원가입 완료 페이지 */
 	@RequestMapping(value = "/buyerSignUpOK")
 	public String buyerSignUpOK(HttpServletRequest req, BuyerVO buyerVO, 
 			MultipartHttpServletRequest mtp) {
@@ -224,15 +245,20 @@ public class SignUpController {
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
 		
 		
-//		합쳐서 넣어줘야 하는것들 따로 값을 넣어줌.
+/**		합쳐서 넣어줘야 하는 것들 따로 값을 넣어줌 */
+		
+		/**이메일 주소*/
 		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
-		buyerVO.setEmail(email);
+		buyerVO.setEmail(email); 
+		/**통신사 및 휴대폰 번호*/
 		String Phone = "(" + req.getParameter("phone") + ")" + req.getParameter("phonenum");
 		buyerVO.setPhonenum(Phone);
+		/**카드 번호*/
 		String cardNum = req.getParameter("cardNum1") + req.getParameter("cardNum2")
 		+ req.getParameter("cardNum3") + req.getParameter("cardNum4");
 		System.out.println("cardNum의 값은 : " + cardNum);
 		buyerVO.setCardNum(cardNum);
+		/**우편번호 및 주소*/
 		String address = "(" + req.getParameter("postcode") + ")" + req.getParameter("address1")
 		 + req.getParameter("address2") + " " + req.getParameter("address3");
 		buyerVO.setAddress(address);
@@ -241,8 +267,23 @@ public class SignUpController {
 
 		mapper.buyerInsert(buyerVO);
 		
-		
+		/**회원가입 완료 후 메인 페이지로 되돌아감*/
 		return "main/mainpage";
 	}
 	
+
+	
+//	로그아웃
+	@RequestMapping(value="/logout")
+	public String buyerLogout(HttpServletRequest req) {
+		System.out.println("컨트롤러에서 logout에 들어옴");
+		
+		HttpSession session = req.getSession();
+		session.removeAttribute("buyer_id");
+		session.removeAttribute("seller_id");
+		session.removeAttribute("pw");
+		
+		return "login/logout";
+	}
+
 }
