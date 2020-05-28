@@ -2,10 +2,7 @@ package kr.project.VO;
 
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD
 /** 판매자 VO */
-=======
->>>>>>> refs/heads/parkc
 @Repository
 public class SellerVO {
 

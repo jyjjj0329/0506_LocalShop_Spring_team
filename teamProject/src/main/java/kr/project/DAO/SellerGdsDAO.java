@@ -3,10 +3,7 @@ package kr.project.DAO;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-<<<<<<< HEAD
 import kr.project.VO.GoodsSoldVO;
-=======
->>>>>>> refs/heads/parkc
 import kr.project.VO.SellerGdsVO;
 import kr.project.VO.SellerVO;
 
@@ -16,7 +13,6 @@ public interface SellerGdsDAO {
 
 	ArrayList<SellerGdsVO> selectList(HashMap<String, Object> hmap);
 
-<<<<<<< HEAD
 	int selectCount(String seller_id);
 
 	int CheckID(String id);
@@ -42,22 +38,7 @@ public interface SellerGdsDAO {
 	void start_DEL(int idx);
 
 	void complate_DEL(int idx);
-=======
+
 	int sellectCount(String seller_id);
-
-	int CheckID(String id);
-
-	void sellerInsert(SellerVO sellerVO);
-
-	int sellerLogin(HashMap<String, String> hmap);
-	
-	SellerGdsVO updateList(int idx);
-
-	void gdsDelete(int idx);
-
-	void gdsUpdate(SellerGdsVO sellerGdsVO);
-
-	SellerVO store(String id);
->>>>>>> refs/heads/parkc
 
 }
