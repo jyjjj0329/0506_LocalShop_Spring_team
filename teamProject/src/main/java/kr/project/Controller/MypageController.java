@@ -142,8 +142,8 @@ public class MypageController {
 		return "mypage/mypage";
 	}
 	
-	@RequestMapping(value="/buyerCheckNickname")
-	public String buyerCheckNickname(HttpServletRequest request, Model model) {
+	@RequestMapping(value="/buyerNicknameUpdate")
+	public String buyerNicknameUpdate(HttpServletRequest request, Model model) {
 		System.out.println("컨트롤러에서 nickname 체크하러옴");
 		String nickname = request.getParameter("nickname");
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);

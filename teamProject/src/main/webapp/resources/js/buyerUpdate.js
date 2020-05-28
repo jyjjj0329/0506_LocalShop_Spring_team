@@ -54,7 +54,7 @@ function CheckNickname2() {
 	}else if(!/^[가-힣]+[가-힣0-9]{3,8}$/g.test(nickname2)){
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else{
-		location.href="buyerCheckNickname?nickname=" + nickname2;
+		location.href="buyerNicknameUpdate?nickname=" + nickname2;
 	}
 }
 

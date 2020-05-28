@@ -7,6 +7,20 @@
 	select count(*) from buyer where id = #{id} and pw = #{pw}
 </select>
 
+<insert id="buyerInsert" parameterType="buyerVO">
+	insert into buyer values (buyer_idx.nextval, #{name}, #{id}, 
+	#{pw}, #{nickname}, #{gender}, #{age}, #{email}, #{phonenum}, #{cardNum}, #{area}, #{address})
+</insert>
+
+<select id="CheckID" parameterType="String" resultType="int">
+	select count(*) from buyer where id = #{id}
+</select>
+
+<select id="CheckNickname" parameterType="String" resultType="int">
+	select count(*) from buyer where nickname = #{nickname}
+</select>
+
+
 <select id="sellectCount" parameterType="java.util.HashMap" resultType="int">
 	select count(*) from sellgds where category = #{category}
 	and #{area} in (select area from seller)
@@ -39,10 +53,6 @@
  phonenum=#{phonenum}, area=#{area}, address=#{address}, 
  creditcard=#{creditcard}, cardNum=#{cardNum} where id = #{id}
 </update>
-
-<select id="CheckNickname" parameterType="String" resultType="int">
-	select count(*) from buyer where nickname = #{nickname}
-</select>
 
 <update id="moneyadd" parameterType="java.util.HashMap">
  update buyer set money=#{money} where id = #{id}

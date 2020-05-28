@@ -191,13 +191,86 @@ public class SignUpController {
 	
 // ----------------------------------------판매자 페이지 끝	
 	
-// 소비자 회원가입
-	
-	@RequestMapping(value = "/buyerSignUpOK")
+	/** 소비자 회원가입 페이지 호출 */
+	@RequestMapping(value = "/buyerSignUp")
 	public String buyerSignUp() {
+		System.out.println("소비자 회원가입 페이지로 들어옴");
+		return "signUp/buyerSignUp";
+	}
+
+	
+/** ID 중복체크 페이지 호출 */
+	@RequestMapping(value = "/buyerCheckID")
+	public String buyerCheckID(HttpServletRequest req, Model model) {
+		System.out.println("컨트롤러에서 buyerCheckID 들어옴.");
 		
+		/** ID 값을 받고, 받은 ID 값을 DB내의 ID 값과 대조하여
+		 *  일치하는 ID의 개수를 반환받아 출력 */
+		String id = req.getParameter("id");
+		System.out.println("buyerCheckID에서 id의 값은 : " + id);
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		int result = mapper.CheckID(id);
+		System.out.println("buyerCheckID에서 result의 값은 : " + result);
+		
+		model.addAttribute("result", result);
+		model.addAttribute("id", id);
+		
+		return "signUp/buyerCheckID";
+	}
+	
+/** 별명 중복체크 페이지 호출 */
+	@RequestMapping(value = "/buyerCheckNickname")
+	public String buyerCheckNickname(HttpServletRequest req, Model model) {
+		System.out.println("컨트롤러에서 buyerCheckNickname 들어옴.");
+		
+		/** nickname 값을 받고, 받은 nickname 값을 DB내의 nickname 값과 대조하여
+		 *  일치하는 nickname의 개수를 반환받아 출력 */
+		String nickname = req.getParameter("nickname");
+		System.out.println("buyerCheckNickname에서 nickname의 값은 : " + nickname);
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		int result = mapper.CheckNickname(nickname);
+		System.out.println("buyerCheckNickname에서 result의 값은 : " + result);
+		
+		model.addAttribute("result", result);
+		model.addAttribute("nickname", nickname);
+		
+		return "signUp/buyerCheckNickname";
+	}
+	
+/**	소비자 회원가입 완료 페이지 */
+	@RequestMapping(value = "/buyerSignUpOK")
+	public String buyerSignUpOK(HttpServletRequest req, BuyerVO buyerVO, 
+			MultipartHttpServletRequest mtp) {
+		
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		
+		
+/**		합쳐서 넣어줘야 하는 것들 따로 값을 넣어줌 */
+		
+		/**이메일 주소*/
+		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
+		buyerVO.setEmail(email); 
+		/**통신사 및 휴대폰 번호*/
+		String Phone = "(" + req.getParameter("phone") + ")" + req.getParameter("phonenum");
+		buyerVO.setPhonenum(Phone);
+		/**카드 번호*/
+		String cardNum = req.getParameter("cardNum1") + req.getParameter("cardNum2")
+		+ req.getParameter("cardNum3") + req.getParameter("cardNum4");
+		System.out.println("cardNum의 값은 : " + cardNum);
+		buyerVO.setCardNum(cardNum);
+		/**우편번호 및 주소*/
+		String address = "(" + req.getParameter("postcode") + ")" + req.getParameter("address1")
+		 + req.getParameter("address2") + " " + req.getParameter("address3");
+		buyerVO.setAddress(address);
+		
+		System.out.println("컨트롤러에서 buyerVO의 값은 : " + buyerVO.toString());
+
+		mapper.buyerInsert(buyerVO);
+		
+		/**회원가입 완료 후 메인 페이지로 되돌아감*/
 		return "main/mainpage";
 	}
+	
 	
 	
 //	로그아웃
