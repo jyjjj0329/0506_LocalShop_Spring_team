@@ -31,8 +31,9 @@ public class MainController {
 		return "main/mainpage";
 	}
 	
+	/** 메인 페이지 */
 	@RequestMapping("/mainpage")
-	private String mainpage() {
+	private String home() {
 		System.out.println("컨트롤러에서 mainpage로 들어옴");
 		
 		return "main/mainpage";
@@ -81,6 +82,12 @@ public class MainController {
 		model.addAttribute("area", area);
 		model.addAttribute("category", category);
 		
-		return "/seller/sellerList";
+		return "buyer/buyerList";
+	}
+	
+	@RequestMapping(value = "payment")
+	public String payment() {
+		
+		return "payment/payment";
 	}
 }

@@ -46,8 +46,9 @@
 				</a>
 				<ul class="dropdown-menu dropdown-menu-right">
 					<c:if test="${sessionScope.seller_id == null && sessionScope.buyer_id == null}">
-						<li><a class="dropdown-item" href="login">로그인</a></li>
-						<li><a class="dropdown-item" href="signUp">회원가입</a></li>
+					<li><a class="dropdown-item" href="login">로그인</a></li>
+					<li><a class="dropdown-item" href="signUp">회원가입</a></li>
+					<li><a class="dropdown-item" href="payment">결제</a></li>
 					</c:if>
 					<c:if test="${sessionScope.buyer_id != null }">
 						<li><a class="dropdown-item" href="#" onclick="window.open('moneycharge','금액충전','width=850, height=500, menubar=no, status=no, toolbar=no');">충전</a></li>
