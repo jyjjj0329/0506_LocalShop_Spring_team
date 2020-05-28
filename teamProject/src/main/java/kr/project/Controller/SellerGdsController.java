@@ -164,7 +164,6 @@ public class SellerGdsController {
 		HttpSession session = req.getSession();
 		String seller_id = (String) session.getAttribute("seller_id");
 		
-		
 		/**
 		 * session을 만들어서 판매자 id를 받아와 그 id를 가진 사람의 판매 물건만 가져와야 하지만 // 아직 판매자 회원은 구현전이니
 		 * 구현후에 수정하자. mapper에 where id = ? 도 구현하기.
