@@ -49,8 +49,7 @@ public class SellerGdsController {
 		
 //		폴더 안에 들어있는 파일 갯수들 가져오는 코드들.
 //		반드시 자바에서 경로는 절댓값으로 잡아줘야함. 상대경로는 인식 못하는것같습니다
-		String path = "C:/Users/CHOYEJI/git/teamProject/teamProject/src/main"
-				+ "/webapp/resources/storeImage/" + sellerVO.getStore();
+		String path = "C:\\Users\\Administrator\\git\\teamProject\\teamProject\\src\\main\\webapp\\resources\\storeImage\\" + sellerVO.getStore();
 		File f = new File(path);
 		File[] files = f.listFiles();
 		ArrayList<String> extension = new ArrayList<String>();

@@ -49,7 +49,8 @@
 					<li><a class="dropdown-item" href="signUp">회원가입</a></li>
 					</c:if>
 					<c:if test="${sessionScope.buyer_id != null }">
-					<li><a class="dropdown-item" href="#">마이페이지</a></li>
+					<li><a class="dropdown-item" href="#" onclick="window.open('moneycharge','금액충전','width=850, height=500, menubar=no, status=no, toolbar=no');">충전</a></li>
+					<li><a class="dropdown-item" href="#" onclick="window.open('mypage','확 인','width=450, height=200, menubar=no, status=no, toolbar=no');">마이페이지</a></li>
 					<li><a class="dropdown-item" href="logout">로그아웃</a></li>
 					</c:if>
 					<c:if test="${sessionScope.seller_id != null }">

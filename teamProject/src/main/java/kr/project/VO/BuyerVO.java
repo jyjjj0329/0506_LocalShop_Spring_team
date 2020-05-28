@@ -4,9 +4,18 @@ package kr.project.VO;
 import org.springframework.stereotype.Repository;
 
 // 일반 회원(소비자)의 회원가입 정보 한 건
-
+/**
+ * 소비자 회원 정보 VO 페이지
+ * @version 1.0
+ * @author 조예지
+ * @author 봉재성
+ * @author 민경우
+ * @author 최재형
+ * @author 박병선
+ */
 @Repository
 public class BuyerVO {
+	
 	private int idx;
 	private String name;
 	private String id;
@@ -15,10 +24,13 @@ public class BuyerVO {
 	private boolean gender;
 	private int age;
 	private String email; 
+	private String carrier;
 	private String phonenum;
+	private String creditcard;
 	private String cardNum;
 	private String area;
 	private String address;
+	private int money;
 	
 	public int getIdx() {
 		return idx;
@@ -68,11 +80,23 @@ public class BuyerVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getCarrier() {
+		return carrier;
+	}
+	public void setCarrier(String carrier) {
+		this.carrier = carrier;
+	}
 	public String getPhonenum() {
 		return phonenum;
 	}
 	public void setPhonenum(String phonenum) {
 		this.phonenum = phonenum;
+	}
+	public String getCreditcard() {
+		return creditcard;
+	}
+	public void setCreditcard(String creditcard) {
+		this.creditcard = creditcard;
 	}
 	public String getCardNum() {
 		return cardNum;
@@ -93,6 +117,12 @@ public class BuyerVO {
 		this.address = address;
 	}
 
+	public int getMoney() {
+		return money;
+	}
+	public void setMoney(int money) {
+		this.money = money;
+	}
 	@Override
 	public String toString() {
 		return "VO [idx=" + idx + ", id=" + id + ", pw=" + pw + ", name=" + name + ", nickname=" + nickname

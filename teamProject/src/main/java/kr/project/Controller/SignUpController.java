@@ -79,8 +79,7 @@ public class SignUpController {
 //		확장자
 		String extension = ".png";
 //		경로
-		String filePath = "C:/Users/CHOYEJI/git/teamProject/teamProject/src/main"
-				+ "/webapp/resources/storeImage/" + store + "/";
+		String filePath = "C:\\Users\\Administrator\\git\\teamProject\\teamProject\\src\\main\\webapp\\resources\\storeImage\\" + store + "\\";
 //		가게 사진 이름
 		String storeimg_Name = "storeImg";
 		System.out.println(filePath);
@@ -94,8 +93,8 @@ public class SignUpController {
 //		list배열로 파일들 다 받음
 		List<MultipartFile> fileList = mtp.getFiles("storeImg[]");
 		System.out.println("컨트롤러에서 fileList의 size의 값은 : " + fileList.size());
-//		fileList의 사이즈가 1보다 크면(파일이 있으면) 밑에를 실행해라.
-		if(fileList.size() > 1) {
+//		fileList의 사이즈가 0보다 크면(파일이 있으면) 밑에를 실행해라.
+		if(fileList.size() > 0) {
 			storeimg_Name = i + "-";
 			int j = 1;
 			for(MultipartFile mf : fileList) {
@@ -106,6 +105,7 @@ public class SignUpController {
 				}
 				extension = originFileName.substring(originFileName.lastIndexOf("."),
 						originFileName.length());
+				System.out.println(extension);
 				System.out.println("컨트롤러에서 storeimg_Name의 값은 : " + storeimg_Name);
 //				이 경로에 파일을 보냄.
 				String safeFile = filePath + storeimg_Name + j + extension;
@@ -157,7 +157,7 @@ public class SignUpController {
 		HttpSession session = req.getSession();
 		if(buyerResult == 1) {
 			session.setAttribute("buyer_id", id);
-			session.setAttribute("pw", pw);
+			session.setAttribute("buyer_pw", pw);
 			
 		}
 		

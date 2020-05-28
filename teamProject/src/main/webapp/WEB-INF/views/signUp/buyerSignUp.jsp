@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>소비자 회원가입</title>
-<script type="text/javascript" src="resources/js/buyerSignUp.js"></script>
+<script type="text/javascript" src="resources/js/buyerUpdate.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
@@ -80,6 +80,16 @@
 			<tr>
 				<th>카드 번호</th>
 				<td>
+					<select id="creditcard">
+						<option value="신한">신한</option>
+						<option value="KB국민">KB국민</option>
+						<option value="하나">하나</option>
+						<option value="롯데">롯데</option>
+						<option value="BC">BC</option>
+						<option value="NH농협">NH농협</option>
+						<option value="삼성">삼성</option>
+						<option value="현대">현대</option>
+					</select>
 					<input name="cardNum" type="text" style="width:40px"/>
 					<input name="cardNum" type="text" style="width:40px"/>
 					<input name="cardNum" type="text" style="width:40px"/>

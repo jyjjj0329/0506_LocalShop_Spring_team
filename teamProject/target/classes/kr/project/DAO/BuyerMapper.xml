@@ -21,4 +21,30 @@
 	]]>
 </select>
 
+<select id ="buyerInfo" parameterType="String" resultType="buyerVO">
+ select * from buyer where id = #{id}
+</select>
+
+<delete id ="buyerInfoDelete" parameterType="String">
+ delete from buyer where id = #{id}
+</delete>
+
+<update id="changePW" parameterType="java.util.HashMap">
+ update buyer set pw = #{pw} where id = #{id}
+</update>
+
+<update id="updateInfo" parameterType="buyerVO">
+ update buyer set name= #{name}, nickname=#{nickname}, 
+ age=#{age}, email=#{email},carrier=#{carrier}, 
+ phonenum=#{phonenum}, area=#{area}, address=#{address}, 
+ creditcard=#{creditcard}, cardNum=#{cardNum} where id = #{id}
+</update>
+
+<select id="CheckNickname" parameterType="String" resultType="int">
+	select count(*) from buyer where nickname = #{nickname}
+</select>
+
+<update id="moneyadd" parameterType="java.util.HashMap">
+ update buyer set money=#{money} where id = #{id}
+</update> 
 </mapper>
