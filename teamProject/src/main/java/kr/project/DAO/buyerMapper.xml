@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="kr.project.DAO.BuyerDAO">
-
-<insert id="buyerInsert" parameterType="buyerVO">
-	insert into buyer values (buyer_idx.nextval, #{id}, #{pw}, #{name}, 
-	#{nickname}, #{gender}, #{age}, #{email}, #{phonenum}, #{cardNum}, #{area}, #{address})
-</insert>
-
-<select id="CheckID" parameterType="String" resultType="int">
-	select count(*) from buyer where id = #{id}
-</select>
-
-<select id="CheckNickname" parameterType="String" resultType="int">
-	select count(*) from buyer where nickname = #{nickname}
-</select>
 
 <select id="buyerLogin" parameterType="java.util.HashMap" resultType="int">
 	select count(*) from buyer where id = #{id} and pw = #{pw}
@@ -33,4 +21,30 @@
 	]]>
 </select>
 
+<select id ="buyerInfo" parameterType="String" resultType="buyerVO">
+ select * from buyer where id = #{id}
+</select>
+
+<delete id ="buyerInfoDelete" parameterType="String">
+ delete from buyer where id = #{id}
+</delete>
+
+<update id="changePW" parameterType="java.util.HashMap">
+ update buyer set pw = #{pw} where id = #{id}
+</update>
+
+<update id="updateInfo" parameterType="buyerVO">
+ update buyer set name= #{name}, nickname=#{nickname}, 
+ age=#{age}, email=#{email},carrier=#{carrier}, 
+ phonenum=#{phonenum}, area=#{area}, address=#{address}, 
+ creditcard=#{creditcard}, cardNum=#{cardNum} where id = #{id}
+</update>
+
+<select id="CheckNickname" parameterType="String" resultType="int">
+	select count(*) from buyer where nickname = #{nickname}
+</select>
+
+<update id="moneyadd" parameterType="java.util.HashMap">
+ update buyer set money=#{money} where id = #{id}
+</update> 
 </mapper>

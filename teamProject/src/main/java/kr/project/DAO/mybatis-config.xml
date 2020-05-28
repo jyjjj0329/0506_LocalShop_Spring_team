@@ -6,7 +6,10 @@
 		<typeAlias alias="sellerGdsVO" type="kr.project.VO.SellerGdsVO"/>
 		<typeAlias alias="sellerVO" type="kr.project.VO.SellerVO"/>
 		<typeAlias alias="buyerVO" type="kr.project.VO.BuyerVO"/>
+<<<<<<< HEAD
 		<typeAlias alias="goodsSoldVO" type="kr.project.VO.GoodsSoldVO"/>
 		<typeAlias alias="goodsSoldList" type="kr.project.VO.GoodsSoldList"/>
+=======
+>>>>>>> refs/heads/parkc
 	</typeAliases>
 </configuration>

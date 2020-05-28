@@ -78,6 +78,7 @@ public class SellerGdsVO {
 	public void setImage_size(long image_size) {
 		this.image_size = image_size;
 	}
+<<<<<<< HEAD
 	
 	public String getArea() {
 		return area;
@@ -85,13 +86,22 @@ public class SellerGdsVO {
 	public void setArea(String area) {
 		this.area = area;
 	}
+=======
+>>>>>>> refs/heads/parkc
 	@Override
 	public String toString() {
 		return "SellerGdsVO [seller_id=" + seller_id + ", idx=" + idx + ", price=" + price + ", num=" + num
+<<<<<<< HEAD
 				+ ", category=" + category + ", name=" + name + ", origin=" + origin + ", area=" + area + ", content="
 				+ content + ", image_name=" + image_name + ", image_size=" + image_size + "]";
+=======
+				+ ", category=" + category + ", name=" + name + ", origin=" + origin + ", content=" + content
+				+ ", image_name=" + image_name + ", image_size=" + image_size + "]";
+>>>>>>> refs/heads/parkc
 	}
 
+	
+	
 	
 	
 	

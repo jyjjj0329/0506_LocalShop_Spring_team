@@ -44,4 +44,8 @@ function fail() {
 function logout() {
 	alert("로그아웃 하셨습니다.")
 	location.href = "mainpage"
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/heads/parkc
