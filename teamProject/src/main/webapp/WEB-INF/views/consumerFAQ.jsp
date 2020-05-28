@@ -12,8 +12,8 @@
 </style>
 <title>고객센터</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="resources/js/kakao.js"></script>
 <script type="text/javascript">
-
 
 $(function() {
 	$("b").click(function() {
@@ -101,6 +101,9 @@ $(function() {
 	
 	<br/>
 	<h5>찾으시는 질문이 없으신가요?</h5>
-	<a class="page_link" href="1to1Faq" style="color: black">1대 1 문의하기</a>
+	<div>1대 1 문의하기</div>
+	<a onclick="window.open('https://pf.kakao.com/','NewWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=550,height=800')">
+			<img src="">
+	</a>	
 </body>
 </html>
