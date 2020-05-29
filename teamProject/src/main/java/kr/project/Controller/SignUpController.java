@@ -191,7 +191,7 @@ public class SignUpController {
 	
 // ----------------------------------------판매자 페이지 끝	
 	
-	/** 소비자 회원가입 페이지 호출 */
+/** 소비자 회원가입 페이지 호출 */
 	@RequestMapping(value = "/buyerSignUp")
 	public String buyerSignUp() {
 		System.out.println("소비자 회원가입 페이지로 들어옴");

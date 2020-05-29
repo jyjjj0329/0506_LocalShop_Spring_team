@@ -25,7 +25,7 @@ public class MainController {
 	public String home(HttpServletRequest req) {
 		System.out.println("컨트롤러에서 최초 mainpage로 들어옴");
 		HttpSession session = req.getSession();
-		session.removeAttribute("seller_id");
+		session.removeAttribute("seller_id");                                                                                                
 		session.removeAttribute("buyer_id");
 
 		return "main/mainpage";
