@@ -4,7 +4,8 @@
 
 <insert id="buyerInsert" parameterType="buyerVO">
 	insert into buyer values (buyer_idx.nextval, #{name}, #{id}, 
-	#{pw}, #{nickname}, #{gender}, #{age}, #{email}, #{phonenum}, #{cardNum}, #{area}, #{address})
+	#{pw}, #{nickname}, #{gender}, #{age}, #{email}, #{carrier},
+	#{phonenum}, #{creditCard}, #{cardNum}, #{area}, #{address}, #{money})
 </insert>
 
 <select id="CheckID" parameterType="String" resultType="int">
