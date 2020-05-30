@@ -16,6 +16,7 @@
  - 지도/이름으로 구 검색
  - 분류별로 물품 목록 보기(검색도 가능).
  - 회원가입(소비자, 판매자)
+    - 주소 API
  - 고객센터
  
 <로그인 후>
@@ -23,6 +24,7 @@
  - 분류별로 물품 목록 보기(검색도 가능).
  - 물품 클릭하여 상세 페이지
  - 상세페이지에서 물품 구매 or 장바구니 담기 or 별점, 댓글 쓰기
+    - 결제 API(구매)
  - 본인 정보 확인과 수정, 탈퇴 할 수 있는 마이페이지
  - 고객센터
  
@@ -42,5 +44,5 @@
 <img width="220" src = "https://user-images.githubusercontent.com/60992445/83321165-a2df0c00-a288-11ea-8219-d906b31c00a3.jpg">
 <img width="220" src = "https://user-images.githubusercontent.com/60992445/83321181-c43ff800-a288-11ea-9235-391c6ff715dc.png">
 <img width="220" src = "https://user-images.githubusercontent.com/60992445/83321186-ca35d900-a288-11ea-9e8c-9a3422344f9f.png">
- </div>
+</div>
 
