@@ -30,4 +30,6 @@ public interface BuyerDAO {
 
 	void moneyadd(HashMap<String, Object> hmap);
 
+	void buyerSearch(String search);
+
 }

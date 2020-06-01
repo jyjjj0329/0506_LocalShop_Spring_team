@@ -56,9 +56,12 @@ public class MainController {
 //		area와 category의 값을 받아옴.
 		String area = req.getParameter("area");
 		String category = req.getParameter("category");
+//		search 값 받음
+		String search = req.getParameter("search");
 //		값이 잘 들어왔는지 확인
 		System.out.println("컨트롤러에서 area의 값은 : " + area);
 		System.out.println("컨트롤러에서 category의 값은 : " + category);
+		System.out.println("search의 값은 : " + search);
 		
 //		페이지 관련 코드
 		int page = Integer.parseInt(req.getParameter("page"));
@@ -68,6 +71,7 @@ public class MainController {
 		HashMap<String, Object> hmap = new HashMap<String, Object>();
 		hmap.put("area", area);
 		hmap.put("category", category);
+		hmap.put("search", search);
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
 //		페이징을 하기 위한 총 페이지 갯수 가져오는 코드.
 		sellerGdsListVO.setTotalCount(mapper.sellectCount(hmap));
