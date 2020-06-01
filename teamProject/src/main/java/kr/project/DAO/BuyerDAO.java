@@ -19,5 +19,7 @@ public interface BuyerDAO {
 	int CheckID(String id);
 	
 	int CheckNickname(String nickname);
-	
+
+	void buyerSearch(String search);
+
 }

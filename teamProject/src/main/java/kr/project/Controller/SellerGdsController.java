@@ -164,21 +164,17 @@ public class SellerGdsController {
 		HttpSession session = req.getSession();
 		String seller_id = (String) session.getAttribute("seller_id");
 		
-		/**
-		 * session을 만들어서 판매자 id를 받아와 그 id를 가진 사람의 판매 물건만 가져와야 하지만 // 아직 판매자 회원은 구현전이니
-		 * 구현후에 수정하자. mapper에 where id = ? 도 구현하기.
-		 */
-		 		
 		/** 페이지 관련 코드 */
 		int page = Integer.parseInt(req.getParameter("page"));
 		int pageSize = 4;
 		
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
-		/** seller_id를 받아 where문에 넣어준다. */
+		/** seller_id를 where문에 넣어준다. */
 		sellerGdsListVO.setTotalCount(mapper.selectCount(seller_id));
 		System.out.println("컨트롤러에서 sellectCount의 값은 : " + sellerGdsListVO.getTotalCount());
 		/** Page값 초기화 */
 		sellerGdsListVO.initPageList(pageSize, sellerGdsListVO.getTotalCount(), page);
+		
 		
 		HashMap<String, Object> hmap = new HashMap<String, Object>();
 		hmap.put("startNo", sellerGdsListVO.getStartNo());

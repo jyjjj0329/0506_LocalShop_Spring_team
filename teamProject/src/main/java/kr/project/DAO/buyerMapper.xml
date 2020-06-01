@@ -22,13 +22,22 @@
 <select id="sellectCount" parameterType="java.util.HashMap" resultType="int">
 	select count(*) from sellgds where category = #{category}
 	and #{area} in (select area from seller)
+	<if test="search != null">
+	and name LIKE '%'||#{search}||'%'
+	</if>
 </select>
 
 <select id="selectList" resultType="sellerGdsVO" parameterType="java.util.HashMap">
 	<![CDATA[
 	select idx, name, price, origin, image_name, category from 
 	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM sellgds order by idx desc) 
-	TT where category = #{category} and #{area} in (select area from seller)) 
+	TT where category = #{category} and #{area} in (select area from seller)
+	]]>
+	<if test="search != null">
+	and name LIKE '%'||#{search}||'%'
+	</if>
+	<![CDATA[
+	) 
 	where rn >= #{startNo} AND rn <= #{endNo}
 	]]>
 </select>

@@ -1,13 +1,10 @@
 @charset "UTF-8";
 
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
-
 p { margin:20px 0px; }
 
+.search {
+	margin-right: 20px;
+}
 
 
 
