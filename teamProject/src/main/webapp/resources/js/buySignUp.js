@@ -11,7 +11,9 @@ function buySignUp() {
 	var age = buyerSignUp.age.value.trim();
 	var email1 = buyerSignUp.email1.value.trim();
 	var email2 = buyerSignUp.email2.value.trim();
+	var carrier = buyerSignUp.carrier.value.trim();
 	var phonenum = buyerSignUp.phonenum.value.trim();
+	var creditCard = buyerSignUp.creditCard.value.trim();
 	var cardNum1 = buyerSignUp.cardNum1.value.trim();
 	var cardNum2 = buyerSignUp.cardNum2.value.trim();
 	var cardNum3 = buyerSignUp.cardNum3.value.trim();
@@ -77,6 +79,7 @@ function CheckID() {
 		window.open("buyerCheckID?id=" + id, "ID중복체크", "width=450 height=150 left=400 top=350");
 	}
 }
+
 function CheckID2() {
 	var id2 = document.getElementById("id").value.trim();
 	if(id2 == ""){
@@ -107,6 +110,7 @@ function CheckNickname() {
 		window.open("buyerCheckNickname?nickname=" + nickname, "별명 중복체크", "width=450 height=150 left=400 top=350");
 	}
 }
+
 function CheckNickname2() {
 	var nickname2 = document.getElementById("nickname").value.trim();
 	if(nickname2 == ""){
@@ -125,7 +129,6 @@ function Nicknameok(snickname) {
 	opener.buyerSignUp.nickname.readOnly=true;
 	window.close();
 }
-
 
 //	email value값 변경
 function emailChange() {

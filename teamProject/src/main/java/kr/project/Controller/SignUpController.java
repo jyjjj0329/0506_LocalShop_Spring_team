@@ -250,9 +250,6 @@ public class SignUpController {
 		/**이메일 주소*/
 		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
 		buyerVO.setEmail(email); 
-		/**통신사 및 휴대폰 번호*/
-		String Phone = "(" + req.getParameter("phone") + ")" + req.getParameter("phonenum");
-		buyerVO.setPhonenum(Phone);
 		/**카드 번호*/
 		String cardNum = req.getParameter("cardNum1") + req.getParameter("cardNum2")
 		+ req.getParameter("cardNum3") + req.getParameter("cardNum4");

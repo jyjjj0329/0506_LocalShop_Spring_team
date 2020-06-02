@@ -65,14 +65,28 @@
 				</td>
 			</tr>
 			<tr>
-				<th>*전화번호</th>
+				<th>전화번호</th>
 				<td>
-					<select id="phone" name="phone">
+					<select id="carrier" name="carrier">
 						<option value="skt">SKT</option>
 						<option value="kt">KT</option>
 						<option value="lg">LG</option>
 					</select>
 					<input name="phonenum" type="tel" style="width:120px;"/>
+				</td>
+			</tr>
+			<tr>
+				<th>카드사</th>
+				<td>
+					<select name="creditCard" id="creditCard" style="height:30px">
+						<option value="농협">농협</option>
+						<option value="국민">국민</option>
+						<option value="신한">신한</option>
+						<option value="우리">우리</option>
+						<option value="하나">하나</option>
+						<option value="기업">기업</option>
+						<option value="SC">SC</option>
+					</select>
 				</td>
 			</tr>
 			<tr>

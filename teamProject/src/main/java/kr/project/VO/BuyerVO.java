@@ -21,7 +21,7 @@ public class BuyerVO {
 	private String email; 
 	private String carrier;
 	private String phonenum;
-	private String creditcard;
+	private String creditCard;
 	private String cardNum;
 	private String area;
 	private String address;
@@ -87,11 +87,11 @@ public class BuyerVO {
 	public void setPhonenum(String phonenum) {
 		this.phonenum = phonenum;
 	}
-	public String getCreditcard() {
-		return creditcard;
+	public String getCreditCard() {
+		return creditCard;
 	}
-	public void setCreditcard(String creditcard) {
-		this.creditcard = creditcard;
+	public void setCreditCard(String creditCard) {
+		this.creditCard = creditCard;
 	}
 	public String getCardNum() {
 		return cardNum;
@@ -111,19 +111,21 @@ public class BuyerVO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 	public int getMoney() {
 		return money;
 	}
 	public void setMoney(int money) {
 		this.money = money;
 	}
+	
 	@Override
 	public String toString() {
-		return "VO [idx=" + idx + ", id=" + id + ", pw=" + pw + ", name=" + name + ", nickname=" + nickname
-				+ ", gender=" + gender + ", age=" + age + ", email=" + email + ", phonenum=" + phonenum + ", cardNum="
-				+ cardNum + ", area=" + area + ", address=" + address + "]";
+		return "BuyerVO [idx=" + idx + ", name=" + name + ", id=" + id + ", pw=" + pw + ", nickname=" + nickname
+				+ ", gender=" + gender + ", age=" + age + ", email=" + email + ", carrier=" + carrier + ", phonenum="
+				+ phonenum + ", creditCard=" + creditCard + ", cardNum=" + cardNum + ", area=" + area + ", address="
+				+ address + ", money=" + money + "]";
 	}
+
 	
 	
 }
