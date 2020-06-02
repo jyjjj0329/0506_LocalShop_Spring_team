@@ -44,6 +44,7 @@ public class MainController {
 	
 	@RequestMapping("/category")
 	private String category(HttpServletRequest request, Model model) {
+		System.out.println("컨트롤러에서 category에 들어옴.");
 		
 		String area = request.getParameter("area");
 		model.addAttribute("area", area);
