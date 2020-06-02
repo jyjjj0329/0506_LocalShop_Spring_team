@@ -2,11 +2,22 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link rel="stylesheet" type ="text/css" href="resources/css/layout.css">
+<link rel="stylesheet" type ="text/css" href="layout/layout.css">
 <jsp:include page="/WEB-INF/layout/sellerNav.jsp"/>
+
+<script type="text/javascript">
+function search() {
+	var search = document.getElementById("search").value.trim();
+	document.location.href = "sellerList?page=1&search=" + search;
+}
+</script>
 
 <c:set var="list" value="${sellerGdsListVO.sellerGdsVO}"/>
 
+<div align="right" class="search">
+<input type="text" placeholder="이름 검색" id="search"/>
+<input type="button" value="검색" onclick="search()"> 
+</div>
 <!-- 들어있는 갯수만큼 table로 뽑아온다. 5개 이상이면 paging을 만들자. -->
 <c:if test="${list.size() == 0}">
 	<h1>판매 물품이없습니다.</h1>

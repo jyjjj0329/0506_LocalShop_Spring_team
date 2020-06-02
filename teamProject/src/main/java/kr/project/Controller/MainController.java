@@ -89,6 +89,7 @@ public class MainController {
 		return "buyer/buyerList";
 	}
 	
+//	결제 페이지 이동
 	@RequestMapping(value = "payment")
 	public String payment() {
 		

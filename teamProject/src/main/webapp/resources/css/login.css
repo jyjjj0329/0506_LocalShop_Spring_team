@@ -1,5 +1,4 @@
 button {
-<<<<<<< HEAD
 	background: none;
 	border: 0;
 	outline: 0;
@@ -63,7 +62,6 @@ input::placeholder{
 .tab_teduri{
 	width:400px;
 	height:40px;
-=======
   background:none;
   border:0;
   outline:0;
@@ -91,5 +89,4 @@ input::placeholder{
 }
 .tab_box.on {
   display:block;
->>>>>>> refs/heads/parkc
 }

@@ -6,15 +6,10 @@
 <jsp:include page="/WEB-INF/layout/nav.jsp"/>
 
 <script type="text/javascript">
-
-
 function search() {
-
-var search = document.getElementById("search").value.trim();
-document.location.href = "buyerList?page=1&area="+ '${area}' + "&category=" + '${category}' + "&search=" + search;
-
+	var search = document.getElementById("search").value.trim();
+	document.location.href = "buyerList?page=1&area="+ '${area}' + "&category=" + '${category}' + "&search=" + search;
 }
-
 </script>
 
 <caption>
