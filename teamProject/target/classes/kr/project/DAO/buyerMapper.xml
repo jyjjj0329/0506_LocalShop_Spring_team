@@ -8,8 +8,9 @@
 </select>
 
 <insert id="buyerInsert" parameterType="buyerVO">
-	insert into buyer values (buyer_idx.nextval, #{name}, #{id}, 
-	#{pw}, #{nickname}, #{gender}, #{age}, #{email}, #{phonenum}, #{cardNum}, #{area}, #{address})
+	insert into buyer values (buyer_idx.nextval, #{id}, #{pw}, #{name},
+	#{nickname}, #{gender}, #{age}, #{email}, 'skt', #{phonenum}, '신한', 
+	#{cardNum}, #{area}, #{address}, 1000000)
 </insert>
 
 <select id="CheckID" parameterType="String" resultType="int">
@@ -19,7 +20,6 @@
 <select id="CheckNickname" parameterType="String" resultType="int">
 	select count(*) from buyer where nickname = #{nickname}
 </select>
-
 
 <select id="sellectCount" parameterType="java.util.HashMap" resultType="int">
 	select count(*) from sellgds where category = #{category}
@@ -66,4 +66,22 @@
 <update id="moneyadd" parameterType="java.util.HashMap">
  update buyer set money=#{money} where id = #{id}
 </update> 
+
+<select id="buyerDetail" parameterType="int" resultType="sellerGdsVO">
+	select * from sellgds where idx = #{idx}
+</select>
+
+<select id="reviewsSelect" parameterType="int" resultType="reviewsVO">
+	select * from reviews where sellgds_idx = #{idx}
+</select>
+
+<select id="reviewsCount" parameterType="int" resultType="int">
+	select count(*) from reviews where sellgds_idx = #{idx}
+</select>
+
+<insert id="revewsInsert" parameterType="reviewsVO">
+	insert into reviews values (#{sellgds_idx}, comment_seq.nextval, 
+	#{buyer_id}, #{star}, #{content}, sysdate)
+</insert>
+
 </mapper>

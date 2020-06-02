@@ -148,7 +148,7 @@ public class SellerGdsController {
 		/** 판매자 정보에 있는 area 빼서 넣어주는 코드 */
 		String area = mapper.selectarea(seller_id);
 		sellerGdsVO.setArea(area);
-		
+
 		mapper.insert(sellerGdsVO);
 		System.out.println("컨트롤러에서 sellerGdsVO의 데이터들은 : " + sellerGdsVO.toString());
 		

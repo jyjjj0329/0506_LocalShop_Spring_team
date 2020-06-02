@@ -1,5 +1,6 @@
 package kr.project.Controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.project.DAO.BuyerDAO;
+import kr.project.VO.ReviewsVO;
 import kr.project.VO.SellerGdsListVO;
+import kr.project.VO.SellerGdsVO;
 
 @Controller
 public class MainController {
@@ -87,6 +90,64 @@ public class MainController {
 		model.addAttribute("category", category);
 		
 		return "buyer/buyerList";
+	}
+	
+//	상품 상세정보 페이지 이동
+	@RequestMapping(value = "buyerDetail")
+	public String buyerDetail(HttpServletRequest req, Model model, 
+			SellerGdsVO sellerGdsVO) {
+		System.out.println("컨트롤러에서 buyerDetail에 들어옴.");
+		
+//		물품의 상세정보로 들어가기 위해 idx를 받아옴
+		int idx = Integer.parseInt(req.getParameter("idx"));
+		
+//		idx를 기준으로 상세페이지 정보 가져와 넣어줌.
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		sellerGdsVO = mapper.buyerDetail(idx);
+		
+		System.out.println("sellerGdsVO의 값은 : " + sellerGdsVO.toString());
+		model.addAttribute("sellerGdsVO", sellerGdsVO);
+		
+//		------------------------------------------------------------------------
+//		댓글 보이기
+		ArrayList<ReviewsVO> reviewsVO = mapper.reviewsSelect(idx);
+//		댓글 총갯수
+		int reviewsCount = mapper.reviewsCount(idx);
+		System.out.println("컨트롤러에서 reviewsCount의 값은 : " + reviewsCount);
+		
+//		model 객체에 담아줌.
+		model.addAttribute("reviewsCount", reviewsCount);
+		model.addAttribute("reviewsVO", reviewsVO);
+		
+		return "buyer/buyerDetail";
+	}
+	
+//	댓글 입력
+	@RequestMapping(value = "reviews")
+	public String reviews(HttpServletRequest req, ReviewsVO reviewsVO) {
+		System.out.println("컨트롤러에서 reviews에 들어옴.");
+		
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+//		별갯수 꼽아줌
+		int star = Integer.parseInt(req.getParameter("star"));
+		reviewsVO.setStar(star);
+		
+//		sellgds_idx 따로 꼽아줌.
+		int sellgds_idx = Integer.parseInt(req.getParameter("sellgds_idx"));
+		reviewsVO.setSellgds_idx(sellgds_idx);
+		
+//		소비자 id도 따로 꼽아줌.
+		HttpSession session = req.getSession();
+		String buyer_id = (String) session.getAttribute("buyer_id");
+		reviewsVO.setBuyer_id(buyer_id);
+		
+		System.out.println("컨트롤러에서 reviewsVO의 값은 : " + reviewsVO.toString());
+		
+		mapper.revewsInsert(reviewsVO);
+		
+		System.out.println("컨트롤러에서 reviewsVO의 값은 : " + reviewsVO.toString());
+		
+		return "redirect:buyerDetail";
 	}
 	
 //	결제 페이지 이동
