@@ -18,11 +18,6 @@
 			</td>
 			<td>
 				<table border="1" style="height: 300px; width: 400px;">
-					
-					<%-- <tr align="center">
-						<td>가게 이름</td>
-						<td>${sellerGdsVO.store}</td>
-					</tr> --%>
 					<tr align="center">
 						<td>상품명</td>
 						<td>${sellerGdsVO.name }</td>
@@ -88,16 +83,43 @@
 		</div>
 		<p>평가하기</p>
 		<p>${sessionScope.buyer_id }</div>
+		<form action="reviews?sellgds_idx=${sellerGdsVO.idx}" method="post">
 			<textarea rows="5" cols="80" name="content"></textarea>
-			<input type="button" value="입력" onclick="rivews()"/>
+			<input type="hidden" name="star">
+			<input type="submit" value="입력"/>
+		</form>
 		</p>
 	</div>
 	<c:if test="${vo.size() == 0 }">
 		<h4>댓글이 없습니다. 첫댓글의 주인공이 되어주세요.</h3>
 	</c:if>
-	<c:if test="${vo.size() != 0 }">
-		<h3>있습니다.</h3>
 	</c:if>
+	<c:if test="${sessionScope.buyer_id == null }">
+		<h4>댓글은 로그인 하셔야만 작성하실 수 있습니다.</h3>
+	</c:if>
+	<c:if test="${vo.size() != 0 }">
+		<table class="table table-stripped" id="reviews">
+    <thead>
+        <tr>
+            <th width="300px;">별점</th> <!-- 평점 -->
+            <th>ID</th>
+            <th width="700px;">내용</th>
+        </tr>
+    </thead>
+    <tbody>
+        <c:forEach var="review" items="${reviewsVO }" varStatus="status">
+            <!-- 평점 기준 별표시 출력 -->
+            <tr>
+                <td>
+                	<c:forEach begin="0" end="${review.star }">★</c:forEach>
+                	(${review.star +1})
+                </td>
+                <td>${review.buyer_id }</td>
+                <td>${review.content }</td>
+            </tr>
+        </c:forEach>
+    </tbody>
+</table>
 	</c:if>
 	
 </body>
@@ -110,10 +132,8 @@ $(".star").on('click',function(){
 	  for(var i=0; i<=star; i++){
 	     $(".star").eq(i).addClass("on");
 	}
+	$("input[type=hidden]").val(star);
 });
 
-function rivews() {
-	location.href="reviews?sellgds_idx=" + ${sellerGdsVO.idx} + "&star=" + star;
-}
 </script>
 </html>

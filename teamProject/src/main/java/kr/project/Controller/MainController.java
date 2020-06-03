@@ -101,6 +101,7 @@ public class MainController {
 		
 //		물품의 상세정보로 들어가기 위해 idx를 받아옴
 		int idx = Integer.parseInt(req.getParameter("idx"));
+		System.out.println("컨트롤러에서 idx의 값은 : " + idx);
 		
 //		idx를 기준으로 상세페이지 정보 가져와 넣어줌.
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
@@ -110,10 +111,15 @@ public class MainController {
 		model.addAttribute("sellerGdsVO", sellerGdsVO);
 		
 //		------------------------------------------------------------------------
-//		댓글 보이기
-		ArrayList<ReviewsVO> reviewsVO = mapper.reviewsSelect(idx);
+		int sellgds_idx = idx;
 //		댓글 총갯수
-		int reviewsCount = mapper.reviewsCount(idx);
+		int reviewsCount = mapper.reviewsCount(sellgds_idx);
+		ArrayList<ReviewsVO> reviewsVO = null;
+		if(reviewsCount > 0) {
+//			댓글 보이기
+			reviewsVO = mapper.reviewsSelect(sellgds_idx);
+			System.out.println("컨트롤러에서 reviewsVO의 값은 : " + reviewsVO);
+		}
 		System.out.println("컨트롤러에서 reviewsCount의 값은 : " + reviewsCount);
 		
 //		model 객체에 담아줌.
@@ -127,28 +133,24 @@ public class MainController {
 	@RequestMapping(value = "reviews")
 	public String reviews(HttpServletRequest req, ReviewsVO reviewsVO) {
 		System.out.println("컨트롤러에서 reviews에 들어옴.");
+		System.out.println("컨트롤러에서 reviewsVO의 값은 : " + reviewsVO.toString());
 		
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
-//		별갯수 꼽아줌
-		int star = Integer.parseInt(req.getParameter("star"));
-		reviewsVO.setStar(star);
 		
 //		sellgds_idx 따로 꼽아줌.
 		int sellgds_idx = Integer.parseInt(req.getParameter("sellgds_idx"));
 		reviewsVO.setSellgds_idx(sellgds_idx);
+		 
 		
 //		소비자 id도 따로 꼽아줌.
 		HttpSession session = req.getSession();
 		String buyer_id = (String) session.getAttribute("buyer_id");
 		reviewsVO.setBuyer_id(buyer_id);
-		
-		System.out.println("컨트롤러에서 reviewsVO의 값은 : " + reviewsVO.toString());
-		
+
 		mapper.revewsInsert(reviewsVO);
-		
 		System.out.println("컨트롤러에서 reviewsVO의 값은 : " + reviewsVO.toString());
-		
-		return "redirect:buyerDetail";
+		System.out.println("컨트롤러에서 sellgds_idx의 값은 : " + reviewsVO.getSellgds_idx());
+		return "redirect:buyerDetail?idx=" + reviewsVO.getSellgds_idx();
 	}
 	
 //	결제 페이지 이동
