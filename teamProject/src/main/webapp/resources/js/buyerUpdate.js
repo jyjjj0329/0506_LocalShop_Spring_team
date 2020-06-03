@@ -44,7 +44,7 @@ function CheckNickname() {
 	}else if(!/^[가-힣]+[가-힣0-9]{3,8}$/g.test(nickname)){
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else{
-		window.open("buyerCheckNickname?nickname=" + nickname, "닉네임 중복체크", "width=450 height=150 left=400 top=350");
+		window.open("buyerCheckNickname2?nickname=" + nickname, "닉네임 중복체크", "width=450 height=150 left=400 top=350");
 	}
 }
 function CheckNickname2() {

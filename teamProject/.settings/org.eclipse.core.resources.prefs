@@ -1,7 +1,4 @@
 eclipse.preferences.version=1
-<<<<<<< HEAD
 encoding//src/main/webapp/WEB-INF/layout/footer.jsp=UTF-8
-=======
->>>>>>> refs/heads/parkc
 encoding//src/main/webapp/WEB-INF/layout/sellerFooter.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/layout/sellerNav.jsp=UTF-8

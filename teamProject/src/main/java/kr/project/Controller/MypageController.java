@@ -134,7 +134,7 @@ public class MypageController {
 	}
 
 //	닉네임 변경 시 중복 체크
-	@RequestMapping(value="/buyerCheckNickname")
+	@RequestMapping(value="/buyerCheckNickname2")
 	public String buyerCheckNickname(HttpServletRequest request, Model model) {
 		System.out.println("컨트롤러에서 nickname 체크하러옴");
 		String nickname = request.getParameter("nickname");
@@ -142,7 +142,7 @@ public class MypageController {
 		int result = mapper.CheckNickname(nickname);
 		model.addAttribute("result", result);
 		model.addAttribute("nickname", nickname);
-		return "mypage/buyerCheckNickname";
+		return "mypage/buyerCheckNickname2";
 	}
 
 //	금액 충전 창
