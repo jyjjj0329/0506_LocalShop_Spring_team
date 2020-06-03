@@ -187,8 +187,3 @@ function addressAPI() {
         }
     }).open();
 }
-
-
-
-
-

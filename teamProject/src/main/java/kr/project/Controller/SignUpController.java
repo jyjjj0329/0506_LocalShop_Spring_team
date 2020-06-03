@@ -251,9 +251,13 @@ public class SignUpController {
 		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
 		buyerVO.setEmail(email); 
 		/**통신사 및 휴대폰 번호*/
-		String Phone = "(" + req.getParameter("phone") + ")" + req.getParameter("phonenum");
+		String carrier = req.getParameter("phone");
+		buyerVO.setCarrier(carrier);
+		String Phone = req.getParameter("phonenum");
 		buyerVO.setPhonenum(Phone);
 		/**카드 번호*/
+		String creditcard = req.getParameter("creditcard");
+		buyerVO.setCreditcard(creditcard);
 		String cardNum = req.getParameter("cardNum1") + req.getParameter("cardNum2")
 		+ req.getParameter("cardNum3") + req.getParameter("cardNum4");
 		System.out.println("cardNum의 값은 : " + cardNum);
