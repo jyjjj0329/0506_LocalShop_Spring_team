@@ -54,6 +54,7 @@
 
 	</table>
 	<button type="button" onclick="location.href='infochange'">수 정</button>
+	<button type="button" onclick="location.href='buyhistory'">구매내역</button>
 	<button type="button" onclick="location.href='infodelete'">탈 퇴</button>
 
 </body>

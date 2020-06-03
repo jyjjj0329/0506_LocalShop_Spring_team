@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.project.DAO.PurchaseGdsDAO">
+
+
+<select id="sellectCount" parameterType="String" resultType="int">
+	select count(*) from purchasehistory where buyerid = #{id}
+</select>
+
+<select id="selectList" resultType="purchaseGdsVO" parameterType="java.util.HashMap">
+	<![CDATA[
+	select idx, buyerid, gdsname, num, price, origin, category, dop, image_name, image_size, store, area, del_status from 
+	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM purchasehistory order by idx desc) 
+	TT where buyerid = #{buyerid} and #{area} in (select area from buyer)) 
+	where rn >= #{startNo} AND rn <= #{endNo}
+	]]>
+</select>
+
+<select id="getbuyerid" resultType="BuyerVO" parameterType="String">
+	select * from buyer where id = #{id}
+</select>
+
+</mapper>

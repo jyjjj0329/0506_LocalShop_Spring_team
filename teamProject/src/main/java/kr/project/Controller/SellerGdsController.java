@@ -33,9 +33,6 @@ public class SellerGdsController {
 	private SellerGdsListVO sellerGdsListVO;
 	
 	@Autowired
-	private SellerGdsVO sellerGdsVO;
-
-	@Autowired
 	private GoodsSoldList goodsSoldList;
 	
 	/** 판매자 메인 페이지 */
@@ -151,13 +148,14 @@ public class SellerGdsController {
 		/** 판매자 정보에 있는 area 빼서 넣어주는 코드 */
 		String area = mapper.selectarea(seller_id);
 		sellerGdsVO.setArea(area);
-		
+
 		mapper.insert(sellerGdsVO);
 		System.out.println("컨트롤러에서 sellerGdsVO의 데이터들은 : " + sellerGdsVO.toString());
 		
 		return "seller/sellerInsert";
 	}
 	
+//	물품 리스트
 	@RequestMapping(value = "/sellerList")
 	public String sellerList(Model model, HttpServletRequest req) {
 		System.out.println("컨트롤러에서 sellerList에 들어옴.");
@@ -166,26 +164,28 @@ public class SellerGdsController {
 		HttpSession session = req.getSession();
 		String seller_id = (String) session.getAttribute("seller_id");
 		
-		/**
-		 * session을 만들어서 판매자 id를 받아와 그 id를 가진 사람의 판매 물건만 가져와야 하지만 // 아직 판매자 회원은 구현전이니
-		 * 구현후에 수정하자. mapper에 where id = ? 도 구현하기.
-		 */
-		 		
+//		search 값 받음
+		String search = req.getParameter("search");
+		System.out.println("search의 값은 : " + search);
+		
 		/** 페이지 관련 코드 */
 		int page = Integer.parseInt(req.getParameter("page"));
 		int pageSize = 4;
 		
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
-		/** seller_id를 받아 where문에 넣어준다. */
-		sellerGdsListVO.setTotalCount(mapper.selectCount(seller_id));
+		/** seller_id와 search를 where문에 넣어준다. */
+		HashMap<String, Object> hmap = new HashMap<String, Object>();
+		hmap.put("seller_id", seller_id);
+		hmap.put("search", search);
+		sellerGdsListVO.setTotalCount(mapper.selectCount(hmap));
 		System.out.println("컨트롤러에서 sellectCount의 값은 : " + sellerGdsListVO.getTotalCount());
 		/** Page값 초기화 */
 		sellerGdsListVO.initPageList(pageSize, sellerGdsListVO.getTotalCount(), page);
 		
-		HashMap<String, Object> hmap = new HashMap<String, Object>();
+		
 		hmap.put("startNo", sellerGdsListVO.getStartNo());
 		hmap.put("endNo", sellerGdsListVO.getEndNo());
-		hmap.put("seller_id", seller_id);
+//		리스트 가져옴(페이징에 맞게)
 		sellerGdsListVO.setSellerGdsVO(mapper.selectList(hmap));
 		model.addAttribute("sellerGdsListVO", sellerGdsListVO);
 		System.out.println("컨트롤러 나감.");
@@ -273,7 +273,7 @@ public class SellerGdsController {
 		return "seller/goodsSold";
 	}
 	
-	
+//	판매된 물품 상태를 배송중으로 바꿈
 	@RequestMapping(value = "start_DEL", method = RequestMethod.GET)
 	public String start_DEL(HttpServletRequest req) {
 		System.out.println("컨트롤러에서 start_DEL에 들어옴.");
@@ -286,6 +286,7 @@ public class SellerGdsController {
 		return "redirect:goodsSold?page=1";
 	}
 	
+//	판매된 물품 상태를 배송완료로 바꿈
 	@RequestMapping(value = "complate_DEL", method = RequestMethod.GET)
 	public String complate_DEL(HttpServletRequest req) {
 		System.out.println("컨트롤러에서 complate_DEL에 들어옴.");

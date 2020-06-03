@@ -159,7 +159,7 @@ public class SignUpController {
 		if(buyerResult == 1) {
 			session.setAttribute("buyer_id", id);
 			session.setAttribute("buyer_pw", pw);
-			
+			System.out.println("sessionScope.buyer_id의 값은 : " + session.getAttribute("buyer_id"));
 		}
 		
 		model.addAttribute("buyerResult", buyerResult);
@@ -265,6 +265,7 @@ public class SignUpController {
 		mapper.buyerInsert(buyerVO);
 		
 		/**회원가입 완료 후 메인 페이지로 되돌아감*/
+
 		return "main/mainpage";
 	}
 	
