@@ -6,5 +6,6 @@
 		<typeAlias alias="sellerGdsVO" type="kr.project.VO.SellerGdsVO"/>
 		<typeAlias alias="sellerVO" type="kr.project.VO.SellerVO"/>
 		<typeAlias alias="buyerVO" type="kr.project.VO.BuyerVO"/>
+		<typeAlias alias="purchaseGdsVO" type="kr.project.VO.PurchaseGdsVO"/>
 	</typeAliases>
 </configuration>

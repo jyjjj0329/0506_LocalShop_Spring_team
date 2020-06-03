@@ -47,4 +47,7 @@
 <update id="moneyadd" parameterType="java.util.HashMap">
  update buyer set money=#{money} where id = #{id}
 </update> 
+<select id="findarea" parameterType="String" resultType="String">
+	select area from buyer where id = #{id}
+</select>
 </mapper>

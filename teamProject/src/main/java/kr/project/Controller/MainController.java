@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.project.DAO.BuyerDAO;
 import kr.project.DAO.SellerGdsDAO;
+import kr.project.VO.BuyerVO;
 import kr.project.VO.SellerGdsListVO;
 
 @Controller
@@ -41,8 +42,14 @@ public class MainController {
 	
 	@RequestMapping("/category")
 	private String category(HttpServletRequest request, Model model) {
-		
-		String area = request.getParameter("area");
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("buyer_id");
+//		paycomplete.jsp에서 구매하러가기 버튼 클릭시 area 값이 들어오지 않으므로 id를 통하여 db에서 가져온다.
+		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
+		String area = request.getParameter("area");;
+		if(area == null) {
+			area = mapper.findarea(id);
+		}
 		model.addAttribute("area", area);
 		
 		return "main/category";

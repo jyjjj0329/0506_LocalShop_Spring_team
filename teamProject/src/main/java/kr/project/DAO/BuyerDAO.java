@@ -26,6 +26,8 @@ public interface BuyerDAO {
 
 	void moneyadd(HashMap<String, Object> hmap);
 
+	String findarea(String id);
+
 
 
 	

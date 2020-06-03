@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.project.DAO.BuyerDAO;
 import kr.project.DAO.SellerGdsDAO;
+import kr.project.VO.BuyerVO;
 import kr.project.VO.SellerVO;
 
 @Controller
@@ -192,8 +193,27 @@ public class SignUpController {
 	
 // 소비자 회원가입
 	
-	@RequestMapping(value = "/buyerSignUpOK")
+	@RequestMapping(value = "/buyerSignUp")
 	public String buyerSignUp() {
+		
+		return "signUp/buyerSignUp";
+	}
+	
+	@RequestMapping(value = "/buyerSignUpOK")
+	public String buyerSignUpOK(HttpServletRequest request, BuyerVO vo) {
+		
+		String name = request.getParameter("name");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String nickname = request.getParameter("nickname");
+		
+		String email = request.getParameter("email1") + "@" + request.getParameter("email2");
+		vo.setEmail(email);
+		String Phone = "(" + request.getParameter("phone") + ")" + request.getParameter("phonenum");
+		vo.setPhonenum(Phone);
+		String address = "(" + request.getParameter("postcode") + ")" + request.getParameter("address1")
+		 + request.getParameter("address3");
+		vo.setAddress(address);
 		
 		return "main/mainpage";
 	}

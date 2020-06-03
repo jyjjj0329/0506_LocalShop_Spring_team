@@ -55,6 +55,7 @@
 					</c:if>
 					<c:if test="${sessionScope.seller_id != null }">
 					<li><a class="dropdown-item" href="seller">판매자 Home</a></li>
+					<li><a class="dropdown-item" href="logout">로그아웃</a></li>
 					</c:if>
 				</ul>
 			</div>
