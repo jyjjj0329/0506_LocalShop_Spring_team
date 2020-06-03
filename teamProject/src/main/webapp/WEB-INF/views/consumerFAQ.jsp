@@ -12,7 +12,7 @@
 </style>
 <title>고객센터</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="resources/js/kakao.js"></script>
+<script src="resources/js/sendMessage.js"></script>
 <script type="text/javascript">
 
 $(function() {
@@ -29,6 +29,14 @@ $(function() {
 	})
 });
 
+</script>
+<script src="resources/js/kakao.js"></script>
+<script>
+    // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('476ddd4a6edb38d6f43f4012e8681c66');
+
+    // SDK 초기화 여부를 판단합니다.
+    console.log(Kakao.isInitialized());
 </script>
 </head>
 <body>
@@ -100,10 +108,13 @@ $(function() {
 	</ul>
 	
 	<br/>
-	<h5>찾으시는 질문이 없으신가요?</h5>
-	<div>1대 1 문의하기</div>
-	<a onclick="window.open('https://pf.kakao.com/','NewWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=550,height=800')">
-			<img src="">
-	</a>	
+	<h5>찾으시는 질문이 없으신가요?</h5><br/>
+	1대 1 문의하기<br/>
+	<a onclick="window.open('https://open.kakao.com/o/stRP7dcc','NewWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=550,height=800')">
+		<img src="resources/image/kakaotalk_icon.png" width="73" height="73">
+	</a>
+	<a onclick="window.open('https://www.instagram.com/accounts/login/?hl=ko','NewWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=550,height=800')">
+		<img src="resources/image/instagram_icon.png" width="100" height="100" >
+	</a>
 </body>
 </html>
