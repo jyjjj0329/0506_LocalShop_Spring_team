@@ -23,3 +23,4 @@
 		<input type="button" value="회원가입" onclick="location.href='signUp'">
 		</div>
 		<div class="main" align="center">
+	

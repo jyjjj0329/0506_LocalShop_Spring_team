@@ -191,7 +191,7 @@ public class SignUpController {
 	
 // ----------------------------------------판매자 페이지 끝	
 	
-	/** 소비자 회원가입 페이지 호출 */
+/** 소비자 회원가입 페이지 호출 */
 	@RequestMapping(value = "/buyerSignUp")
 	public String buyerSignUp() {
 		System.out.println("소비자 회원가입 페이지로 들어옴");
@@ -250,9 +250,6 @@ public class SignUpController {
 		/**이메일 주소*/
 		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
 		buyerVO.setEmail(email); 
-		/**통신사 및 휴대폰 번호*/
-		String Phone = "(" + req.getParameter("phone") + ")" + req.getParameter("phonenum");
-		buyerVO.setPhonenum(Phone);
 		/**카드 번호*/
 		String cardNum = req.getParameter("cardNum1") + req.getParameter("cardNum2")
 		+ req.getParameter("cardNum3") + req.getParameter("cardNum4");
@@ -268,6 +265,7 @@ public class SignUpController {
 		mapper.buyerInsert(buyerVO);
 		
 		/**회원가입 완료 후 메인 페이지로 되돌아감*/
+
 		return "main/mainpage";
 	}
 	

@@ -70,15 +70,15 @@
 	</div>
 	<div id="radio-div">
 		<form action="paycomplete" name="subform" method="post">
-			<input type="radio" id="1000원" value="1000" name="addmoney">
+			<input type="radio" id="1000원" value="1000" name="addmoney" style="display: none;">
 			<h3><label for="1000원">1000원</label></h3>
-			<input type="radio" id="5000원" value="5000" name="addmoney">
+			<input type="radio" id="5000원" value="5000" name="addmoney" style="display: none;">
 			<h3><label for="5000원">5000원</label></h3>
-			<input type="radio" id="10000원" value="10000" name="addmoney">
+			<input type="radio" id="10000원" value="10000" name="addmoney" style="display: none;">
 			<h3><label for="10000원">10000원</label></h3>
-			<input type="radio" id="20000원" value="20000" name="addmoney">
+			<input type="radio" id="20000원" value="20000" name="addmoney" style="display: none;">
 			<h3><label for="20000원">20000원</label></h3>
-			<input type="radio" id="50000원" value="50000" name="addmoney">
+			<input type="radio" id="50000원" value="50000" name="addmoney" style="display: none;">
 			<h3><label for="50000원">50000원</label></h3>
 			<input type="number" id="inputmoney" name="addmoney" placeholder="직접입력">
 			

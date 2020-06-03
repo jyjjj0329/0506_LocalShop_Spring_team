@@ -16,7 +16,7 @@
 
 		<table align="center" border="1">
 			<tr>
-				<th><h2>${sessionScope.buyer_id}님의정보변경</h2></th>
+				<th><h2>${sessionScope.buyer_id}님의 정보변경</h2></th>
 			</tr>
 			<tr>
 				<th>이 름</th>
