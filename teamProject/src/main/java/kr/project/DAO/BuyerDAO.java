@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import kr.project.VO.BuyerVO;
+import kr.project.VO.ReviewsVO;
 import kr.project.VO.SellerGdsVO;
 
 public interface BuyerDAO {
@@ -29,5 +30,15 @@ public interface BuyerDAO {
 	void updateInfo(BuyerVO vo);
 
 	void moneyadd(HashMap<String, Object> hmap);
+
+	void buyerSearch(String search);
+
+	SellerGdsVO buyerDetail(int idx);
+
+	ArrayList<ReviewsVO> reviewsSelect(int idx);
+
+	int reviewsCount(int idx);
+
+	void revewsInsert(ReviewsVO reviewsVO);
 
 }

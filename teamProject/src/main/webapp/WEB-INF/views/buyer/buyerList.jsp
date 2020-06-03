@@ -2,14 +2,25 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link rel="stylesheet" type ="text/css" href="resources/css/layout.css">
+<link rel="stylesheet" type ="text/css" href="layout/layout.css">
 <jsp:include page="/WEB-INF/layout/nav.jsp"/>
+
+<script type="text/javascript">
+function search() {
+	var search = document.getElementById("search").value.trim();
+	document.location.href = "buyerList?page=1&area="+ '${area}' + "&category=" + '${category}' + "&search=" + search;
+}
+</script>
 
 <caption>
 	<h5 style="margin: 10px">${area } >> ${category } >> </h5>
 </caption>
 <c:set var="list" value="${sellerGdsListVO.sellerGdsVO}"/>
 
+<div align="right" class="search">
+<input type="text" placeholder="이름 검색" id="search"/>
+<input type="button" value="검색" onclick="search()"> 
+</div>
 <!-- 들어있는 갯수만큼 table로 뽑아온다. 5개 이상이면 paging을 만들자. -->
 <c:if test="${list.size() == 0}">
 	<h1>판매 물품이없습니다.</h1>
@@ -19,6 +30,7 @@
 <div class="card-deck" style="margin: 30px;">
 <c:forEach var="vo" items="${list }">
 <div class="container" style="width:24%; display: inline-table; margin: 0px auto;">
+<a href="buyerDetail?idx=${vo.idx }">
 <div class="card" style="border: 0; outline: none; margin: 10px; padding: 0px;">
     <img class="card-img-top" src="resources/image/${vo.image_name}" alt="Card image" style=" width: 100%; height: 20vw; object-fit: hidden;">
     <div class="card-body"style="padding: 0px;">
@@ -27,6 +39,7 @@
        <p class="card-text" style="font-size: 13px; text-align: right;">${vo.category }</p> 
     </div>
   </div>
+</a>
 </div>
 </c:forEach>
 </div>

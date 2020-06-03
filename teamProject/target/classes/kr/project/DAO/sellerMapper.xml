@@ -16,7 +16,13 @@
 	<![CDATA[
 	select idx, name, price, origin, image_name, category from 
 	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM sellgds order by idx desc) 
-	TT where seller_id = #{seller_id}) where rn >= #{startNo} AND rn <= #{endNo}
+	TT where seller_id = #{seller_id}
+	]]>
+	<if test="search != null">
+	and name LIKE '%'||#{search}||'%'
+	</if>
+	<![CDATA[
+	) where rn >= #{startNo} AND rn <= #{endNo}
 	]]>
 </select>
 
@@ -27,8 +33,11 @@
 	]]>
 </select>
 
-<select id="selectCount" resultType="int" parameterType="String">
+<select id="selectCount" resultType="int" parameterType="java.util.HashMap">
 	select count(*) from sellgds where seller_id = #{seller_id}
+	<if test="search != null">
+	and name LIKE '%'||#{search}||'%'
+	</if>
 </select>
 
 <select id="soldSelectCount" resultType="int" parameterType="String">
