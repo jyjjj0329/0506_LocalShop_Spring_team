@@ -33,7 +33,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th>별명</th>
+				<th>닉네임</th>
 				<td>
 					<input id="nickname" name="nickname" type="text"/>
 					<input type="button" value="중복확인" onclick="CheckNickname()">

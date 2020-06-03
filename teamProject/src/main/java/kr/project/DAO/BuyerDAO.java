@@ -32,6 +32,8 @@ public interface BuyerDAO {
 	void moneyadd(HashMap<String, Object> hmap);
 
 	void buyerSearch(String search);
+	
+	String findarea(String id);
 
 	SellerGdsVO buyerDetail(int idx);
 

@@ -1,22 +1,17 @@
 @charset "UTF-8";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .card-img-top {
     width: 100%;
     height: 15vw;
     object-fit: cover;
 }
 
-=======
->>>>>>> refs/heads/branch_YJ
 p { margin:20px 0px; }
 
 .search {
 	margin-right: 20px;
 }
 
-=======
 .table {
 	border: 2px thin;
 	border-color: #422a3a;
@@ -40,7 +35,6 @@ p { margin:20px 0px; }
 	max-width: 200px;
 	max-height: 200px;
 }
->>>>>>> refs/heads/parkc
 
 
 
