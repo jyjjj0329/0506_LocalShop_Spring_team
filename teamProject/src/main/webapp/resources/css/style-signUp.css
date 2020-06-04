@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+#signUp{
+	width:100vw;
+	height:93vh;
+	background:#f0ddb1;
+}
+
+.imgSize1{
+	position:relative;
+	width:49.8vw;
+	height:92vh;
+}
+.imgSize2{
+	position:relative;
+	width:49.8vw;
+	height:92vh;
+}
+.imgSize1:hover {
+	filter:brightness(0.4);
+}
+.imgSize1:hover ~ .buyer{
+	display:block;
+}
+	
+.imgSize2:hover{
+	filter:brightness(0.4);
+}
+.imgSize2:hover~ .seller{
+	display:block;
+}
+.buyer{
+	display:none;	
+	font-size:40px;
+	color:#ffffff;
+	position:absolute;
+	top:400px;
+	left:400px;
+}
+.seller{
+	display:none;
+	font-size:40px;
+	color:#ffffff;
+	position:absolute;
+	top:400px;
+	left:1350px;
+}
+
