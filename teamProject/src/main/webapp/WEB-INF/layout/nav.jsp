@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap Example</title>
+<title>지역 화폐 온라인 마켓::서울</title>
 
 <link href="resources/css/login.css" rel="stylesheet"/>
 <link rel="stylesheet" href="resources/css/style-mainpage.css" />
