@@ -47,16 +47,19 @@ function addressAPI() {
     }).open();
 }
 
+// 결제창 
 function payment() {
-	var name = paymentForm.name.value.trim()
+	var buyer_name = paymentForm.name.value.trim()
 	var phonenum2 = paymentForm.phonenum2.value.trim()
 	var phonenum3 = paymentForm.phonenum3.value.trim()
 	var phonenum4 = paymentForm.phonenum4.value.trim()
 	var postcode = paymentForm.postcode.value.trim()
 	var address1 = paymentForm.address1.value.trim()
 	var address3 = paymentForm.address3.value.trim()
+	var sellName = paymentForm.sellName.value
+	var price = paymentForm.price.value
 	
-	if(name == ""){
+	if(buyer_name == ""){
 		alert("이름을 입력 안하셨습니다.")
 	}else if(phonenum2 == ""){
 		alert("핸드폰 번호를 입력 안하셨습니다. 폰번호를 확인해주세요")
@@ -74,22 +77,17 @@ function payment() {
 		    pg : 'kakao', // version 1.1.0부터 지원.
 		    pay_method : 'card',
 		    merchant_uid : 'merchant_' + new Date().getTime(),
-		    name : '주문명:결제테스트', // 이부분
-		    amount : 100,	// 이부분
-		    buyer_email : 'iamport@siot.do',	// 이부분
-		    buyer_name : name,
+		    name : sellName, 
+		    amount : price,
+		    buyer_name : buyer_name,
 		    buyer_tel : phonenum2 + phonenum3 + phonenum4,
 		    buyer_addr : address1 + address3,
 		    buyer_postcode : postcode,
 		}, function(rsp) {
 		    if ( rsp.success ) {
-		        var msg = '결제가 완료되었습니다.';
-		        msg += '고유ID : ' + rsp.imp_uid;
-		        msg += '상점 거래ID : ' + rsp.merchant_uid;
-		        msg += '결제 금액 : ' + rsp.paid_amount;
-		        msg += '카드 승인번호 : ' + rsp.apply_num;
-		        alert(msg + "'<br/>결제에 성공하셨습니다.")
-		        location.href = 'paymentOK';
+		        var msg = ' 결제가 완료되었습니다.';
+		        alert("주문 상품 : " + sellName + " 가격 : " + price + msg);
+		        paymentForm.submit();
 		    } else {
 		        var msg = '결제에 실패하였습니다.';
 		        msg += '에러내용 : ' + rsp.error_msg;

@@ -118,7 +118,7 @@ public class MypageController {
 		vo.setCarrier(request.getParameter("carrier"));
 		vo.setPhonenum(request.getParameter("phonenum"));
 		vo.setArea(request.getParameter("area"));
-		vo.setCreditCard(request.getParameter("creditCard"));
+		vo.setCreditcard(request.getParameter("creditCard"));
 		vo.setCardNum(request.getParameter("cardNum"));
 		String email = request.getParameter("email1")+"@"+request.getParameter("email2");
 		vo.setEmail(email);
@@ -132,19 +132,24 @@ public class MypageController {
 		model.addAttribute("buyerVO", vo);
 		return "mypage/myinfo";
 	}
-
-//	닉네임 변경 시 중복 체크
-	@RequestMapping(value="/buyerCheckNickname2")
-	public String buyerCheckNickname(HttpServletRequest request, Model model) {
-		System.out.println("컨트롤러에서 nickname 체크하러옴");
+	/** 별명 중복체크 페이지 호출 */
+	@RequestMapping(value = "/buyerUpdateCheckNickname")
+	public String buyerUpdateCheckNickname(HttpServletRequest request, Model model) {
+		System.out.println("컨트롤러에서 buyerUpdateCheckNickname 들어옴.");
+		
+		/** nickname 값을 받고, 받은 nickname 값을 DB내의 nickname 값과 대조하여
+		 *  일치하는 nickname의 개수를 반환받아 출력 */
 		String nickname = request.getParameter("nickname");
+		System.out.println("buyerCheckNickname에서 nickname의 값은 : " + nickname);
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
 		int result = mapper.CheckNickname(nickname);
+		System.out.println("buyerCheckNickname에서 result의 값은 : " + result);
+		
 		model.addAttribute("result", result);
 		model.addAttribute("nickname", nickname);
-		return "mypage/buyerCheckNickname2";
+		
+		return "mypage/buyerUpdateCheckNickname";
 	}
-
 //	금액 충전 창
 	@RequestMapping(value="/moneycharge")
 	public String moneycharge(HttpServletRequest request, Model model, BuyerVO vo) {

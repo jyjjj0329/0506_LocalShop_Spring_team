@@ -72,14 +72,13 @@
 						<option value="kt">KT</option>
 						<option value="lg">LG</option>
 					</select>
-					<input name="phonenum" type="tel" style="width:120px;"/>
+					<input name="phonenum" type="tel" style="width:120px;" maxlength="13" placeholder="xxx-xxxx-xxxx"/>
 				</td>
 			</tr>
 			<tr>
 				<th>카드사</th>
 				<td>
-<<<<<<< HEAD
-					<select name="creditCard" id="creditCard" style="height:30px">
+					<select name="creditcard" id="creditcard" style="height:30px">
 						<option value="농협">농협</option>
 						<option value="국민">국민</option>
 						<option value="신한">신한</option>
@@ -87,50 +86,26 @@
 						<option value="하나">하나</option>
 						<option value="기업">기업</option>
 						<option value="SC">SC</option>
-=======
-					<input id="pwCheck" name="pwCheck" type="password"/>
-				</td>
-			</tr>
-			<tr>
-				<th>닉네임</th>
-				<td>
-					<input id="nickname" name="nickname" type="text"/>
-					<input type="button" value="중복확인" onclick="CheckNickname()">
-					<input type="hidden" name="hidden2"	id="hidden2" value="unCheck">
-				</td>
-			</tr>
-			<tr>
-				<th>성별</th>
-				<td>
-					<input name="gender" type="radio" value="true"/>남&nbsp;&nbsp;&nbsp;&nbsp;
-					<input name="gender" type="radio" value="false"/>여
-				</td>
-			</tr>
-			<tr>
-				<th>나이</th>
-				<td><input id="age" name="age" type="number"/></td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td>
-					<input id="email1" name="email1" type="text" style="width:80px"/>&nbsp;@&nbsp;
-					<input id="email2" name="email2" type="text" style="width:80px"/>
-					<select name="eamil3" id="email3" onchange="emailChange()">
-						<option value="직접입력" selected>직접입력</option>
-						<option value="naver.com">naver.com</option>
-						<option value="google.com">google.com</option>
-						<option value="daum.net">daum.net</option>
->>>>>>> branch 'master' of https://github.com/jyjjj0329/teamProject.git
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<th>카드 번호</th>
 				<td>
-					<input name="cardNum1" type="text" style="width:40px"/>
-					<input name="cardNum2" type="text" style="width:40px"/>
-					<input name="cardNum3" type="text" style="width:40px"/>
-					<input name="cardNum4" type="text" style="width:40px"/>
+				<select name="creditcard">
+						<option value="신한">신한</option>
+						<option value="KB국민">KB국민</option>
+						<option value="하나">하나</option>
+						<option value="롯데">롯데</option>
+						<option value="BC">BC</option>
+						<option value="NH농협">NH농협</option>
+						<option value="삼성">삼성</option>
+						<option value="현대">현대</option>
+				</select>
+					<input name="cardNum1" type="text" style="width:40px" maxlength="4"/>
+					<input name="cardNum2" type="text" style="width:40px" maxlength="4"/>
+					<input name="cardNum3" type="text" style="width:40px" maxlength="4"/>
+					<input name="cardNum4" type="text" style="width:40px" maxlength="4"/>
 				</td>
 			</tr>
 			<tr>

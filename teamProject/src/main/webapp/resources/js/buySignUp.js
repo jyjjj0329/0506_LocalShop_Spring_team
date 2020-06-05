@@ -190,8 +190,3 @@ function addressAPI() {
         }
     }).open();
 }
-
-
-
-
-

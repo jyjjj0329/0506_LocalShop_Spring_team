@@ -1,4 +1,3 @@
-// 소비자 회원가입
 function infochange() {
 	var name = infochangeOK.name.value.trim();
 	var nickname = infochangeOK.nickname.value.trim();
@@ -35,7 +34,6 @@ function infochange() {
 		infochangeOK.submit();
 	}
 }
-
 //	별명 중복체크
 function CheckNickname() {
 	var nickname = infochangeOK.nickname.value.trim();
@@ -44,7 +42,7 @@ function CheckNickname() {
 	}else if(!/^[가-힣]+[가-힣0-9]{3,8}$/g.test(nickname)){
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else{
-		window.open("buyerCheckNickname2?nickname=" + nickname, "닉네임 중복체크", "width=450 height=150 left=400 top=350");
+		window.open("buyerUpdateCheckNickname?nickname=" + nickname, "닉네임 중복체크", "width=450 height=150 left=400 top=350");
 	}
 }
 function CheckNickname2() {
@@ -54,10 +52,9 @@ function CheckNickname2() {
 	}else if(!/^[가-힣]+[가-힣0-9]{3,8}$/g.test(nickname2)){
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else{
-		location.href="buyerNicknameUpdate?nickname=" + nickname2;
+		location.href="buyerUpdateCheckNickname?nickname=" + nickname2;
 	}
 }
-
 //	중복확인 후 close
 function Nicknameok(snickname) {
 	opener.document.infochangeOK.nickname.value = snickname;
@@ -69,13 +66,13 @@ function Nicknameok(snickname) {
 
 //	email value값 변경
 function emailChange() {
-	var target = document.infochangeOK.email3.selectedIndex;
-	var mail = document.infochangeOK.email3.options[target].value
-	document.infochangeOK.email2.value = mail;
+	var target = document.buyerSignUp.email3.selectedIndex;
+	var mail = document.buyerSignUp.email3.options[target].value
+	document.buyerSignUp.email2.value = mail;
 	if(mail == "직접입력"){
-		infochangeOK.email2.readOnly=false;
+		buyerSignUp.email2.readOnly=false;
 	}else{
-		infochangeOK.email2.readOnly=true;
+		buyerSignUp.email2.readOnly=true;
 	}
 }
 

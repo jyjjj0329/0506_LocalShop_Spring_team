@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.info{
+	
+	text-align: center; margin:20px;
+}
+
+.info2{
+	border: 1px solid navy;
+	text-align: center;
+	width:665px;
+	margin:0 auto;
+	border-radius: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px; 
+	padding-bottom: 10px;
+}
+
+.pinfo{
+	width:60%;
+	margin:0 auto;
+	text-align: left;
+	border: 1px solid navy;
+	border-radius: 40px;
+	padding-left:10px;
+}

@@ -7,10 +7,10 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<form name="paymentForm">
+<form name="paymentForm" action="paymentOK">
 	<div align="center" style="margin: 50px; padding: 20px;">
 	<table>
-		<tr style="padding: 50px;"">
+		<tr style="padding: 50px;">
 			<th>이름</th>
 			<td><input type="text" name="name" style="width: 300px;"/></td>
 		</tr>
@@ -41,10 +41,14 @@
 		<tr>
 			<th colspan="2">
 			<input type="button" value="결제하기" name="paymentOK" onclick="payment()"/> 
-			<input type="button" value="취소" name="Cancle" onclick="location.href='paymentCancle'"> 
+			<input type="button" value="취소" name="Cancle" onclick="location.href='mainpage'"> 
 			</th>
 		</tr>
 	</table>
 	</div>
+	<input type="hidden" value="${sellerGdsVO.name }" name="sellName"/>
+	<input type="hidden" value="${sellerGdsVO.price }" name="price"/>
+	<input type="hidden" value="${sellerGdsVO.idx }" name="sellerGdsVO_idx"/>
+	<input type="hidden" value="${num}" name="num"/>
 </form>
 

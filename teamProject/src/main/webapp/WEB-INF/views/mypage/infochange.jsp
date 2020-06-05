@@ -128,7 +128,7 @@
 						<option value="NH농협">NH농협</option>
 						<option value="삼성">삼성</option>
 						<option value="현대">현대</option>
-				</select> <input name="cardNum" type="text" value="${buyerVO.cardNum}" placeholder="16자리의 카드 번호"
+				</select> <input name="cardNum" type="text" value="${buyerVO.cardNum}" placeholder="16자리의 카드 번호" maxlength="16" 
 					onclick="this.value='';"
 					onblur="if (this.value == '') {this.value = '${buyerVO.cardNum}';}" /></td>
 			</tr>

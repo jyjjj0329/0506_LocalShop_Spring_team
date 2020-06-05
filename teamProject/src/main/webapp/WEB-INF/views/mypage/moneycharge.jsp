@@ -8,6 +8,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+<link href="resources/css/style-moneycharge.css" rel="stylesheet"/>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -34,7 +35,7 @@
 			var afterChange = document.getElementById('aftermoney');
 			$("input[type=hidden]").val(cmoney);
 			/* console.log($("#moneyadd").val()); */
-			afterChange.innerHTML = "<h2>충전 후 금액: " + cmoney + "</h2>";
+			afterChange.innerHTML = "<div class='aftercharge'>충전 후 금액: " + cmoney + "</div>";
 		});
 	});
 	
@@ -47,8 +48,6 @@
 				window.close();
 			} */
 		}
-		
-	
 	
 	/* 직접입력 시 라디오 버튼 전부 해제 */
 	$(function(){
@@ -56,37 +55,35 @@
 			$("input[type=radio]").prop("checked",false);
 		});
 	});
-	
 </script>
 </head>
 <body>
 	<div>
-		<h2>현재 금액 : ${money}</h2>
 		<div id="aftermoney">
+			<div class="aftercharge">현재  금액:  ${money}</div>
 		</div>
 	</div>
 	<div>
-		<h2>충전하실 금액을 선택해주세요.</h2>
+		<h3 class="chargeinfo">충전하실 금액을 선택해주세요.</h3>
 	</div>
 	<div id="radio-div">
 		<form action="paycomplete" name="subform" method="post">
-			<input type="radio" id="1000원" value="1000" name="addmoney" style="display: none;">
-			<h3><label for="1000원">1000원</label></h3>
-			<input type="radio" id="5000원" value="5000" name="addmoney" style="display: none;">
-			<h3><label for="5000원">5000원</label></h3>
-			<input type="radio" id="10000원" value="10000" name="addmoney" style="display: none;">
-			<h3><label for="10000원">10000원</label></h3>
-			<input type="radio" id="20000원" value="20000" name="addmoney" style="display: none;">
-			<h3><label for="20000원">20000원</label></h3>
-			<input type="radio" id="50000원" value="50000" name="addmoney" style="display: none;">
-			<h3><label for="50000원">50000원</label></h3>
-			<input type="number" id="inputmoney" name="addmoney" placeholder="직접입력">
+			<input type="number" id="inputmoney" name="addmoney"
+				placeholder="직접입력" class="directinput" onclick="this.value='';">
+			<input type="button" class="submitbtn" value="결 제" onclick="paymoney();">
+			<input type="radio" id="1000원" value="1000" name="addmoney" class="radio-cir" >
+			<label for="1000원">1,000원</label>
+			<input type="radio" id="5000원" value="5000" name="addmoney" class="radio-cir">
+			<label for="5000원">5,000원</label>
+			<input type="radio" id="10000원" value="10000" name="addmoney" class="radio-cir">
+			<label for="10000원">10,000원</label>
+			<input type="radio" id="20000원" value="20000" name="addmoney" class="radio-cir">
+			<label for="20000원">20,000원</label>
+			<input type="radio" id="50000원" value="50000" name="addmoney" class="radio-cir">
+			<label for="50000원">50,000원</label>
 			
 			<input type="hidden" name="moneyadd">
 		</form>
-	</div>
-	<div>
-		<input type="button" value="결 제" onclick="paymoney();">
 	</div>
 </body>
 </html>

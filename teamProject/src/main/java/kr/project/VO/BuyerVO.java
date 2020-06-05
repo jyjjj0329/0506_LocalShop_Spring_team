@@ -21,7 +21,7 @@ public class BuyerVO {
 	private String email; 
 	private String carrier;
 	private String phonenum;
-	private String creditCard;
+	private String creditcard;
 	private String cardNum;
 	private String area;
 	private String address;
@@ -87,11 +87,11 @@ public class BuyerVO {
 	public void setPhonenum(String phonenum) {
 		this.phonenum = phonenum;
 	}
-	public String getCreditCard() {
-		return creditCard;
+	public String getCreditcard() {
+		return creditcard;
 	}
-	public void setCreditCard(String creditCard) {
-		this.creditCard = creditCard;
+	public void setCreditcard(String creditcard) {
+		this.creditcard = creditcard;
 	}
 	public String getCardNum() {
 		return cardNum;
@@ -122,7 +122,7 @@ public class BuyerVO {
 	public String toString() {
 		return "BuyerVO [idx=" + idx + ", name=" + name + ", id=" + id + ", pw=" + pw + ", nickname=" + nickname
 				+ ", gender=" + gender + ", age=" + age + ", email=" + email + ", carrier=" + carrier + ", phonenum="
-				+ phonenum + ", creditCard=" + creditCard + ", cardNum=" + cardNum + ", area=" + area + ", address="
+				+ phonenum + ", creditCard=" + creditcard + ", cardNum=" + cardNum + ", area=" + area + ", address="
 				+ address + ", money=" + money + "]";
 	}
 

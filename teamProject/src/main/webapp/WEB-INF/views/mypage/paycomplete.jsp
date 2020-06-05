@@ -18,6 +18,7 @@
 <script type="text/javascript">
 	function closethis() {
 		 if (window.opener && !window.opener.closed) {
+			 window.opener.location.reload();
 			window.close();
 		}
 	}	 
