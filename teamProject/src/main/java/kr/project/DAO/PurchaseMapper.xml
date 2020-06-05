@@ -21,4 +21,27 @@
 	select * from buyer where id = #{id}
 </select>
 
+<insert id="paymentInsert" parameterType="purchaseGdsVO">
+insert into payment(idx, buyer_id, DOP, name, phonenum, address, del_status, num) 
+values (payment_seq.nextval, #{BuyerID}, sysdate, #{name}, #{phonenum}, #{address}, '배송전', #{num})
+</insert>
+
+<select id="select" parameterType="int" resultType="sellerGdsVO">
+select seller_id, name, price, category, image_name from sellgds
+where idx = #{sellerGdsVO_idx}
+</select>
+
+<update id="paymentupdate" parameterType="sellerGdsVO">
+<![CDATA[
+	update payment set seller_id = #{seller_id}, goods_name = #{name}, 
+	price = #{price}, category = #{category}, img_name = #{image_name}
+	where idx = (SELECT idx FROM (SELECT * FROM payment ORDER BY idx DESC) 
+	WHERE ROWNUM <= 1)
+]]>
+</update>
+
+<update id="moneyUpdate" parameterType="java.util.HashMap">
+update buyer set money = money - (#{price} * #{num}) where id = #{id}
+</update>
+
 </mapper>
