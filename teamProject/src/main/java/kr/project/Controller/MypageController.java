@@ -118,7 +118,7 @@ public class MypageController {
 		vo.setCarrier(request.getParameter("carrier"));
 		vo.setPhonenum(request.getParameter("phonenum"));
 		vo.setArea(request.getParameter("area"));
-		vo.setCreditcard(request.getParameter("creditcard"));
+		vo.setCreditcard(request.getParameter("creditCard"));
 		vo.setCardNum(request.getParameter("cardNum"));
 		String email = request.getParameter("email1")+"@"+request.getParameter("email2");
 		vo.setEmail(email);

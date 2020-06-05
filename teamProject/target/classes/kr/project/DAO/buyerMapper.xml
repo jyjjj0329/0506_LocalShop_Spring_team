@@ -84,4 +84,7 @@
 	#{buyer_id}, #{star}, #{content}, sysdate)
 </insert>
 
+<select id="findarea" parameterType="String" resultType="String">
+	select area from buyer where id = #{id} 
+</select>
 </mapper>

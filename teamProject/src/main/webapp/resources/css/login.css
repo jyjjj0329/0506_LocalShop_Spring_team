@@ -7,6 +7,8 @@ button {
 
 .tab_menu_container {
 	display: flex;
+	width: 100%;
+	margin: 0 auto;
 }
 
 .tab_menu_btn {
@@ -40,53 +42,100 @@ button {
 
 .tab_wrap {
 	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+.inputcss {
+	width: 800px;
+	height: 80px;
+	font-size: 30px;
+	border: 3px solid black;
 	margin: 0 auto;
+	text-indent: 50px;
 }
 
-.inputcss{
-	width: 300px;
+.inputcss:focus {
+	outline: red;
+	border: 4px solid red;
+}
+
+input::placeholder {
+	color: lightslategray;
+}
+
+.tab_teduri {
+	width: 400px;
 	height: 40px;
-	font-size: 20px;
-	
-    
-}
-.inputcss:focus{
-	outline:red;
-	border: 2px solid red;
+	background: none;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
 }
 
-input::placeholder{
-	color:lightslategray;
-}
-
-.tab_teduri{
-	width:400px;
-	height:40px;
-  background:none;
-  border:0;
-  outline:0;
-  cursor:pointer;
-}
 .tab_menu_container {
-  display:flex;
+	display: flex;
 }
+
 .tab_menu_btn {
-  width:80px;
-  height:40px;
-  transition:0.3s all;
+	font-size: 25px;
+	text-align: center;
+	margin: 0 auto;
+	width: 480px;
+	height: 50px;
+	transition: 0.3s all;
 }
+
 .tab_menu_btn.on {
-  border-bottom:2px solid #df0000;
-  font-weight:700;
-  color:#df0000;
+	border-bottom: 3px solid #df0000;
+	font-weight: 700;
+	color: #df0000;
 }
+
 .tab_menu_btn:hover {
-  color:#df0000;
+	color: #df0000;
 }
+
 .tab_box {
-  display:none;
-  padding:20px;
+	display: none;
+	padding: 20px;
+	padding-top: 100px;
 }
+
 .tab_box.on {
-  display:block;
+	display: block;
+}
+
+.table_vis {
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+
+.btnback, .btnlogin {
+	border: 2px solid #61021a;
+	border-radius: 10px;
+	background-color: #FFFFFF;
+	color: #61021a;
+	text-align: left;
+	text-indent: 20px;
+	font-size: 30px;
+	padding: 10px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin-left: 600px;
+	margin-top: 20px;
+}
+
+.btnback:hover, .btnlogin:hover {
+	color: #FFFFFF;
+	background-color: #61021a;
+	transition: all 0.5s;
+	animation: movingtitle 0.4s infinite alternate linear;
+}
+
+@keyframes movingtitle {
+	/* modified */
+	to {text-indent: 15%;
 }

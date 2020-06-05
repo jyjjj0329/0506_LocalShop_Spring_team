@@ -9,18 +9,6 @@
 <jsp:include page="/WEB-INF/layout/nav.jsp" />
 
 <script type="text/javascript">
-   $(function() {
-      // 전체선택 체크박스 체크된 상태 일 경우
-      $("#all").click(function() {
-         if ($("#all").prop("checked")) {
-            $("input[type=checkbox]").prop("checked", true);
-            // 해제된 경우
-         } else {
-            $("input[type=checkbox]").prop("checked", false);
-         }
-      })
-   })
-
    function showlist() {
       var item = $(this).attr("category");
       /* item.innerHTML="<iframe src='buyerList?page=1'></iframe>" */
@@ -45,7 +33,7 @@
 				</h2>
 				<h2>
 					<!-- <a id="food" class="category" onclick="showlist(food)">음 식</a> -->
-					<input type="submit" id="food" name="category" onclick="showlist()">
+					<input type="submit" id="food" name="category" onclick="showlist()" value="음식">
 				</h2>
 				<h2>
 					<a id="furniture" class="category" onclick="showlist()">가 구</a>

@@ -47,7 +47,6 @@ public class ReviewsVO {
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
-	
 	@Override
 	public String toString() {
 		return "ReviewsVO [sellgds_idx=" + sellgds_idx + ", idx=" + idx + ", buyer_id=" + buyer_id + ", star=" + star
@@ -55,7 +54,4 @@ public class ReviewsVO {
 	}
 	
 	
-	
-	
-
 }
