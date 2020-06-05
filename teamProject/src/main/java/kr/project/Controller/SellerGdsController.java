@@ -101,6 +101,7 @@ public class SellerGdsController {
 		
 		/** 파일 관련 코드(여기부터) */
 		String extension = null;
+		
 		/** 업로드 파일이 저장될 경로 */
 		String filePath = "C:/Users/CHOYEJI/git/teamProject/teamProject/src/main"
 				+ "/webapp/resources/image/";

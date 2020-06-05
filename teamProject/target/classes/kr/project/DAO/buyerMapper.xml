@@ -87,4 +87,9 @@
 <select id="findarea" parameterType="String" resultType="String">
 	select area from buyer where id = #{id} 
 </select>
+
+<select id="paymentSelect" parameterType="int" resultType="sellerGdsVO">
+select * from sellgds where idx = #{idx}
+</select>
+
 </mapper>
