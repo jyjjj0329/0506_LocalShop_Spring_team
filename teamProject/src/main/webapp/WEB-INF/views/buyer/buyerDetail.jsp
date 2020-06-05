@@ -83,10 +83,10 @@
 		</div>
 		<p>평가하기</p>
 		<p>${sessionScope.buyer_id }</div>
-		<form action="reviews?sellgds_idx=${sellerGdsVO.idx}" method="post">
+		<form action="reviews?sellgds_idx=${sellerGdsVO.idx}" method="post" name="reviewsForm">
 			<textarea rows="5" cols="80" name="content"></textarea>
 			<input type="hidden" name="star">
-			<input type="submit" value="입력"/>
+			<input type="button" value="입력" onclick="reviews()"/>
 		</form>
 		</p>
 	</div>
@@ -134,6 +134,14 @@ $(".star").on('click',function(){
 	}
 	$("input[type=hidden]").val(star);
 });
+
+function reviews() {
+	if(star == 0){
+		alert("별점을 선택해주세요.")
+	}else{
+		reviewsForm.submit();
+	}
+}
 
 </script>
 </html>
