@@ -6,19 +6,19 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PurchaseGdsVO {
 	
-	private int idx;	// 1
-	private String BuyerID;	// 2
-	private String seller_id; //-1
-	private String goods_name;//-2
-	private int num;	// 8
-	private int price;		//-3
-	private String category;//-4
-	private String DOP;	// 3
-	private String image_name; //-5
-	private String del_status; // 7
-	private String name;	// 4
-	private String phonenum;	// 5
-	private String address;	// 6
+	private int idx;	
+	private String BuyerID;	
+	private String seller_id; 
+	private String goods_name;
+	private int num;	
+	private int price;		
+	private String category;
+	private String DOP;	
+	private String image_name; 
+	private String del_status; 
+	private String name;	
+	private String phonenum;	
+	private String address;	
 	
 	public int getIdx() {
 		return idx;
