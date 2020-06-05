@@ -84,4 +84,8 @@
 	#{buyer_id}, #{star}, #{content}, sysdate)
 </insert>
 
+<select id="paymentSelect" parameterType="int" resultType="sellerGdsVO">
+select * from sellgds where idx = #{idx}
+</select>
+
 </mapper>

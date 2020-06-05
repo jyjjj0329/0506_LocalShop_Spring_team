@@ -51,5 +51,7 @@ public interface BuyerDAO {
 
 	void revewsInsert(ReviewsVO reviewsVO);
 
+	SellerGdsVO paymentSelect(int idx);
+
 }
 

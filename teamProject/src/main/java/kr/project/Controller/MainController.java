@@ -157,11 +157,5 @@ public class MainController {
 		System.out.println("컨트롤러에서 sellgds_idx의 값은 : " + reviewsVO.getSellgds_idx());
 		return "redirect:buyerDetail?idx=" + reviewsVO.getSellgds_idx();
 	}
-	
-//	결제 페이지 이동
-	@RequestMapping(value = "payment")
-	public String payment() {
-		
-		return "payment/payment";
-	}
+
 }

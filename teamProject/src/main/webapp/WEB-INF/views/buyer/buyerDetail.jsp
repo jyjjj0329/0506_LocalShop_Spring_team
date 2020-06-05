@@ -8,9 +8,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/css/star.css">
-
 <jsp:include page="/WEB-INF/layout/nav.jsp"/>
-	<div align="center" style="margin-top: 40px;">
+
+<div align="center" style="margin-top: 40px;">
+<form name="paymentForm" method="post" action="payment">
+<input type="hidden" name="idx" value="${sellerGdsVO.idx }">
 	<table border="1">
 		<tr>
 			<td>
@@ -40,20 +42,12 @@
 					</tr>
 					<tr align="center">
 						<td colspan="2">
-							<form name="paymentForm" method="post" action="payment">
-								<%-- <input type="hidden" name="productId" value="${vo.productId}"> --%>
-								<select name="amount">
-									<c:forEach begin="1" end="10" var="i">
-										<option value="${i}">${i}</option>
-									</c:forEach>
-								</select>&nbsp;개
-								<!-- <input type="submit" value="장바구니에 담기"> -->
-								<input type="submit" value="구매">
-							</form>
-							
+							<input type="number" name="num" width="10px;">&nbsp;개
+							<input type="button" value="구매" onclick="payment()">
 						</td>
 					</tr>
 				</table>
+				</form>
 				</div>
 			</td>
 		</tr>
@@ -124,6 +118,15 @@
 	
 </body>
 <script type="text/javascript">
+
+function payment(){
+	var id = "${sessionScope.buyer_id}";
+	if(id == ""){
+		alert("소비자 로그인을 하셔야 구매 가능합니다.")
+	}else{
+		paymentForm.submit();
+	}
+}
 
 var star = 0;
 $(".star").on('click',function(){
