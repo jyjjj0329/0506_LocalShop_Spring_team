@@ -24,6 +24,10 @@
       <li><a href="sellerInsert">판매 물품 등록</a></li>
       <li><a href="sellerList?page=1">물품 리스트</a></li>
       <li><a href="goodsSold?page=1">판매된 물품</a></li>
+      
+      <li><a href="sellerMyInfo">마이페이지</a></li>
+      
+      
     </ul>
 	<ul class="nav nav-pills">
 		<li class="nav-item dropdown">
@@ -33,7 +37,7 @@
 		      &nbsp;${sessionScope.seller_id }</a>
 		    <div class="dropdown-menu">
 		      <a class="dropdown-item" href="logout">로그아웃</a><br/>
-		      <a class="dropdown-item" href="#">마이페이지</a>
+		      <a class="dropdown-item" href="sellerMyPage">마이페이지</a>
 		    </div>
 	  	</li>
   	</ul>

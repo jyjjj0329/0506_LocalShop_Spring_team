@@ -84,4 +84,25 @@
 	update payment set del_status = '배송 완료' where idx = #{idx}
 </update>
 
+<!-- SellermyPage Mapper -->
+<select id ="sellerInfo" parameterType="String" resultType="sellerVO">
+ select * from seller where id = #{id}
+</select>
+
+
+<delete id ="sellerInfoDelete" parameterType="String">
+ delete from seller where id = #{id}
+</delete>
+
+<update id="sellerChangePW" parameterType="java.util.HashMap">
+ update seller set pw = #{pw} where id = #{id}
+</update>
+
+<update id="sellerUpdateInfo" parameterType="sellerVO">
+ update seller set name= #{name}, age=#{age},
+ email=#{email}, phonenum=#{phonenum}, regnum=#{regnum},
+ area=#{area}, store=#{store}, 
+ storeaddress=#{storeaddress} where id = #{id}
+</update>
+
 </mapper>

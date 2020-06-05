@@ -40,5 +40,15 @@ public interface SellerGdsDAO {
 	void complate_DEL(int idx);
 
 	int sellectCount(String seller_id);
+	
+	SellerVO sellerInfo(String id);
+
+	void sellerInfoDelete(String id);
+
+	void sellerChangePW(HashMap<String, Object> hmap);
+
+	void sellerUpdateInfo(SellerVO vo);
+
+	SellerVO sellerMyInfo(String id);
 
 }
