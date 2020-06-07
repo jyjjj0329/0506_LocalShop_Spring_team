@@ -34,7 +34,7 @@
 </head>
 <body>
 	<!--상단 네비게이션 바-->
-	<div id="navbar">
+	<div id="navbar" style="margin-bottom: 0px;">
 		<nav class="navbar bg-dark navbar-dark">
 			<!-- Brand -->
 			<b><a class="navbar-brand" href="mainpage">지역 화폐</a></b>

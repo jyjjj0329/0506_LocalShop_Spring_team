@@ -6,6 +6,7 @@
 <script type="text/javascript" src="resources/js/upload.js"></script>
 
 <form action="sellerInsertOK" name="uploadForm" method="post" enctype="multipart/form-data">
+<div align="center">
 <table border="1">
 	<tr><th colspan="2">*표시는 필수 입력 사항입니다.</th></tr>
 	<tr>
@@ -28,7 +29,6 @@
 			<option value="가구">가구</option>
 			<option value="완구">완구</option>
 			<option value="전자제품">전자제품</option>
-			<option value="전통시장">전통시장</option>
 			<option value="기타">기타</option>
 		</select> </td>
 	</tr>
@@ -51,5 +51,7 @@
 		</td>
 	</tr>
 </table>
+</div>
 </form>
+<jsp:include page="/WEB-INF/layout/sellerFooter.jsp"/>
 

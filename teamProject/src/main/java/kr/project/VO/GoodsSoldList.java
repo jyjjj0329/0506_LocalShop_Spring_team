@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class GoodsSoldList {
 	private ArrayList<GoodsSoldVO> goodsSoldVO = new ArrayList<GoodsSoldVO>();
-	private int pageSize = 4;
+	private int pageSize = 12;
 	private int totalCount = 0;
 	private int totalPage = 0;
 	private int currentPage = 1;

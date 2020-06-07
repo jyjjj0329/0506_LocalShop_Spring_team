@@ -3,6 +3,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type ="text/css" href="layout/layout.css">
+<link rel="stylesheet" type ="text/css" href="resources/css/sideBar.css">
 <jsp:include page="/WEB-INF/layout/nav.jsp"/>
 
 <script type="text/javascript">
@@ -11,6 +12,25 @@ function search() {
 	document.location.href = "buyerList?page=1&area="+ '${area}' + "&category=" + '${category}' + "&search=" + search;
 }
 </script>
+
+<div id="page-wrapper">
+  <!-- 사이드바 -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+		<h1 style="color: white;">${area}</h1>
+		<a href="mainpage">지역 변경</a>
+      </li>
+      <li><a href="buyerList?page=1&area=${area }&category=의류">의류</a></li>
+      <li><a href="buyerList?page=1&area=${area }&category=음식">음식</a></li>
+      <li><a href="buyerList?page=1&area=${area }&category=가구">가구</a></li>
+      <li><a href="buyerList?page=1&area=${area }&category=완구">완구</a></li>
+      <li><a href="buyerList?page=1&area=${area }&category=전자제품">전자제품</a></li>
+      <li><a href="buyerList?page=1&area=${area }&category=기타">기타</a></li>
+      
+    </ul>
+  </div>
+  <!-- /사이드바 -->
 
 <caption>
 	<h5 style="margin: 10px">${area } >> ${category } >> </h5>
@@ -24,6 +44,7 @@ function search() {
 <!-- 들어있는 갯수만큼 table로 뽑아온다. 5개 이상이면 paging을 만들자. -->
 <c:if test="${list.size() == 0}">
 	<h1>판매 물품이없습니다.</h1>
+	<div class="push"></div>
 </c:if>
 <c:if test="${list.size() != 0 }">
 <div class="container">

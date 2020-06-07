@@ -1,9 +1,6 @@
 package kr.project.VO;
 
-import org.springframework.stereotype.Repository;
-
 // 결제 내역 VO
-@Repository
 public class PurchaseGdsVO {
 	
 	private int idx;	
