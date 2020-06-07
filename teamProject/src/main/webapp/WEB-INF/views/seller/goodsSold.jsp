@@ -28,6 +28,7 @@
 </c:forEach> 
 <!-- 페이징 -->
 <nav aria-label="Page navigation example" style="margin: 5px;">
+<div align="center">
   <ul class="pagination" style="align-items: center;">
     <li class="page-item">
     <c:if test="${goodsSoldList.currentPage > 3}">
@@ -78,10 +79,9 @@
         </a> </li>
      </c:if>
   </ul>
+</div>
 </nav>
-
 </c:if>
-
 
 
 <jsp:include page="/WEB-INF/layout/sellerFooter.jsp"/>

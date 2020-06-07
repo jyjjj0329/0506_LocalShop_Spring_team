@@ -42,5 +42,6 @@
     </a>
   </div>
 </div>
+<div class="space"></div>
 
 <jsp:include page="/WEB-INF/layout/sellerFooter.jsp"/>
