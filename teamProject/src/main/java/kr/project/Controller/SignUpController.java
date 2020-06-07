@@ -251,7 +251,7 @@ public class SignUpController {
 		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
 		buyerVO.setEmail(email); 
 		/**통신사 및 휴대폰 번호*/
-		String carrier = req.getParameter("phone");
+		String carrier = req.getParameter("carrier");
 		buyerVO.setCarrier(carrier);
 		String Phone = req.getParameter("phonenum");
 		buyerVO.setPhonenum(Phone);
