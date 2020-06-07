@@ -7,6 +7,7 @@
 <c:set var="list" value="${goodsSoldList.goodsSoldVO}"/>
 <c:if test="${list.size() == 0}">
 	<h1>판매된 물품이 없습니다.</h1>
+	<div class="push"></div>
 </c:if>
 <c:if test="${list.size() != 0}">
  <c:forEach var="vo" items="${list }">

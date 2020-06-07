@@ -194,7 +194,7 @@ public class MypageController {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		System.out.println(page);
-		int pageSize = 4;
+		int pageSize = 12;
 		PurchaseGdsDAO mapper = sqlSession.getMapper(PurchaseGdsDAO.class);
 		BuyerVO vo = mapper.getbuyerid(id);
 		System.out.println(vo);

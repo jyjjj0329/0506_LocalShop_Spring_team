@@ -171,7 +171,7 @@ public class SellerGdsController {
 		
 		/** 페이지 관련 코드 */
 		int page = Integer.parseInt(req.getParameter("page"));
-		int pageSize = 4;
+		int pageSize = 12;
 		
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);
 		/** seller_id와 search를 where문에 넣어준다. */
@@ -253,7 +253,7 @@ public class SellerGdsController {
 		
 		/** 페이지 관련 코드 */
 		int page = Integer.parseInt(req.getParameter("page"));
-		int pageSize = 4;
+		int pageSize = 12;
 		
 		/** seller_id를 받아 where문에 넣어준다. */
 		SellerGdsDAO mapper = sqlSession.getMapper(SellerGdsDAO.class);

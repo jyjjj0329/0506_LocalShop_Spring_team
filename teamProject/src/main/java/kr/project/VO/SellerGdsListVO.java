@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class SellerGdsListVO {
 	
 	private ArrayList<SellerGdsVO> sellerGdsVO = new ArrayList<SellerGdsVO>();
-	private int pageSize = 4;
+	private int pageSize = 12;
 	private int totalCount = 0;
 	private int totalPage = 0;
 	private int currentPage = 1;

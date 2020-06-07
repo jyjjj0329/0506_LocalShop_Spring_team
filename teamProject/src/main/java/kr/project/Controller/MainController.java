@@ -42,21 +42,6 @@ public class MainController {
 		return "main/mainpage";
 	}
 	
-	@RequestMapping("/category")
-	private String category(HttpServletRequest request, Model model) {
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("buyer_id");
-//		paycomplete.jsp에서 구매하러가기 버튼 클릭시 area 값이 들어오지 않으므로 id를 통하여 db에서 가져온다.
-		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
-		String area = request.getParameter("area");;
-		if(area == null) {
-			area = mapper.findarea(id);
-		}
-		model.addAttribute("area", area);
-		
-		return "main/category";
-	}
-	
 //	소비자 물품
 	@RequestMapping(value = "/buyerList")
 	public String buyerList(Model model, HttpServletRequest req, SellerGdsListVO sellerGdsListVO) {
@@ -65,6 +50,10 @@ public class MainController {
 //		area와 category의 값을 받아옴.
 		String area = req.getParameter("area");
 		String category = req.getParameter("category");
+//		카테고리 값이 파라미터로 받는 값이 없다면 기본 셋팅값인 의류로 카테고리가 지정된다.
+		if(category == null) {
+			category = "의류";
+		}
 //		search 값 받음
 		String search = req.getParameter("search");
 //		값이 잘 들어왔는지 확인
@@ -74,7 +63,6 @@ public class MainController {
 		
 //		페이지 관련 코드
 		int page = Integer.parseInt(req.getParameter("page"));
-		int pageSize = 4;
 		
 //		hmap에 area와 category 배열을 저장함.
 		HashMap<String, Object> hmap = new HashMap<String, Object>();
@@ -86,7 +74,7 @@ public class MainController {
 		sellerGdsListVO.setTotalCount(mapper.sellectCount(hmap));
 		System.out.println("컨트롤러에서 sellectCount의 값은 : " + sellerGdsListVO.getTotalCount());
 //		Page값 초기화
-		sellerGdsListVO.initPageList(pageSize, sellerGdsListVO.getTotalCount(), page);
+		sellerGdsListVO.initPageList(sellerGdsListVO.getPageSize(), sellerGdsListVO.getTotalCount(), page);
 		
 		hmap.put("startNo", sellerGdsListVO.getStartNo());
 		hmap.put("endNo", sellerGdsListVO.getEndNo());

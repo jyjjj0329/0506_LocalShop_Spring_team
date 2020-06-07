@@ -15,12 +15,13 @@ function search() {
 <c:set var="list" value="${sellerGdsListVO.sellerGdsVO}"/>
 
 <div align="right" class="search">
-<input type="text" placeholder="이름 검색" id="search"/>
+<input type="search" placeholder="이름 검색" id="search"/>
 <input type="button" value="검색" onclick="search()"> 
 </div>
 <!-- 들어있는 갯수만큼 table로 뽑아온다. 5개 이상이면 paging을 만들자. -->
 <c:if test="${list.size() == 0}">
 	<h1>판매 물품이없습니다.</h1>
+	<div class="push"></div>
 </c:if>
 <c:if test="${list.size() != 0 }">
 <div class="container">
@@ -43,6 +44,7 @@ function search() {
 </c:forEach>
 </div>
 <!-- 페이징 -->
+<div align="center">
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item">
@@ -95,6 +97,7 @@ function search() {
      </c:if>
   </ul>
 </nav>
+</div>
 </div>
 </c:if>
 <jsp:include page="/WEB-INF/layout/sellerFooter.jsp"/>

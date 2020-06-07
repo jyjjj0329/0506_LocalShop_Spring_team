@@ -24,7 +24,7 @@
 	}	 
 	function movethis(){
 		 if (window.opener && !window.opener.closed) {
-			window.opener.location = "category"; 
+			window.opener.location = "mainpage"; 
 			window.close();
 		 }
 	}

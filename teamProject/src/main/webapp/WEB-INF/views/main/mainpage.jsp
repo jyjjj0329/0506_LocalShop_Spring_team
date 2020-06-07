@@ -18,7 +18,7 @@
 	<div class="tab-content">
 		<div class="tab-pane fade show active region" id="map">
 			<img id="mainMap" name="mainMap" src="resources/image/map.gif" />
-			<form action="category" method="post">
+			<form action="buyerList?page=1" method="post">
 				<!-- 도봉구 --><button type="submit" class="btn btn-lg btn-dobong" name="area" value="도봉구"></button>
 				<!-- 노원구 --><button type="submit" class="btn btn-lg btn-nowon" name="area" value="노원구"></button>
 				<!-- 강북구 --><button type="submit" class="btn btn-lg btn-gangbuk" name="area" value="강북구"></button>
