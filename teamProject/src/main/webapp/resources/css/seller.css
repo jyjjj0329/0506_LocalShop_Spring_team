@@ -1,6 +1,16 @@
 @charset "UTF-8";
 
-html,body { height: 80%; margin: 0; padding: 0; }
+/* html,body { height: 80%; margin: 0; padding: 0; } */
+
+html {
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    background: white;
+}
+body {
+    min-height: 100%;
+}
 
 .img {
 	max-width: 50%; 
@@ -9,57 +19,24 @@ html,body { height: 80%; margin: 0; padding: 0; }
 	margin: 0 auto;
 }
 
-.footer {
-	position: absolute;
-<<<<<<< HEAD
-	left:0;
-    bottom:0;
-    width:100%;
-    height:70px;   
-	clear: both;
-	max-width: 100%;
-	padding: 15px 0;
-	background: #080808;
-	color: #9D9D9D;
-	/* font: sans-serif;
-	font-weight: bold;
-	margin:0 auto;  */
-	text-align:center;
-	
-}
-
-.footer2{
-	position: absolute;
-
+.footer{
+	position: relative;
+	margin-top: 10px;
     left: 0;
-
     bottom: 0;
-
     width: 100%;
-
-	padding: 15px 0;
-
-	text-align: center;
-
-	color: white;
-
-	background: blue;
-=======
-    bottom:0;
-    width:100%;
     height:70px;   
-	clear: both;
-	max-width: 100%;
-	padding: 1em;
-	background: #080808;
+    padding: 15px 0;
+    text-align: center;
+    background: #080808;
 	color: #9D9D9D;
-	font: sans-serif;
-	font-weight: bold;
-	margin:0 auto; 
-	text-align:center;
->>>>>>> refs/heads/parkc
 }
 
+.push{
+	height:380px;   
+}
 
-
+.space {
+	height: 30px;
+}
 

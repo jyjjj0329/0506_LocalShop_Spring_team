@@ -1,6 +1,7 @@
 package kr.project.Controller;
 
 import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import kr.project.DAO.BuyerDAO;
 import kr.project.DAO.PurchaseGdsDAO;
-import kr.project.DAO.SellerGdsDAO;
 import kr.project.VO.BuyerVO;
 import kr.project.VO.PurchaseGdsListVO;
 import kr.project.VO.PurchaseGdsVO;
@@ -24,9 +25,6 @@ public class MypageController {
 	
 	@Autowired
 	private PurchaseGdsListVO purchaseGdsListVO;
-	
-	@Autowired
-	private PurchaseGdsVO purchaseGdsVO;
 	
 //	비밀번호 확인 처리 
 	@RequestMapping(value="/mypage")
@@ -118,7 +116,7 @@ public class MypageController {
 		vo.setCarrier(request.getParameter("carrier"));
 		vo.setPhonenum(request.getParameter("phonenum"));
 		vo.setArea(request.getParameter("area"));
-		vo.setCreditcard(request.getParameter("creditCard"));
+		vo.setCreditcard(request.getParameter("creditcard"));
 		vo.setCardNum(request.getParameter("cardNum"));
 		String email = request.getParameter("email1")+"@"+request.getParameter("email2");
 		vo.setEmail(email);
@@ -194,7 +192,7 @@ public class MypageController {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		System.out.println(page);
-		int pageSize = 4;
+		int pageSize = 12;
 		PurchaseGdsDAO mapper = sqlSession.getMapper(PurchaseGdsDAO.class);
 		BuyerVO vo = mapper.getbuyerid(id);
 		System.out.println(vo);

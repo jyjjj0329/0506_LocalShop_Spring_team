@@ -13,7 +13,6 @@ function buySignUp() {
 	var email2 = buyerSignUp.email2.value.trim();
 	var carrier = buyerSignUp.carrier.value.trim();
 	var phonenum = buyerSignUp.phonenum.value.trim();
-	var creditCard = buyerSignUp.creditCard.value.trim();
 	var cardNum1 = buyerSignUp.cardNum1.value.trim();
 	var cardNum2 = buyerSignUp.cardNum2.value.trim();
 	var cardNum3 = buyerSignUp.cardNum3.value.trim();
@@ -26,11 +25,11 @@ function buySignUp() {
 		alert("ID를 입력해주세요.")
 	}else if(hidden1 == "unCheck"){
 		alert("ID 중복체크를 해주세요.")
-	}else if(!/^[a-z]+[a-z0-9]{6,12}$/g.test(id)){
+	}else if(!/^[a-z]+[a-z0-9]{5,12}$/g.test(id)){
 		alert("ID는 영소문자로 시작하여 영소문자, 숫자를 포함한 6 ~ 12자리까지만 가능합니다.")
 	}else if(pw == ""){
 		alert("비밀번호를 입력해주세요.")
-	}else if(!/^[A-Za-z0-9]{6,12}$/.test(pw)){
+	}else if(!/^[A-Za-z0-9]{5,12}$/.test(pw)){
 		alert("비밀번호는 영어 대·소문자, 숫자를 포함한 6 ~ 12자사이만 가능합니다.")
 	}else if(!pw == pwCheck){
 		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.")
@@ -40,7 +39,7 @@ function buySignUp() {
 		alert("별명을 입력해주세요.")
 	}else if(hidden2 == "unCheck"){
 		alert("별명 중복체크를 해주세요.")
-	}else if(!/^[가-힣|0-9]{4,8}$/g.test(nickname)){	
+	}else if(!/^[가-힣|0-9]{3,8}$/g.test(nickname)){	
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else if(gender == ""){
 		alert("성별을 선택해주세요.")
@@ -73,7 +72,7 @@ function CheckID() {
 	var id = buyerSignUp.id.value.trim();
 	if(id == ""){
 		alert("ID를 입력해주세요.")
-	}else if(!/^[a-z]+[a-z0-9]{6,12}$/g.test(id)){
+	}else if(!/^[a-z]+[a-z0-9]{5,12}$/g.test(id)){
 		alert("ID는 영소문자로 시작하여 영소문자, 숫자를 포함한 6 ~ 12자리까지만 가능합니다.")
 	}else{
 		window.open("buyerCheckID?id=" + id, "ID중복체크", "width=450 height=150 left=400 top=350");
@@ -84,7 +83,7 @@ function CheckID2() {
 	var id2 = document.getElementById("id").value.trim();
 	if(id2 == ""){
 		alert("ID를 입력해주세요.")
-	}else if(!/^[a-z]+[a-z0-9]{6,12}$/g.test(id2)){
+	}else if(!/^[a-z]+[a-z0-9]{5,12}$/g.test(id2)){
 		alert("ID는 영소문자로 시작하여 영소문자, 숫자를 포함한 6 ~ 12자리까지만 가능합니다.")
 	}else{
 		location.href="buyerCheckID?id=" + id2;
@@ -104,7 +103,7 @@ function CheckNickname() {
 	var nickname = buyerSignUp.nickname.value.trim();
 	if(nickname == ""){
 		alert("별명을 입력해주세요.")
-	}else if(!/^[가-힣0-9]{4,8}$/g.test(nickname)){
+	}else if(!/^[가-힣0-9]{3,8}$/g.test(nickname)){
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else{
 		window.open("buyerCheckNickname?nickname=" + nickname, "별명 중복체크", "width=450 height=150 left=400 top=350");
@@ -115,7 +114,7 @@ function CheckNickname2() {
 	var nickname2 = document.getElementById("nickname").value.trim();
 	if(nickname2 == ""){
 		alert("별명을 입력해주세요.")
-	}else if(!/^[가-힣0-9]{4,8}$/g.test(nickname2)){
+	}else if(!/^[가-힣0-9]{3,8}$/g.test(nickname2)){
 		alert("별명은 한글 또는 숫자를 포함하여 4 ~ 8글자까지만 가능합니다.")
 	}else{
 		location.href="buyerCheckNickname?nickname=" + nickname2;

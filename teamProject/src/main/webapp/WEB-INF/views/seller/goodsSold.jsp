@@ -7,6 +7,7 @@
 <c:set var="list" value="${goodsSoldList.goodsSoldVO}"/>
 <c:if test="${list.size() == 0}">
 	<h1>판매된 물품이 없습니다.</h1>
+	<div class="push"></div>
 </c:if>
 <c:if test="${list.size() != 0}">
  <c:forEach var="vo" items="${list }">
@@ -27,6 +28,7 @@
 </c:forEach> 
 <!-- 페이징 -->
 <nav aria-label="Page navigation example" style="margin: 5px;">
+<div align="center">
   <ul class="pagination" style="align-items: center;">
     <li class="page-item">
     <c:if test="${goodsSoldList.currentPage > 3}">
@@ -77,10 +79,9 @@
         </a> </li>
      </c:if>
   </ul>
+</div>
 </nav>
-
 </c:if>
-
 
 
 <jsp:include page="/WEB-INF/layout/sellerFooter.jsp"/>

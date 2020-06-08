@@ -92,16 +92,7 @@
 			<tr>
 				<th>카드 번호</th>
 				<td>
-				<select name="creditcard">
-						<option value="신한">신한</option>
-						<option value="KB국민">KB국민</option>
-						<option value="하나">하나</option>
-						<option value="롯데">롯데</option>
-						<option value="BC">BC</option>
-						<option value="NH농협">NH농협</option>
-						<option value="삼성">삼성</option>
-						<option value="현대">현대</option>
-				</select>
+			
 					<input name="cardNum1" type="text" style="width:40px" maxlength="4"/>
 					<input name="cardNum2" type="text" style="width:40px" maxlength="4"/>
 					<input name="cardNum3" type="text" style="width:40px" maxlength="4"/>

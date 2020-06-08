@@ -25,7 +25,7 @@
       <li><a href="sellerList?page=1">물품 리스트</a></li>
       <li><a href="goodsSold?page=1">판매된 물품</a></li>
     </ul>
-	<ul class="nav nav-pills">
+	<ul class="nav nav-pills" style="float: right;">
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 			style="color: white; background: none; width: 150px; margin-top: 5px;">
