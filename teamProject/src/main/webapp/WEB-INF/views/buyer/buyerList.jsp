@@ -50,7 +50,7 @@ function search() {
 <div class="container">
 <div class="card-deck" style="margin: 30px;">
 <c:forEach var="vo" items="${list }">
-<div class="container" style="width:24%; display: inline-table; margin: 0px auto;">
+<div class="container" style="width:24%;">
 <a href="buyerDetail?idx=${vo.idx }">
 <div class="card" style="border: 0; outline: none; margin: 10px; padding: 0px;">
     <img class="card-img-top" src="resources/image/${vo.image_name}" alt="Card image" style=" width: 100%; height: 20vw; object-fit: hidden;">
