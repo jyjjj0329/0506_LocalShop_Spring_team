@@ -41,7 +41,7 @@
 			alert("비밀번호는 영대,소문자, 숫자를 포함한 6 ~ 12자사이만 가능합니다.");
 		}else if(pw == bpw){
 			alert("전에 쓰던 비밀번호와는 다르게 해주시길 바랍니다.")
-		}else if(!pw == pwCheck){
+		}else if(pw != pwCheck){
 			alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 		}else{
 			alert("비밀번호가 변경되었습니다.");
