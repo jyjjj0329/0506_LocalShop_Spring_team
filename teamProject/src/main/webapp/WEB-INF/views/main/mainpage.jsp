@@ -44,8 +44,8 @@
 	
 	<div class="tab-content">
 		<!-- 이름 부분 -->
-		<div class="tab-pane fade" id="choice" align="center">
-			<div class="tab-pane fade show active region" id="btn_group">
+		<div class="tab-pane fade show active " id="chsoice" align="center">
+			<div class="region" id="btn_group">
 			<table>
 				<form action="buyerList?page=1" method="post">
 				 <tr>

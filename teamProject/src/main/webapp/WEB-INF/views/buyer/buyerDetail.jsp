@@ -42,7 +42,7 @@
 					</tr>
 					<tr align="center">
 						<td colspan="2">
-							<input type="number" name="num" width="10px;">&nbsp;개
+							<input type="number" name="num" width="10px;" style="text-align: right;">&nbsp;개
 							<input type="button" value="구매" onclick="payment()">
 						</td>
 					</tr>
