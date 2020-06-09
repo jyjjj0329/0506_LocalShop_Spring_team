@@ -9,14 +9,14 @@
 <script type="text/javascript" src="resources/js/main.js"></script>
 
 	<ul class="nav nav-tabs nav-justified">
-		<li class="nav-item"><a class="nav-link active tab-color"
-			data-toggle="tab" href="#map">지도에서 클릭하여 검색</a></li>
-		<li class="nav-item"><a class="nav-link tab-color"
+		<li class="nav-item"><a class="nav-link tab-color active"
 			data-toggle="tab" href="#choice">이름을 선택하여 검색</a></li>
+		<li class="nav-item"><a class="nav-link tab-color"
+			data-toggle="tab" href="#map">지도에서 클릭하여 검색</a></li>
 	</ul>
 	<!-- 지도부분 -->
 	<div class="tab-content">
-		<div class="tab-pane fade show active region" id="map">
+		<div class="tab-pane fade region" id="map">
 			<img id="mainMap" name="mainMap" src="resources/image/map.gif" />
 			<form action="buyerList?page=1" method="post">
 				<!-- 도봉구 --><button type="submit" class="btn btn-lg btn-dobong" name="area" value="도봉구"></button>
@@ -47,7 +47,7 @@
 			</form>
 		</div>
 
-		<div class="tab-pane fade" id="choice" align="center">
+		<div class="tab-pane fade show active " id="choice" align="center">
 			<div id="list_area">
             <div class="area_list">
                 <ul>
