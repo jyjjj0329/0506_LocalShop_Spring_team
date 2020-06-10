@@ -12,7 +12,8 @@
 <c:if test="${list.size() != 0}">
  <c:forEach var="vo" items="${list }">
 <div class="card" style="text-align: center; display: inline-block;">
-  <img class="card-img-top" src="resources/image/${vo.img_name }${vo.extension }" alt="" style="width: 300px; align-items: center;">
+  <img class="card-img-top" src="resources/image/${vo.img_name }${vo.extension }" 
+  alt="" style="width: 300px; align-items: center; height: 250px;">
   <div class="card-body">
     <h4 class="card-title">${vo.goods_name }</h4>
     <p class="card-text">${vo.buyer_id }님</p>

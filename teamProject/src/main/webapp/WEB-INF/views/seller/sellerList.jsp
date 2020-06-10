@@ -32,8 +32,8 @@ function search() {
 <div class="container" style="width:24%; display: inline-table; margin: 0px auto;">
 <div class="card" style="border: 0; outline: none; margin: 10px; padding: 0px;">
     <img class="card-img-top" src="resources/image/${vo.image_name}" alt="Card image" style=" width: 100%; height: 20vw; object-fit: hidden;">
-    <div class="card-body"style="padding: 0px;">
-       <p class="card-text" style="font-size: 25px; text-align: left;">${vo.name }</p> 
+    <div class="card-body"style="padding: 0px; margin: 0px;">
+       <p class="card-text" style="font-size: 25px; text-align: left; padding: 20px 0px;">${vo.name }</p> 
        <p class="card-text" style="margin-top: -13px">${vo.price }원</p> 
        <p class="card-text" style="font-size: 13px; text-align: right;">${vo.category }</p> 
     </div>
