@@ -1,0 +1,87 @@
+create table sellgds (
+	idx number primary key,			// 게시글번호
+	seller_id varchar2(40) not null,	// 게시글 작성자(판매자)
+	price number not null,			// 가격
+	num number default 0,			// 물품 수량
+	name varchar(50) not null,		// 물품 이름
+	origin varchar(20) not null,		// 물품 원산지
+	area varchar2(20) not null,
+	category varchar2(20) not null,		// 물품 분류
+	content varchar(1000) not null,		// 물품 설명	
+	regdate date default sysdate,		// 등록일
+	image_name varchar(200) not null,	// 사진 이름 
+	image_size long,			// 사진 사이즈
+	constraints seller_id foreign key(seller_id)	// FK 설정
+	references seller(id) 
+);
+
+create sequence sellgds_idx nocycle;
+
+create table buyer (
+	idx number primary key,
+	id varchar2(20) not null,
+	pw varchar2(20) not null,
+	name varchar2(20) not null,
+	nickname varchar2(20) not null,
+	gender char(4) not null,
+	age number(4) not null,
+	email varchar2(40) not null,
+	CARRIER varchar2(10) NOT NULL, 
+	phonenum varchar2(20) not null,
+	CREDITCARD varchar2(10) NOT NULL, 
+	cardNum number(16) not null,
+	area varchar2(20) not null, 
+	address varchar2(100) not null,
+	MONEY NUMBER(20) DEFAULT 0 NOT NULL
+);
+
+create sequence buyer_idx nocycle;
+
+create table seller (
+	idx number not null,
+	id varchar2(20) primary key,
+	pw varchar2(20) not null,
+	name varchar2(20) not null,
+	gender char(1) not null,
+	age number(4) not null,
+	email varchar2(40) not null,
+	phonenum varchar2(20),
+	regnum varchar2(20) not null,
+	area varchar2(20) not null,
+	store varchar2(40) not null,
+	storeaddress varchar2(500) not null,
+	regdate date default sysdate,
+	storeimg_Name varchar(30),
+	extension varchar(10)
+);
+
+create sequence seller_idx_seq nocycle;
+
+create table payment (
+	idx number primary key,
+	buyer_id varchar2(20) not null,
+	seller_id varchar2(20),
+	goods_name varchar2(100),
+	num number not null,
+	price number,
+	category varchar2(20),
+	dop date default sysdate,
+	image_name varchar2(30),
+	del_status varchar2(10) default '배송전',
+	name varchar2(20) not null,
+	phonenum varchar2(20) not null,
+	address varchar2(500) not null
+);
+
+create sequence payment_seq nocycle;
+
+create table reviews(
+	idx number,
+	comment_idx number primary key,
+	buyer_id varchar2(40) not null,
+	star number not null,
+	content varchar2(1000) not null,
+	reg_date date default sysdate
+);
+
+create sequence comment_seq nocycle;
