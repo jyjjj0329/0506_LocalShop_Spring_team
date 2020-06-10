@@ -8,33 +8,9 @@
 <jsp:include page="/WEB-INF/layout/nav.jsp"/>
 <script type="text/javascript" src="resources/js/main.js"></script>
 <head>
-<style >
-		#btn-name1{
-			border-top-left-radius: 100px;
-		  border-bottom-left-radius: 200px;
-		   margin-right:-4px; } 
-		   #btn btn-name2{ 
-		   border-top-right-radius: 100px;
-		    border-bottom-right-radius: 200px; 
-		    margin-left:-3px; } 
-	
-		    #btn_group button{ 
-		    border: 1px solid black; 
-		   height: 100px;
-    		width: 200px;
-		    background-color: rgba(0,0,0,0); 
-		    color: black; padding: 5px; } 
-		    #btn_group button:hover{
-		     color:white;
-		     background-color: gray;
-		     height: 100px;
-    		width: 200px; }
-    		
-	
-	}
-</style>
-</head>
 
+</head>
+<body>
 	<ul class="nav nav-tabs nav-justified">
 		<li class="nav-item"><a class="nav-link active tab-color"
 			data-toggle="tab" href="#choice">이름을 선택하여 검색</a></li>
@@ -44,16 +20,15 @@
 	
 	<div class="tab-content">
 		<!-- 이름 부분 -->
-		<div class="tab-pane fade show active " id="chsoice" align="center">
+		<div class="tab-pane fade show active " id="choice" align="center">
 			<div class="region" id="btn_group">
-			<table>
 				<form action="buyerList?page=1" method="post">
+				<table>
 				 <tr>
 				 <td>   
 				 <div>
-	     			<h2>
-					<p style="margin-top: 12px;text-align: center;">서울 지역화폐 결제 매장 검색</h1>
-					</h2>
+	     			
+					<h1 style="margin-top: 12px;text-align: center;">서울 지역화폐 결제 매장 검색</h1>
 					<!-- <img id="search_img"  src="resources/imgae/search_img.png" /> -->
 					<p style="margin-top: 10px;text-align: center;">사회적 거리두기를 실천해 주세요! </p>
 	       			<p style="margin-top: 9px;text-align: center;">해당 지역을 선택해 주세요</p>
@@ -95,8 +70,8 @@
 				</div>
 				</td>     
          		</tr>
+	            </table>
             </form>
-            </table>
              <!-- 버튼을 누를시에 해당 정보를 가지고 페이지 이동 입력 코드 넣어야함. -->
          </div>
          </div>
@@ -133,8 +108,6 @@
 			</form>
 		</div>
 	
-	<div class = "admin_sts2" id="admin_sts"></div>
-	<!-- 본인의  업체 출력 -등록해둔 물품 목록 출력, 각 목록 수정/삭제 가능-->
 </div>
 </body>
 
