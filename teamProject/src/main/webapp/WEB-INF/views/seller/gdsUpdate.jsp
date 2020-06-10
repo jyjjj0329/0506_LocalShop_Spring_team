@@ -7,7 +7,8 @@
 
 <form action="gdsUpdateResult" name="gdsUpdateForm">
 <input type="hidden" value="${sellerGdsVO.idx }" name="idx">
-	<table border="1" style="margin:30px; margin-left: auto; margin-right: auto;">
+<div align="center">
+	<table border="1" style="margin:30px; width: 75%;">
 		<tr>
 			<th>판매자</th>
 			<td>${sellerGdsVO.seller_id }</td>
@@ -15,9 +16,9 @@
 			<td>${sellerGdsVO.name }</td>
 		</tr>
 		<tr>
-			<th>물품 분류</th>
+			<th width="100px">물품 분류</th>
 			<td>${sellerGdsVO.category }</td>
-			<th>물품 원산지</th>
+			<th width="100px;">물품 원산지</th>
 			<td><input type="text" name="origin" value="${sellerGdsVO.origin }"></td>
 		</tr>
 		<tr>
@@ -28,8 +29,8 @@
 		</tr>
 		<tr>
 			<th>물품</th>
-			<td ><img class="img" alt="" src="resources/image/${sellerGdsVO.image_name}"></td>
-			<td colspan="2"><textarea rows="10px" cols="32px" name="content">${sellerGdsVO.content }</textarea></td>
+			<td ><img class="img" alt="" src="resources/image/${sellerGdsVO.image_name}" align="middle"></td>
+			<td colspan="2"><textarea rows="10px" cols="42px" name="content">${sellerGdsVO.content }</textarea></td>
 		</tr>
 		<tr>
 			<td colspan="4" align="center">
@@ -38,5 +39,6 @@
 			</td>
 		</tr>
 	</table>
+</div>
 </form>
 

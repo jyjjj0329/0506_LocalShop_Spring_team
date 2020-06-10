@@ -130,12 +130,12 @@ public class MainController {
 		
 		BuyerDAO mapper = sqlSession.getMapper(BuyerDAO.class);
 		
-//		sellgds_idx 따로 꼽아줌.
+//		sellgds_idx 따로 넣어줌.
 		int sellgds_idx = Integer.parseInt(req.getParameter("sellgds_idx"));
 		reviewsVO.setSellgds_idx(sellgds_idx);
 		 
 		
-//		소비자 id도 따로 꼽아줌.
+//		소비자 id도 따로 넣어줌.
 		HttpSession session = req.getSession();
 		String buyer_id = (String) session.getAttribute("buyer_id");
 		reviewsVO.setBuyer_id(buyer_id);

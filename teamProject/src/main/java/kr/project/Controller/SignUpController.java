@@ -80,7 +80,7 @@ public class SignUpController {
 //		확장자
 		String extension = ".png";
 //		경로
-		String filePath = "C:\\Users\\Administrator\\git\\teamProject\\teamProject\\src\\main\\webapp\\resources\\storeImage\\" + store + "\\";
+		String filePath = "C:\\Users\\CHOYEJI\\git\\teamProject\\teamProject\\src\\main\\webapp\\resources\\storeImage\\" + store + "\\";
 //		가게 사진 이름
 		String storeimg_Name = "storeImg";
 		System.out.println(filePath);
