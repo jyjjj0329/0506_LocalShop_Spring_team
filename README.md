@@ -23,7 +23,7 @@
  - 지도/이름으로 구 검색
  - 분류별로 물품 목록 보기(검색도 가능).
  - 물품 클릭하여 상세 페이지
- - 상세페이지에서 물품 구매 or 장바구니 담기 or 별점, 댓글 쓰기
+ - 상세페이지에서 물품 구매 or 별점, 댓글 쓰기
     - 결제 API(구매) 사용
  - 본인 정보 확인과 수정, 탈퇴 할 수 있는 마이페이지
  - 고객센터
@@ -41,10 +41,11 @@
  
  ### 사용 기술
 -------------------------------------------------------------------------
- <div>
-<img width="220" src = "https://user-images.githubusercontent.com/60992445/83321103-601d3400-a288-11ea-816f-8817f19d4910.png">
-<img width="220" src = "https://user-images.githubusercontent.com/60992445/83321165-a2df0c00-a288-11ea-8219-d906b31c00a3.jpg">
-<img width="220" src = "https://user-images.githubusercontent.com/60992445/83321181-c43ff800-a288-11ea-9235-391c6ff715dc.png">
-<img width="220" src = "https://user-images.githubusercontent.com/60992445/83321186-ca35d900-a288-11ea-9e8c-9a3422344f9f.png">
+ <div align="center">
+<img width="160" src = "https://user-images.githubusercontent.com/60992445/84227452-7300f580-ab1f-11ea-90c2-80dde33ed975.png">
+<img width="160" src = "https://user-images.githubusercontent.com/60992445/83321165-a2df0c00-a288-11ea-8219-d906b31c00a3.jpg">
+<img width="160" src = "https://user-images.githubusercontent.com/60992445/83321181-c43ff800-a288-11ea-9235-391c6ff715dc.png">
+<img width="160" src = "https://user-images.githubusercontent.com/60992445/83321186-ca35d900-a288-11ea-9e8c-9a3422344f9f.png">
+<img width="160" src = "https://user-images.githubusercontent.com/60992445/84227339-1bfb2080-ab1f-11ea-90e8-ab0d41e2c3eb.png">
 </div>
 

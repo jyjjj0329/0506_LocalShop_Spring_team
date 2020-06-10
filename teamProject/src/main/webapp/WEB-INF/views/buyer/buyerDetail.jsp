@@ -42,7 +42,7 @@
 					</tr>
 					<tr align="center">
 						<td colspan="2">
-							<input type="number" name="num" width="10px;">&nbsp;개
+							<input type="number" name="num" width="10px;" style="text-align: right;">&nbsp;개
 							<input type="button" value="구매" onclick="payment()">
 						</td>
 					</tr>
@@ -89,7 +89,7 @@
 	</c:if>
 	</c:if>
 	<c:if test="${sessionScope.buyer_id == null }">
-		<h4>댓글은 로그인 하셔야만 작성하실 수 있습니다.</h3>
+		<h4>댓글은 소비자 로그인 하셔야만 작성하실 수 있습니다.</h3>
 	</c:if>
 	<c:if test="${vo.size() != 0 }">
 		<table class="table table-stripped" id="reviews">

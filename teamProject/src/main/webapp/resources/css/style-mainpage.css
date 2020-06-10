@@ -20,7 +20,6 @@ html, body, .tab-content {
 	margin: 0px auto;
 }
 
-
 .nav-item {
 	border-bottom: 1px solid gray;
 }
@@ -46,13 +45,14 @@ html, body, .tab-content {
 	left: 57.1%;
 	top: 22.5%;
 }
+
 .btn-nowon {
 	width: 5.925%;
 	height: 3.355%;
 	position: absolute;
 	left: 64.5%;
 	top: 26.2%;
-	}
+}
 
 .btn-gangbuk {
 	width: 5.925%;
@@ -60,8 +60,8 @@ html, body, .tab-content {
 	position: absolute;
 	left: 53.1%;
 	top: 28.7%;
-	}
-	
+}
+
 .btn-sungbuk {
 	width: 5.925%;
 	height: 3.355%;
@@ -86,7 +86,7 @@ html, body, .tab-content {
 	position: absolute;
 }
 
-.btn-jongro  {
+.btn-jongro {
 	width: 5.925%;
 	height: 3.355%;
 	left: 47.6%;
@@ -94,7 +94,7 @@ html, body, .tab-content {
 	position: absolute;
 }
 
-.btn-dongdaemun  {
+.btn-dongdaemun {
 	width: 7%;
 	height: 3.355%;
 	left: 60%;
@@ -110,7 +110,7 @@ html, body, .tab-content {
 	position: absolute;
 }
 
-.btn-jung  {
+.btn-jung {
 	width: 3.95%;
 	height: 3.355%;
 	left: 51.1%;
@@ -118,7 +118,7 @@ html, body, .tab-content {
 	position: absolute;
 }
 
-.btn-mapo  {
+.btn-mapo {
 	width: 5.925%;
 	height: 3.355%;
 	left: 35.1%;
@@ -126,7 +126,7 @@ html, body, .tab-content {
 	position: absolute;
 }
 
-.btn-yongsan  {
+.btn-yongsan {
 	width: 5.925%;
 	height: 3.355%;
 	left: 47.5%;
@@ -134,7 +134,7 @@ html, body, .tab-content {
 	position: absolute;
 }
 
-.btn-sungdong  {
+.btn-sungdong {
 	width: 5.925%;
 	height: 3.355%;
 	left: 58.2%;
@@ -182,7 +182,7 @@ html, body, .tab-content {
 	position: absolute;
 }
 
-.btn-geumcheon  {
+.btn-geumcheon {
 	width: 5.925%;
 	height: 3.355%;
 	left: 32.8%;
@@ -197,6 +197,7 @@ html, body, .tab-content {
 	top: 63%;
 	position: absolute;
 }
+
 .btn-gwanak {
 	width: 5.925%;
 	height: 3.355%;
@@ -204,6 +205,7 @@ html, body, .tab-content {
 	top: 72.2%;
 	position: absolute;
 }
+
 .btn-seocho {
 	width: 5.925%;
 	height: 3.355%;
@@ -211,6 +213,7 @@ html, body, .tab-content {
 	top: 67.2%;
 	position: absolute;
 }
+
 .btn-gangnam {
 	width: 5.925%;
 	height: 3.355%;
@@ -218,6 +221,7 @@ html, body, .tab-content {
 	top: 63.7%;
 	position: absolute;
 }
+
 .btn-songpa {
 	width: 5.925%;
 	height: 3.355%;
@@ -225,10 +229,40 @@ html, body, .tab-content {
 	top: 61.5%;
 	position: absolute;
 }
+
 .btn-gangdong {
 	width: 5.925%;
 	height: 3.355%;
 	left: 75.6%;
 	top: 50.7%;
 	position: absolute;
+	
+}
+
+#btn-name1 {
+	border-top-left-radius: 100px;
+	border-bottom-left-radius: 200px;
+	margin-right: -4px;
+}
+
+#btn btn-name2 {
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 200px;
+	margin-left: -3px;
+}
+
+#btn_group button {
+	border: 1px solid black;
+	height: 100px;
+	width: 200px;
+	background-color: rgba(0, 0, 0, 0);
+	color: black;
+	padding: 5px;
+}
+
+#btn_group button:hover {
+	color: white;
+	background-color: gray;
+	height: 100px;
+	width: 200px;
 }

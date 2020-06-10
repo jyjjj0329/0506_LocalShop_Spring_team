@@ -25,19 +25,13 @@
 	<tr>
 		<th width="100px" height="30px">물품 이름</th>
 		<c:forEach var="vo" items="${list}">
-			<td align="center"><a href="gdsInfo?gdsname=${vo.gdsName }">${vo.gdsName }</a></td>
+			<td align="center"><a href="gdsInfo?gdsname=${vo.goods_name }">${vo.goods_name }</a></td>
 		</c:forEach>
 	</tr>
 	<tr>
 		<th  height="30px">물품 가격</th>
 		<c:forEach var="vo" items="${list}">
 			<td align="center">${vo.price}원</td>
-		</c:forEach>
-	</tr>
-	<tr>
-		<th  height="30px">물품 원산지</th>
-		<c:forEach var="vo" items="${list}">
-			<td  align="right">${vo.origin}</td>
 		</c:forEach>
 	</tr>
 	<tr>
@@ -53,35 +47,35 @@
 		</c:forEach>
 	</tr>
 	<tr>
-		<td colspan="5" align="center">
+		<td colspan="13" align="center">
 			<c:if test="${purchaseGdsListVO.currentPage > 3}">
-				<a href="buyerhistory?page=${purchaseGdsListVO.currentPage - 3 }">
+				<a href="buyhistory?page=${purchaseGdsListVO.currentPage - 3 }">
 					[이전]
 				</a>
 			</c:if>
 			<c:if test="${purchaseGdsListVO.currentPage > 2}">
-				<a href="buyerhistory?page=${purchaseGdsListVO.currentPage - 2 }">
+				<a href="buyhistory?page=${purchaseGdsListVO.currentPage - 2 }">
 					${purchaseGdsListVO.currentPage - 2 }
 				</a>
 			</c:if>
 			<c:if test="${purchaseGdsListVO.currentPage > 1}">
-				<a href="buyerhistory?page=${purchaseGdsListVO.currentPage - 1 }">
+				<a href="buyhistory?page=${purchaseGdsListVO.currentPage - 1 }">
 					[${purchaseGdsListVO.currentPage - 1 }]
 				</a>
 			</c:if>
 				[${purchaseGdsListVO.currentPage}]
 			<c:if test="${purchaseGdsListVO.currentPage < purchaseGdsListVO.totalPage}">
-				<a href="buyerhistory?page=${purchaseGdsListVO.currentPage + 1 }">
+				<a href="buyhistory?page=${purchaseGdsListVO.currentPage + 1 }">
 					[${purchaseGdsListVO.currentPage + 1 }]
 				</a>
 			</c:if>
 			<c:if test="${purchaseGdsListVO.currentPage + 1 < purchaseGdsListVO.totalPage}">
-				<a href="buyerhistory?page=${purchaseGdsListVO.currentPage + 2 }">
+				<a href="buyhistory?page=${purchaseGdsListVO.currentPage + 2 }">
 					[${purchaseGdsListVO.currentPage + 2 }]
 				</a>
 			</c:if>
 			<c:if test="${purchaseGdsListVO.currentPage + 2 < purchaseGdsListVO.totalPage}">
-				<a href="buyerhistory?page=${purchaseGdsListVO.currentPage + 3 }">
+				<a href="buyhistory?page=${purchaseGdsListVO.currentPage + 3 }">
 					[다음]
 				</a>
 			</c:if>

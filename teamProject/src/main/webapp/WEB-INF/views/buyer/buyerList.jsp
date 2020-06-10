@@ -12,7 +12,12 @@ function search() {
 	document.location.href = "buyerList?page=1&area="+ '${area}' + "&category=" + '${category}' + "&search=" + search;
 }
 </script>
-
+<style>
+	.vo-item{
+		margin-right:0px; 
+		margin-left:0px;
+	}
+</style>
 <div id="page-wrapper">
   <!-- 사이드바 -->
   <div id="sidebar-wrapper">
@@ -50,7 +55,7 @@ function search() {
 <div class="container">
 <div class="card-deck" style="margin: 30px;">
 <c:forEach var="vo" items="${list }">
-<div class="container" style="width:24%; display: inline-table; margin: 0px auto;">
+<div class="container vo-item" style="width:24%;">
 <a href="buyerDetail?idx=${vo.idx }">
 <div class="card" style="border: 0; outline: none; margin: 10px; padding: 0px;">
     <img class="card-img-top" src="resources/image/${vo.image_name}" alt="Card image" style=" width: 100%; height: 20vw; object-fit: hidden;">

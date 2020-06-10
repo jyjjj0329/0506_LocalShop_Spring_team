@@ -5,14 +5,14 @@
 
 
 <select id="sellectCount" parameterType="String" resultType="int">
-	select count(*) from purchasehistory where buyerid = #{id}
+	select count(*) from payment where buyer_id = #{id}
 </select>
 
 <select id="selectList" resultType="purchaseGdsVO" parameterType="java.util.HashMap">
 	<![CDATA[
-	select idx, buyerid, gdsname, num, price, origin, category, dop, image_name, image_size, store, area, del_status from 
-	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM purchasehistory order by idx desc) 
-	TT where buyerid = #{buyerid} and #{area} in (select area from buyer)) 
+	select idx, buyer_id, goods_name, num, price, category, dop, image_name, del_status from 
+	(SELECT ROWNUM rn, tt.* FROM (SELECT * FROM payment order by idx desc) 
+	TT where buyer_id = #{buyerid}) 
 	where rn >= #{startNo} AND rn <= #{endNo}
 	]]>
 </select>

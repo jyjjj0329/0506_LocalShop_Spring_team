@@ -26,3 +26,7 @@ main_menu>li {
 .img:hover{
 	cursor: pointer;
 }
+
+a:hover{
+	color:#004692;
+}
