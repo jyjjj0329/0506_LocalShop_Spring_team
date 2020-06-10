@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+main_menu>li {
+	width: 300px;
+}
+
+.sub_menu1 {
+	cursor: pointer;
+}
+
+.sub_menu2 {
+	display: none;
+}
+
+
+.nav-link {
+	background-color: #d6c994;
+}
+
+.container {
+	position: absolute;
+	top: 10%;
+	left: 0%;
+}
+
+.img:hover{
+	cursor: pointer;
+}
